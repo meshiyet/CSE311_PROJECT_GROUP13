@@ -1,5 +1,5 @@
 body{
-	background-image: url("images/login_background.webp");
+	background-image: url("../images/login_background.webp");
 	/*background-repeat: no-repeat, repeat;*/
 }
 .loginPanel{
@@ -8,6 +8,7 @@ body{
 	/*border: 2px solid red;*/
 	height: 85%;
 	min-width: 500px;
+	min-height: 700px;
 	width: 25%;
 	margin: 2% auto;
 }
@@ -31,7 +32,7 @@ body{
 	text-align: center;
 	font-family: Arial;
 	font-weight: bold;
-	margin: 2% auto;
+	margin: 10% auto;
 }
 .loginPanel h4{
 	/*border: 2px solid red;*/
@@ -39,13 +40,14 @@ body{
 	font-family: Arial;
 	font-weight: bold;
 	margin: 2% auto;
-	margin-top: 5%;
+	margin-top: 10%;
 }
 .textField{
 	/*border: 2px solid red;*/
+	background-color: transparent;
 	border-radius: 40px;
 	width: 80%;
-	height: 5%;
+	height: 6%;
 	margin: 0 9%;
 	text-align: center;
 }
@@ -60,8 +62,13 @@ body{
 }
 .loginButton{
 	/*border: 2px solid red;*/
-	margin-left: 38%;
-	margin-top: 1%;
-	padding: 3% 7%;
-
+	background-color: transparent;
+	border-radius: 30px;
+	margin-left: 33%;
+	margin-top: 10%;
+	padding: 3% 10%;
+	text-align: center;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 20px;
 }

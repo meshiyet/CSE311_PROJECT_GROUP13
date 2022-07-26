@@ -19,7 +19,7 @@
                 <input class = 'loginButton' type = 'submit' id = 'submit' value = 'Login' >
             </form>
          </div>
-            <h3>Login Usign Accounts</h3>
+            <h3>Login Using Socials</h3>
         </section>
     </body>
 </html>
