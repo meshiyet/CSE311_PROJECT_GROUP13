@@ -1,0 +1,17 @@
+.loginPanel{
+	border: 2px solid red;
+	height: 85%;
+	min-width: 500px;
+	width: 25%;
+	margin: 2% auto;
+}
+.loginPanel h1{
+	border: 2px solid red;
+	text-align: center;
+	font-family: Arial;
+	font-weight: bold;
+	margin: 2% auto;
+}
+.form{
+	border: 2px solid red;
+}
