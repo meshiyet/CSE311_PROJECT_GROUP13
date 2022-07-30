@@ -17,7 +17,6 @@
             }
             if($user['password'] == $password)
             {
-               // session_register("username");
                 $_SESSION['username'] = $username;
                 header("location: index.php");
             }
