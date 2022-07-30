@@ -23,17 +23,7 @@
     // {
     //     echo "<h1>WRONG PASSWORD</h1>";
     // }
-    $user = "";
-    if ($result->num_rows > 0) 
-    {
-        while($row = $result->fetch_assoc())
-        {
-            $user = $row;
-        }
-    } else 
-    {
-      echo "0 results";
-    }
+    
 
     if($user['password'] == $password)
     {
