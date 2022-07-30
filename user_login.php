@@ -1,5 +1,6 @@
 <?php 
     include("connection.php");
+    
      session_start();
      if($_SERVER["REQUEST_METHOD"] == "POST") 
      {
@@ -14,14 +15,17 @@
             {
                 $user = $row;
             }
-             if($user['password'] == $password)
+            if($user['password'] == $password)
             {
-                $error = "Welcome ${user['name']}";
+               // session_register("username");
+                $_SESSION['username'] = $username;
+                header("location: index.php");
             }
             else
+                
+            {
                 $usernameValue = $username;
                 $passwordValue = $password;
-            {
                 $error = "Incorrect Username or Password";
             }
         } 
@@ -48,8 +52,8 @@
         
          <section class = 'loginPanel'>
             <?php 
-            $usernameValue = "";
-            $passwordValue = "";
+            // $usernameValue = "";
+            // $passwordValue = "";
              ?>
             <h1>Login To Your Account</h1>
             <div class = 'form' >

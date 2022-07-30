@@ -12,7 +12,9 @@
     $password = $_POST["password"];
     //echo $username . " " . $password;
     //$sql = "INSERT INTO USER(name, username, password) VALUES('$name', '$username','$password')";
+    
     $sql = "SELECT name, username, password FROM USER WHERE username = '${username}'";
+    
     $result = mysqli_query($db,$sql);
     
     // if($result["password"] == $password)
