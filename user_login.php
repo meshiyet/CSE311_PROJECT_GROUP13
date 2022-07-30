@@ -19,13 +19,17 @@
                 $error = "Welcome ${user['name']}";
             }
             else
+                $usernameValue = $username;
+                $passwordValue = $password;
             {
-                $error = "Wrong Login";
+                $error = "Incorrect Username or Password";
             }
         } 
         else 
         {
-          $error = "Wrong Login";
+            $usernameValue = $username;
+            $passwordValue = $password;
+            $error = "Incorrect Username or Password";
         }    
      }
     
@@ -41,15 +45,19 @@
          <link href = 'CSS/login.css' rel='stylesheet'>
     </head>
     <body>
-        <?php include 'footer.php';?>
+        
          <section class = 'loginPanel'>
+            <?php 
+            $usernameValue = "";
+            $passwordValue = "";
+             ?>
             <h1>Login To Your Account</h1>
             <div class = 'form' >
             <form action="" method="POST">
                 <h4> Enter Username</h4>
-                <input class = "textField" type = 'text' id = 'username' name = 'username' required ><br>
+                <input class = "textField" type = 'text' id = 'username' name = 'username' value='<?=$usernameValue?>' required ><br>
                  <h4> Enter Password</h4>
-                <input class = "textField"  type = 'text' id = 'password' name = 'password' required ><br>
+                <input class = "textField"  type = 'text' id = 'password' name = 'password' value='<?=$passwordValue?>'required ><br>
                 <input class = 'loginButton' type = 'submit' id = 'submit' value = 'Login' >
             </form>
              <div style = "
@@ -57,9 +65,10 @@
                margin: 4% auto;
                text-align: center;
                font-size: 20px;
-               "><?php echo $error; ?></div>
+               "><?=$error; ?></div>
          </div>
             <h3>Login Using Socials</h3>
         </section>
     </body>
+    <?php include 'footer.php';?>
 </html>
