@@ -21,6 +21,7 @@
 
 <!DOCTYPE html>
 <html>
+    <link href = "style.css" rel = "stylesheet">
     <?php include 'head.php';?> 
     <body>
     <?php include 'menu.php';?>
@@ -29,7 +30,7 @@
     <h1 style="
     margin: 15% auto;
     text-align: center;
-
+    
     "><?=$welcomeText?></h1>
 
     </body>

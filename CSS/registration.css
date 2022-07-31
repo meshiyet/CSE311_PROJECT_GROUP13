@@ -1,75 +1,107 @@
 body{
-	background-image: url("../images/login_background.webp");
+	/*background-image: url("../images/login_background.webp");*/
 	/*background-repeat: no-repeat, repeat;*/
+	/*background-color: lightgray;*/
+}
+.top{
+	background-image: url("../images/label2.jpg");
+	ackground-repeat: no-repeat, repeat;
+	border: 2px solid transparent;
+	border-radius: 80px;
+	height: 100px;
+	width: 70%;
+	margin: .5% auto;
+}
+label {
+	text-align: left;
+	font-family: Ariel;
+	font-weight: bold;
+	font-size: 20px;
+	margin-left: -10px;
+}
+.top h1{
+	text-align: center;
+	font-family: Ariel;
+	font-weight: bold;
+	font-size: 60px;
+	margin-top: 15px;
 }
 .loginPanel{
-	border: 5px solid black;
+	/*border: 5px solid black;*/
 	border-radius: 30px;
 	/*border: 2px solid red;*/
-	height: 85%;
+
 	min-width: 500px;
-	min-height: 700px;
-	max-height: 800px;
+	width: 90%;
+	margin: 2% auto;
+	height: auto;
+}
+
+.gap{
+	margin-top: 2%;
+	margin-bottom: 1%;
+	border-top: 1px solid green;
+}
+
+.threeElement{
+	/*border: 2px solid aqua;*/
+	height: auto;
+	width: 100%;
+	overflow: hidden;
+}
+.threeElement .eachOFTheree{
+	/*border: 2px solid red;*/
 	width: 25%;
-	margin: 2% auto;
+	display: inline-block;
+	margin-left: 6.4%;
+	/*margin-top: 1%;*/
+	min-width: 400px;
 }
-.loginPanel h1{
-	/*border: 2px solid red;*/
+.eachOFTheree input{
+	width: 100%;
+	height: 50px;
+	/*border-radius: 40px;*/
 	text-align: center;
-	font-family: Arial;
-	font-weight: bold;
-	margin: 2% auto;
-}
-.loginPanel h2{
-	/*border: 2px solid red;*/
-	text-align: center;
-	font-family: Arial;
-	font-weight: bold;
-	margin: 2% auto;
-}
-
-.loginPanel h3{
-	/*border: 2px solid red;*/
-	text-align: center;
-	font-family: Arial;
-	font-weight: bold;
-	margin: 10% auto;
-}
-.loginPanel h4{
-	/*border: 2px solid red;*/
-	text-align: center;
-	font-family: Arial;
-	font-weight: bold;
-	margin: 2% auto;
-	margin-top: 10%;
-}
-.textField{
-	/*border: 2px solid red;*/
 	background-color: transparent;
-	border-radius: 40px;
-	width: 80%;
-	height: 6%;
-	margin: 0 9%;
+	font-family: sans-serif;
+	font-size: 20px;
+	border-color: transparent;
+	border-bottom: .5px solid black;
+}
+select{
+	font-family: Arial;
+	margin-top: 1%;
+	margin-left: 2%;
+	border-radius: 20px;
+	border: 2px solid black;
+	min-width: 100px;
+	height: 25px;
+	background-color: transparent;
 	text-align: center;
 }
-
-.form{
-	/*border: 2px solid red;*/
-}
-.form label{
+.error{
+	color: red;
+	margin-top: 2%;
 	/*border: 2px solid red;*/
 	width: 100%;
-
+	height: 50px;
+	text-align: center;
+	font-family: monospace;
+	font-weight: bold;
+	font-size: 20px;
 }
+
+
+
 .loginButton{
 	/*border: 2px solid red;*/
 	background-color: transparent;
 	border-radius: 30px;
-	margin-left: 33%;
-	margin-top: 10%;
-	padding: 3% 10%;
 	text-align: center;
 	font-family: Arial;
 	font-weight: bold;
 	font-size: 20px;
+	margin-left: 48%;
+	margin-top: 1%;
+	padding:.5% 1%;
 }
