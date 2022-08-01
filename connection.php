@@ -7,6 +7,6 @@
     }
     else
     {
-      //    echo ("<h1>Database Connected11<h1>");
+          // echo ("<h1>Database Connected11<h1>");
     }
 ?>

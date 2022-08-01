@@ -1,7 +1,6 @@
 <html>
     <?php
         include("connection.php");
-        session_start();
         $firstNameValue = "";
         $middleNameValue = "";
         $lastNameValue = "";
@@ -15,7 +14,7 @@
         $usernameValue = "";
         $password1Value = "";
         $password2Value = "";
-        $errorMassege = "Error Massege will show here";
+        $errorMassege = "";
         if(isset($_SERVER["REQUEST_METHOD"]) == "POST")
         {
             $firstName = $_POST['firstName'];
@@ -24,25 +23,36 @@
             $email = $_POST['email'];
             $phone = $_POST['phone'];
             $address = $_POST['address'];
-            $day = $_POST['day'];
+            $day = (string)$_POST['day'];
             $month = $_POST['month'];
-            $year = $_POST['year'];
+            $year = (string)$_POST['year'];
             $gender = $_POST['gender'];
             $username = $_POST['username'];
             $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
-            
+            $sql = "
+            SELECT username 
+            FROM members 
+            WHERE username = '$username'
+            ";
+            $no_of_month = array("
+                January" => "1","February" => "2", "March" => "3", 
+                "April" => "4", "May" => "5", "June" => "6",
+                "July" => 7, "August" => 8, "September" => 9,
+                "October" => "10", "November" => "11", "December" => "12"
+            );
+            $dob = $year."-".$no_of_month[$month]."-".$day;
+            $result = mysqli_query($db,$sql);
             if($password2 !== $password1)
             {
                 $errorMassege = "Both Password not match\n";
-               
                 $firstNameValue = $firstName;
                 $middleNameValue = $middleName;
                 $lastNameValue = $lastName;
                 $emailValue = $email;
                 $phoneValue = $phone;
                 $addressValue = $address;
-                $dayValue = $day;
+                $dayValue =  $day;
                 $monthValue = $month;
                 $yearValue = $year;
                 $genderValue = $gender;
@@ -50,9 +60,57 @@
                 $password1Value = $password1;
                 $password2Value = $password2;
             }
+            
+            elseif(mysqli_num_rows($result) > 0)
+            {
+                $errorMassege = "this username is not available!\n";
+                $firstNameValue = $firstName;
+                $middleNameValue = $middleName;
+                $lastNameValue = $lastName;
+                $emailValue = $email;
+                $phoneValue = $phone;
+                $addressValue = $address;
+                $dayValue =  $day;
+                $monthValue = $month;
+                $yearValue = $year;
+                $genderValue = $gender;
+                $usernameValue = $username;
+                $password1Value = $password1;
+                $password2Value = $password2;
+            }
+            else if($day == "" || $month == "" || $year == "" || $gender == "")
+            {
+                $errorMassege = "Select Date of birth and Gender correctly!\n";
+                $firstNameValue = $firstName;
+                $middleNameValue = $middleName;
+                $lastNameValue = $lastName;
+                $emailValue = $email;
+                $phoneValue = $phone;
+                $addressValue = $address;
+                $dayValue =  $day;
+                $monthValue = $month;
+                $yearValue = $year;
+                $genderValue = $gender;
+                $usernameValue = $username;
+                $password1Value = $password1;
+                $password2Value = $password2;
+            }
+           else
+            {
+                $sql ="INSERT INTO members(username, firstName, middleName, lastName, email, phone, address, dob, gender, password) 
+                       VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$password1')"; 
+                //$sql = "INSERT INTO demo(firstName, username, password) VALUES ('$firstName', '$username', '$password1')";
+                 if(mysqli_query($db,$sql))
+                 {
+                    $errorMassege = "Registration Complete";
+                 }
+                 else
+                 {
+                    $errorMassege = "Something went Wrong";
+                 }
+            }
 
         }
-
     ?>
     <?php include 'head.php';?>
     <nav>
@@ -112,16 +170,16 @@
                 <div class = 'eachOFTheree'>
                      <label for="month">Date of Birth</label><br>
                       <select name="day" id="day">
-                        <option value="day">Day</option>
+                        <option value='<?=$dayValue?>'> <?=(string)$dayValue?> </option>
                        <?php
                             for($i = 1; $i<=31; $i++)
                             {
-                                echo "<option value=\'$i\'>$i</option>";
+                                echo "<option value=$i>$i</option>";
                             }
                         ?>
                     </select>
                      <select name="month" id="month">
-                        <option value="day">Month</option>
+                        <option value='<?=$monthValue?>'><?=$monthValue?></option>
                        <?php
                             $day_of = 31;
                             $months = array("January" => 31, "February" => 28, "March" => 31, "April" =>30, "May" =>31, "June"=>30, "July"=>31, "August"=>31, "September"=>30, "October"=>31, "November"=>30, "December"=>31);
@@ -132,11 +190,11 @@
                         ?>
                     </select>
                      <select name="year" id="year">
-                        <option value="day">Year</option>
+                        <option value="<?=$yearValue?>"><?=$yearValue?></option>
                        <?php
                             for($i = 2022; $i>=1980; $i--)
                             {
-                                echo "<option value=\'$i\'>$i</option>";
+                                echo "<option value=$i>$i</option>";
                             }
                         ?>
                     </select>
@@ -147,7 +205,8 @@
                     <label for="gender">Select Gender</label><br>
                     </select>
                      <select name="gender" id="gender">
-                        <option value="male">Male</option>
+                        <option value="<?=$genderValue?>"><?=$genderValue?></option>
+                        <option value="female">Male</option>
                         <option value="female">Female</option>
                         <option value="hidden">Hidden</option>
                     </select>
@@ -170,15 +229,15 @@
             <div class = 'threeElement'>
                 <div class = 'eachOFTheree' >
                     <label>Choose Username</label><br>
-                    <input type="text" name = 'username' value = '<?=$usernameValue?>' minlength="5" maxlength="10" required>
+                    <input type="text" name = 'username' value = '<?=$usernameValue?>' minlength="5" maxlength="15" required>
                 </div>
                 <div class = 'eachOFTheree' >
                      <label>Password</label><br>
-                    <input type="text" name = 'password1' value = '<?=$password1Value?>' minlength="8" maxlength="15" required>
+                    <input type="text" name = 'password1' value = '<?=$password1Value?>' minlength="5" maxlength="15" required>
                 </div>
                  <div class = 'eachOFTheree'>
                      <label>Confirm Password</label><br>
-                    <input type="text" name = 'password2'minlength="8" value = '<?=$password2Value?>' maxlength="15"  required>
+                    <input type="text" name = 'password2'minlength="5" value = '<?=$password2Value?>' maxlength="15"  required>
                 </div> 
             </div>     
             <!-- USERNAME PASSWORD -->

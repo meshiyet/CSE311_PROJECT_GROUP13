@@ -33,3 +33,46 @@
          echo ("<h1>Registration Complete<h1>");
     }
 ?>
+
+
+
+CREATE TABLE USER(firstName VARCHAR(15), 
+                  middleName VARCHAR(15), 
+                  lastName VARCHAR(15),
+                  email VARCHAR(30),
+                  phone VARCHAR(15),
+                  address VARCHAR(100),
+                  dob DATE,
+                  gender VARCHAR(10),
+                  username VARCHAR(15),
+                  password VARCHAR(15)
+                  );
+
+
+                   // $sql = "
+                 // INSERT INTO members(username, firstName, middleName, lastName, email, phone, address, dob, gender, password) 
+                 // VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$password')
+                 // ";
+                 // if(!mysqli_query($db,$sql))
+                 // {
+                 //    $errorMassege = "Something went wrong!!";
+                 // }
+                 // else
+                 // {
+                 //    $errorMassege = "Registration Complete!";
+                 // }
+
+
+
+
+                 INSERT INTO members(username, firstName, middleName, lastName, email, phone, address, dob, gender, password) VALUES('$username', '$$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$password1')
+
+
+
+
+
+
+
+
+                 INSERT INTO members(username, firstName, middleName, lastName, email, phone, address, dob, gender, password) 
+VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$password');
