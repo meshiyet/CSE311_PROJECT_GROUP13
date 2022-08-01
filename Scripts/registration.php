@@ -42,7 +42,7 @@ CREATE TABLE USER(firstName VARCHAR(15),
                   email VARCHAR(30),
                   phone VARCHAR(15),
                   address VARCHAR(100),
-                  dob DATE,
+                  dob VARCHAR(30),
                   gender VARCHAR(10),
                   username VARCHAR(15),
                   password VARCHAR(15)

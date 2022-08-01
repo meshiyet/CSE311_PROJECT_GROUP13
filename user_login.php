@@ -5,7 +5,7 @@
      {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql = "SELECT name, username, password FROM USER WHERE username = '${username}'";
+        $sql = "SELECT password FROM members WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
         $user = "";
         if ($result->num_rows > 0) 
@@ -17,7 +17,8 @@
             if($user['password'] == $password)
             {
                 $_SESSION['username'] = $username;
-                header("location: index.php");
+                header("location: user_profile.php");
+                $error = "You Are Logged In";
             }
             else
                 

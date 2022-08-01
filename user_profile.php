@@ -16,8 +16,13 @@
             }
         }
         $welcomeText = "Welcome " . $user['firstName']." " . $user['middleName'] . " " . $user['lastName'];
-    } 
-
+    }
+    // if(isset($_SERVER["REQUEST_METHOD"]) == "POST")
+    // {
+ 
+    //     session_unset();
+    //     session_destroy();
+    // } 
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +33,18 @@
     <?php include 'menu.php';?>
     <?php include 'footer.php';?>
     <h2>homepage</h2>
+    <form action="" method="POST">
+    	<input style="
+    margin-left: 45%;
+    text-align: center;
+    
+    " type="submit" name="logout" value="LOGOUT">
+    </form>
     <h1 style="
     margin: 15% auto;
     text-align: center;
     
     "><?=$welcomeText?></h1>
-
+    
     </body>
 </html>
