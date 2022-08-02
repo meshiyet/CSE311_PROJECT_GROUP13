@@ -92,3 +92,12 @@ ul {
   .dropdown:hover .dropdown-content {
     display: block;
   }
+  /*Tahmid Added*/
+    .username{
+    border: 2px solid red;
+    /*text-transform: uppercase;*/
+  }
+  .username a:hover{
+    color: red;
+    text-decoration: underline;
+  }

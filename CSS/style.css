@@ -65,4 +65,7 @@
   .button:hover {
     background-color: rgba(199, 139, 255, 0.8);
   }
-  
+  .usernameHead{
+    border: 2px solid red;
+    text-transform: uppercase;
+  }

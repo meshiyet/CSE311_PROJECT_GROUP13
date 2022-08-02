@@ -17,7 +17,7 @@
         if(isset($_SESSION['username']))
         {
             $username = $_SESSION['username'];
-            echo "<h1 class='top-nav'><a href = 'user_profile.php'>$username</a></h1>";
+            echo "<div class='usernameHead'> <a href = 'user_profile.php'>$username</a> </div>";
         }
         else
         {
