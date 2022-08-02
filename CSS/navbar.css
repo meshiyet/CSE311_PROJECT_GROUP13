@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #e9edff;
+  }
+  
+.logo {
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: auto;
+  }
+
+.banner {
+    height: 10px;
+    background-color: yellow;
+}
+
+ul {
+    list-style-type: none;
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #e9edff;
+  }
+
+  li {
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    padding: 14px 20px;
+    text-decoration: none;
+  }
+  
+  li.menu a:hover, li.dropdown a.dropbtn:hover {
+    text-decoration: underline;
+  }
+
+  li a:active {
+    font-weight: bolder;
+  }
+
+  #login a:hover {
+    text-decoration: underline;
+  }
+
+  #registration {
+    border-radius: 10px;
+    background-color: plum;
+  }
+
+  #button a:hover {
+    background-color: rgb(255, 255, 115);
+    text-decoration: none;
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    color: black;
+    font-weight: normal;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .dropdown-content a:hover {background-color: #f1f1f1;}
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }

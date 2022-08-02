@@ -1,37 +1,34 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Navbar</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <a class="logo" href="/"><img src="images/logo.svg" alt="logo"></a>
-            <nav>
-                <ul class="top_nav">
-                    <li><a href="login.php">Login</a></li>
-                    <a id="navbar_element" class="button" href="register.php">Become a member</a>
-        
-                </ul>
-                <ul class="nav_links">
-                    <li><a href="index.php">Search</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          Services
-                        </a>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="services.php">Using the library</a></li>
-                          <li><a class="dropdown-item" href="services.php">Membership</a></li>
-                          <li><a class="dropdown-item" href="services.php">Borrowing and returns</a></li>
-                        </ul>
-                      </li>
-                    <li><a href="locations.php">Location</a></li>
-                    <li><a href="about.php">About</a></li>
-                    
-                </ul>
-            </nav>  
-        </header>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/navbar.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<header>
+    <a class="logo" href="/"><img src="images/logo.svg" alt="logo"></a>
+    <nav>
+        <ul class="top-nav">
+            <li class="top-nav" id="login"><a href="">Login</a></li>
+            <li class="top-nav" id="button"><a id="registration" href="">Become a member</a></li>        
+        </ul>
+        <ul class="bottom-nav">
+            <li class="menu"><a href="index.php">Search</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">Services</a>
+                <div class="dropdown-content">
+                    <a class="dropdown-item" href="services.php">Using the library</a>
+                    <a class="dropdown-item" href="services.php">Membership</a>
+                    <a class="dropdown-item" href="services.php">Borrowing and returns</a>
+                </div>
+            </li>
+            <li class="menu"><a href="locations.php">Hours & Locations</a></li>
+            <li class="menu"><a href="about.php">About</a></li>
+        </ul>
+    </nav>
+    <div class="banner"></div>
+</header>
+</html> 
