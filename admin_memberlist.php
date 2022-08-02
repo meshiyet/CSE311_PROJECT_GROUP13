@@ -1,11 +1,9 @@
 <html>
-    <?php include 'head.php';?>
     <nav>
-        <?php include 'menu.php';?>
+        <?php include 'navbar.html';?>
     </nav> 
     
     <body>
-        <?php include 'footer.php';?>
         <div class="container">
             <h1>this is member list page</h1>
          </div>
@@ -27,6 +25,9 @@
             </row>
         </div>
     </body>
+    <footer>
+        <?php include 'footer.html';?>
+    </footer>
 </html>
 
 <style>

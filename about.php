@@ -1,11 +1,10 @@
 <html>
-    <?php include 'head.php';?>
     <nav>
-        <?php include 'menu.php';?>
+        <?php include 'navbar.html';?>
     </nav> 
     
     <body>
-        <?php include 'footer.php';?>
+        <?php include 'footer.html';?>
         <div class="container">
             <h1>this is about page</h1>
          </div>
