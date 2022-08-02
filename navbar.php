@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 <header>
-    <a class="logo" href="/"><img src="images/logo.svg" alt="logo"></a>
+    <a class="logo" href="index.php"><img src="images/logo.svg" alt="logo"></a>
     <nav>
         <?php
        include("connection.php");
@@ -17,7 +17,7 @@
         if(isset($_SESSION['username']))
         {
             $username = $_SESSION['username'];
-            echo "<h1 class='top-nav'>$username</h1>";
+            echo "<h1 class='top-nav'><a href = 'user_profile.php'>$username</a></h1>";
         }
         else
         {

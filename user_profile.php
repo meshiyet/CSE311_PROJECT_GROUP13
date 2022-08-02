@@ -47,73 +47,51 @@
 
 <!DOCTYPE html>
 <html>
-<<<<<<< HEAD
     <link href = "CSS/userProfile.css" rel = "stylesheet">
-    <?php include 'head.php';?> 
     <body>
-    <?php include 'menu.php';?>
   <?php include 'navbar.php';?>
-    <section class="account">
-        <div class="left">
-            <div class="dp">
-                <img src="images/avater.webp" height="200" width="200">
-            </div>
-            <a href="user_info_update.php">Edit Information</a>
-             <div class="information">
-                <h2>Username: <?=$username?></h2>
-            </div>
-            <div class="information">
-                <h2><?=$firstName. " " . $middleName . " " . $lastName?></h2>
-            </div>
-            <div class="information">
-                <h2>Email: <?=$email?></h2>
-            </div>
-            <div class="information">
-                <h2>Phone: <?=$phone?></h2>
-            </div>
-             <div class="information">
-                <h2>Address: <?=$address?></h2>
-            </div>
-             <div class="information">
-                <h2>Date Of Birth: <?=$dob?></h2>
-            </div>
-             <div class="information">
-                <h2>Gender: <?=$gender?></h2>
-            </div>
-              <form action="" method="POST">
-                <input style="
-                    margin-left: 45%;
-                    text-align: center;
-                " type="submit" name="logout" value="LOGOUT">
-                 </form>
-        </div>
-        <div class="right">
-        </div>
-    </section>
-    </body>
-      <?php include 'footer.php';?>
+    
     <head>
         <link href = "style.css" rel = "stylesheet">
     </head>
-
-    <nav>
-        
-    </nav>  
     <body>
-    <h2>homepage</h2>
-    <form action="" method="POST">
-        <input style="
-    margin-left: 45%;
-    text-align: center;
-    
-    " type="submit" name="logout" value="LOGOUT">
-    </form>
-    <h1 style="
-    margin: 15% auto;
-    text-align: center;
-    
-    "><?=$welcomeText?></h1>
-    
+        <section class="account">
+            <div class="left">
+                <div class="dp">
+                    <img src="images/avater.webp" height="200" width="200">
+                </div>
+                <a href="user_info_update.php">Edit Information</a>
+                 <div class="information">
+                    <h2>Username: <?=$username?></h2>
+                </div>
+                <div class="information">
+                    <h2><?=$firstName. " " . $middleName . " " . $lastName?></h2>
+                </div>
+                <div class="information">
+                    <h2>Email: <?=$email?></h2>
+                </div>
+                <div class="information">
+                    <h2>Phone: <?=$phone?></h2>
+                </div>
+                 <div class="information">
+                    <h2>Address: <?=$address?></h2>
+                </div>
+                 <div class="information">
+                    <h2>Date Of Birth: <?=$dob?></h2>
+                </div>
+                 <div class="information">
+                    <h2>Gender: <?=$gender?></h2>
+                </div>
+                  <form action="" method="POST">
+                    <input style="
+                        margin-left: 45%;
+                        text-align: center;
+                    " type="submit" name="logout" value="LOGOUT">
+                     </form>
+            </div>
+            <div class="right">
+            </div>
+        </section>
     </body>
     
     <footer>
