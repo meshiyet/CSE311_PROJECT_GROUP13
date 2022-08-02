@@ -40,13 +40,13 @@
 
 
 <html>
-    <?php include 'head.php';?>
-    <nav>
-        <?php include 'menu.php';?>
-    </nav> 
+    
     <head>
          <link href = 'CSS/login.css' rel='stylesheet'>
     </head>
+    <nav>
+        <?php include 'navbar.html';?>
+    </nav> 
     <body>
         
          <section class = 'loginPanel'>
@@ -73,5 +73,7 @@
             <h3>Login Using Socials</h3>
         </section>
     </body>
-    <?php include 'footer.php';?>
+    <footer>
+        <?php include 'footer.html';?>
+    </footer>
 </html>

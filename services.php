@@ -1,13 +1,15 @@
 <html>
-    <?php include 'head.php';?>
     <nav>
-        <?php include 'menu.php';?>
+        <?php include 'navbar.html';?>
     </nav> 
     
     <body>
-        <?php include 'footer.php';?>
         <div>
             <h1>this is services page</h1>
          </div>
     </body>
+
+    <footer>
+        <?php include 'footer.html';?>
+    </footer>
 </html>

@@ -22,11 +22,10 @@
 
 <!DOCTYPE html>
 <html>
-    <link href = "style.css" rel = "stylesheet">
-    <?php include 'head.php';?> 
+    <nav>
+        <?php include 'navbar.html';?>
+    </nav> 
     <body>
-    <?php include 'menu.php';?>
-    <?php include 'footer.php';?>
     <h2>homepage</h2>
     <h1 style="
     margin: 15% auto;
@@ -35,4 +34,7 @@
     "><?=$welcomeText?></h1>
 
     </body>
+    <footer>
+        <?php include 'footer.html';?>
+    </footer>
 </html>

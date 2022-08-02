@@ -112,9 +112,8 @@
 
         }
     ?>
-    <?php include 'head.php';?>
     <nav>
-        <?php include 'menu.php';?>
+        <?php include 'navbar.html';?>
     </nav> 
     <head>
          <link href = 'CSS/registration.css' rel='stylesheet'>
@@ -250,5 +249,8 @@
            <!-- FORM  END-->
         </section>
     </body>
-     <?php include 'footer.php';?>
+
+    <footer>
+        <?php include 'footer.html';?>
+    </footer>
 </html>
