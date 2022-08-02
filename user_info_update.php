@@ -141,9 +141,8 @@
 
         }*/
     ?>
-    <?php include 'head.php';?>
     <nav>
-        <?php include 'menu.php';?>
+        <?php include 'navbar.php';?>
     </nav> 
     <head>
          <link href = 'CSS/registration.css' rel='stylesheet'>
@@ -274,10 +273,12 @@
             <div class='error'>
                 <p><?=$errorMassege?></p>
             </div>
-            <input class= 'loginButton' type="submit" name="submit" value="Register">
+            <input class= 'loginButton' type="submit" name="submit" value="Update">
          </form>
            <!-- FORM  END-->
         </section>
     </body>
-     <?php include 'footer.php';?>
+    <footer>
+     <?php include 'footer.html';?>
+ </footer>
 </html>

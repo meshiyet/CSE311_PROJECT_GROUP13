@@ -82,14 +82,23 @@
                  <div class="information">
                     <h2>Gender: <?=$gender?></h2>
                 </div>
-                  <form action="" method="POST">
+                  <!-- <form action="" method="POST">
                     <input style="
+                        padding: 1%;
                         margin-left: 45%;
                         text-align: center;
                     " type="submit" name="logout" value="LOGOUT">
-                     </form>
+                     </form> -->
             </div>
             <div class="right">
+                <div>
+                    <h1 style="
+                    padding: 10%;
+
+                    text-align: center;
+                    margin: 20% auto;
+                    " >Other informations like book list will show up here</h1>
+                </div>
             </div>
         </section>
     </body>

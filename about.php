@@ -4,11 +4,14 @@
     </nav> 
     
     <body>
-        <?php include 'footer.html';?>
+       
         <div class="container">
             <h1>this is about page</h1>
          </div>
     </body>
+    <footer>
+         <?php include 'footer.html';?>
+    </footer>
 </html>
 
 <style>

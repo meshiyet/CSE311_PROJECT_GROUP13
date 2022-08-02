@@ -25,6 +25,7 @@
     <nav>
         <?php include 'navbar.php';?>
     </nav> 
+    <head></head>
     <body>
     <h2>homepage</h2>
     <h1 style="

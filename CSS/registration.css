@@ -8,7 +8,7 @@ body{
 	ackground-repeat: no-repeat, repeat;
 	border: 2px solid transparent;
 	border-radius: 80px;
-	height: 100px;
+	height: 75px;
 	width: 70%;
 	margin: .5% auto;
 }
@@ -23,8 +23,7 @@ label {
 	text-align: center;
 	font-family: Ariel;
 	font-weight: bold;
-	font-size: 60px;
-	margin-top: 15px;
+	font-size: 50px;
 }
 .loginPanel{
 	/*border: 5px solid black;*/
@@ -38,9 +37,9 @@ label {
 }
 
 .gap{
-	margin-top: 2%;
+	margin-top: 1.5%;
 	margin-bottom: 1%;
-	border-top: 1px solid green;
+	border-top: 1px solid black;
 }
 
 .threeElement{

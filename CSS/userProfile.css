@@ -1,37 +1,35 @@
 .account{
-	border: 2px solid red;
-	height: 90%;
-	width: 95%;
-	min-height: 800px;
-	margin: 1% auto;
+	/*border: 2px solid red;*/
+	height: 740px;
+	width: 100%;
+	margin: 0 auto;
 	overflow: hidden;
 }
 .left{
 	display: inline-block;
-	border: 2px solid red;
-	min-height: 800px;
+	/*border: 2px solid red;*/
 	width: 35%;
-	min-width: 700px;
+	height: 740px;
 	overflow: hidden;
 }
 .right{
 	display: inline-block;
-	border: 2px solid red;
-	min-height: 800px;
+	/*border: 2px solid red;*/
 	width: 61%;
-	min-width: 700px;
+	height: 740px;
 	overflow: hidden;
 }
 .dp{
-	border: 2px solid red;
+	/*border: 2px solid red;*/
 	height: 200px;
 	width: 200px;
 	margin-left: 35%;
 	margin-top: 2%;
+	overflow: hidden;
 }
 .information{
-	border: 2px solid red;
-	height: 55px;
+	/*border: 2px solid red;*/
+	height: 50px;
 	width: 90%;
 	margin: 2% auto;
 	text-align: center;
