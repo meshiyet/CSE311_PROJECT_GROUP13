@@ -113,7 +113,7 @@
         }
     ?>
     <nav>
-        <?php include 'navbar.html';?>
+        <?php include 'navbar.php';?>
     </nav> 
     <head>
          <link href = 'CSS/registration.css' rel='stylesheet'>

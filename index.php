@@ -23,7 +23,7 @@
 <!DOCTYPE html>
 <html>
     <nav>
-        <?php include 'navbar.html';?>
+        <?php include 'navbar.php';?>
     </nav> 
     <body>
     <h2>homepage</h2>

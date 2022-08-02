@@ -45,7 +45,7 @@
          <link href = 'CSS/login.css' rel='stylesheet'>
     </head>
     <nav>
-        <?php include 'navbar.html';?>
+        <?php include 'navbar.php';?>
     </nav> 
     <body>
         

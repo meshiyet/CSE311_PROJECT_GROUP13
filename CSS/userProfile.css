@@ -1,0 +1,39 @@
+.account{
+	border: 2px solid red;
+	height: 90%;
+	width: 95%;
+	min-height: 800px;
+	margin: 1% auto;
+	overflow: hidden;
+}
+.left{
+	display: inline-block;
+	border: 2px solid red;
+	min-height: 800px;
+	width: 35%;
+	min-width: 700px;
+	overflow: hidden;
+}
+.right{
+	display: inline-block;
+	border: 2px solid red;
+	min-height: 800px;
+	width: 61%;
+	min-width: 700px;
+	overflow: hidden;
+}
+.dp{
+	border: 2px solid red;
+	height: 200px;
+	width: 200px;
+	margin-left: 35%;
+	margin-top: 2%;
+}
+.information{
+	border: 2px solid red;
+	height: 55px;
+	width: 90%;
+	margin: 2% auto;
+	text-align: center;
+	overflow: hidden;
+}
