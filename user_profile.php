@@ -37,12 +37,13 @@
     {
          header("location: user_login.php");
     }
-    // if(isset($_SERVER["REQUEST_METHOD"]) == "POST")
-    // {
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
  
-    //     session_unset();
-    //     session_destroy();
-    // } 
+        session_unset();
+        session_destroy();
+        header("location: user_login.php");
+    } 
 ?>
 
 <!DOCTYPE html>
@@ -82,13 +83,13 @@
                  <div class="information">
                     <h2>Gender: <?=$gender?></h2>
                 </div>
-                  <!-- <form action="" method="POST">
+                  <form action="" method="POST">
                     <input style="
                         padding: 1%;
                         margin-left: 45%;
                         text-align: center;
                     " type="submit" name="logout" value="LOGOUT">
-                     </form> -->
+                     </form>
             </div>
             <div class="right">
                 <div>

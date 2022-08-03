@@ -2,6 +2,7 @@
     <?php
     include("connection.php");
     session_start(); 
+    $username = "";
     $firstNameValue = "";
     $middleNameValue = "";
     $lastNameValue = "";
@@ -12,14 +13,137 @@
     $monthValue = "";
     $yearValue = "";
     $genderValue = "";
-    $usernameValue = "";
     $password1Value = "";
     $password2Value = "";
+    $oldPasswordValue = "";
     $errorMassege = "";
-     if(isset($_SESSION['username']))
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+    {
+        $firstName = $_POST['firstName'];
+        $middleName = $_POST['middleName'];
+        $lastName = $_POST['lastName'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        $day = $_POST['day'];
+        $month = $_POST['month'];
+        $year = $_POST['year'];
+        $gender = $_POST['gender'];
+        $password1 = $_POST['password1'];
+        $password2 = $_POST['password2'];
+        $oldPassword = $_POST['oldPassword'];
+        $username = $_SESSION['username'];
+        $sql = "
+        SELECT username, password
+        FROM members 
+        WHERE username = '$username'
+        ";
+        $no_of_month = array("
+            January" => "1","February" => "2", "March" => "3", 
+            "April" => "4", "May" => "5", "June" => "6",
+            "July" => 7, "August" => 8, "September" => 9,
+            "October" => "10", "November" => "11", "December" => "12"
+        );
+        $dob = $year."-".$no_of_month[$month]."-".$day;
+        $result = mysqli_query($db,$sql);
+        $user = "";
+        if ($result->num_rows > 0) 
+        {
+            while($row = $result->fetch_assoc())
+            {
+                $user = $row;
+            }
+        }
+        
+        if($password2 !== $password1)
+        {
+            $errorMassege = "Both Password not match\n";
+            $firstNameValue = $firstName;
+            $middleNameValue = $middleName;
+            $lastNameValue = $lastName;
+            $emailValue = $email;
+            $phoneValue = $phone;
+            $addressValue = $address;
+            $dayValue =  $day;
+            $monthValue = $month;
+            $yearValue = $year;
+            $genderValue = $gender;
+            $password1Value = $password1;
+            $password2Value = $password2;
+            $oldPasswordValue = $oldPassword;
+        }
+        elseif($user['password'] !== $oldPassword)
+        {
+            $errorMassege = "Wrong Password\n";
+            $firstNameValue = $firstName;
+            $middleNameValue = $middleName;
+            $lastNameValue = $lastName;
+            $emailValue = $email;
+            $phoneValue = $phone;
+            $addressValue = $address;
+            $dayValue =  $day;
+            $monthValue = $month;
+            $yearValue = $year;
+            $genderValue = $gender;
+            $password1Value = $password1;
+            $password2Value = $password2;
+            $oldPasswordValue = $oldPassword;
+        }
+        else if($day == "" || $month == "" || $year == "" || $gender == "")
+        {
+            $errorMassege = "Select Date of birth and Gender correctly!\n";
+            $firstNameValue = $firstName;
+            $middleNameValue = $middleName;
+            $lastNameValue = $lastName;
+            $emailValue = $email;
+            $phoneValue = $phone;
+            $addressValue = $address;
+            $dayValue =  $day;
+            $monthValue = $month;
+            $yearValue = $year;
+            $genderValue = $gender;
+            $oldPasswordValue = $oldPassword;
+            $password1Value = $password1;
+            $password2Value = $password2;
+        }
+       else
+        {
+            if($password1 == "")
+            {
+                $password1 = $user['password'];
+            }
+
+            $sql = "
+            UPDATE members 
+                SET 
+                firstName = '$firstName',
+                middleName = '$middleName',
+                lastName = '$lastName',
+                email = '$email',
+                phone = '$phone',
+                address = '$address',
+                dob = '$dob',
+                gender = '$gender',
+                password = '$password1'
+            WHERE
+                username = '$username'";
+
+             if(mysqli_query($db,$sql))
+             {
+                 header("location: user_profile.php");
+             }
+             else
+             {
+                $errorMassege = "Something went Wrong";
+             }
+        }
+
+    }
+    elseif(isset($_SESSION['username']))
     {
         $username = $_SESSION['username'];
-        $sql = "SELECT username, firstName, middleName, lastName, email, phone, address, dob, gender  FROM members WHERE username = '${username}'";
+        $sql = "SELECT username, firstName, middleName, lastName, email, phone, address, dob, gender, password  FROM members WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
         $user = "";
         if ($result->num_rows > 0) 
@@ -36,111 +160,17 @@
         $phoneValue  = $user['phone'];
         $addressValue  = $user['address'];
         $genderValue = $user['gender'];
-        $password1Value = "";
-        $password2Value = "";
+        $password1Value = $user['password'];
+        $password2Value = $user['password'];
 
     }     
     else
     {
          header("location: user_login.php");
     }
-   /* if(isset($_SERVER["REQUEST_METHOD"]) == "POST")
-        {
-            $firstName = $_POST['firstName'];
-            $middleName = $_POST['middleName'];
-            $lastName = $_POST['lastName'];
-            $email = $_POST['email'];
-            $phone = $_POST['phone'];
-            $address = $_POST['address'];
-            $day = $_POST['day'];
-            $month = $_POST['month'];
-            $year = $_POST['year'];
-            $gender = $_POST['gender'];
-            $username = $_POST['username'];
-            $password1 = $_POST['password1'];
-            $password2 = $_POST['password2'];
-            $sql = "
-            SELECT username 
-            FROM members 
-            WHERE username = '$username'
-            ";
-            $no_of_month = array("
-                January" => "1","February" => "2", "March" => "3", 
-                "April" => "4", "May" => "5", "June" => "6",
-                "July" => 7, "August" => 8, "September" => 9,
-                "October" => "10", "November" => "11", "December" => "12"
-            );
-            $dob = $year."-".$no_of_month[$month]."-".$day;
-            $result = mysqli_query($db,$sql);
-            if($password2 !== $password1)
-            {
-                $errorMassege = "Both Password not match\n";
-                $firstNameValue = $firstName;
-                $middleNameValue = $middleName;
-                $lastNameValue = $lastName;
-                $emailValue = $email;
-                $phoneValue = $phone;
-                $addressValue = $address;
-                $dayValue =  $day;
-                $monthValue = $month;
-                $yearValue = $year;
-                $genderValue = $gender;
-                $usernameValue = $username;
-                $password1Value = $password1;
-                $password2Value = $password2;
-            }
-            
-            elseif(mysqli_num_rows($result) > 0)
-            {
-                $errorMassege = "this username is not available!\n";
-                $firstNameValue = $firstName;
-                $middleNameValue = $middleName;
-                $lastNameValue = $lastName;
-                $emailValue = $email;
-                $phoneValue = $phone;
-                $addressValue = $address;
-                $dayValue =  $day;
-                $monthValue = $month;
-                $yearValue = $year;
-                $genderValue = $gender;
-                $usernameValue = $username;
-                $password1Value = $password1;
-                $password2Value = $password2;
-            }
-            else if($day == "" || $month == "" || $year == "" || $gender == "")
-            {
-                $errorMassege = "Select Date of birth and Gender correctly!\n";
-                $firstNameValue = $firstName;
-                $middleNameValue = $middleName;
-                $lastNameValue = $lastName;
-                $emailValue = $email;
-                $phoneValue = $phone;
-                $addressValue = $address;
-                $dayValue =  $day;
-                $monthValue = $month;
-                $yearValue = $year;
-                $genderValue = $gender;
-                $usernameValue = $username;
-                $password1Value = $password1;
-                $password2Value = $password2;
-            }
-           else
-            {
-                // $sql ="INSERT INTO members( firstName, middleName, lastName, email, phone, address, dob, gender,username, password) 
-                //        VALUES('$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender','$username',  '$password1')"; 
-                // //$sql = "INSERT INTO demo(firstName, username, password) VALUES ('$firstName', '$username', '$password1')";
-                //  if(mysqli_query($db,$sql))
-                //  {
-                //     $errorMassege = "Registration Complete";
-                //  }
-                //  else
-                //  {
-                //     $errorMassege = "Something went Wrong";
-                //  }
-            }
-
-        }*/
     ?>
+
+
     <nav>
         <?php include 'navbar.php';?>
     </nav> 
@@ -256,16 +286,16 @@
             <!-- USERNAME PASSWORD -->
             <div class = 'threeElement'>
                 <div class = 'eachOFTheree' >
-                    <label>Choose Username</label><br>
-                    <input type="text" name = 'username' value = '<?=$usernameValue?>' minlength="5" maxlength="15" required>
+                    <label>Change Password</label><br>
+                    <input type="password" name = 'password1' value = '<?=$password1Value?>' minlength="5" maxlength="15" required>
                 </div>
                 <div class = 'eachOFTheree' >
-                     <label>Password</label><br>
-                    <input type="text" name = 'password1' value = '<?=$password1Value?>' minlength="5" maxlength="15" required>
+                     <label>Confirm Password</label><br>
+                    <input type="password" name = 'password2' value = '<?=$password2Value?>' minlength="5" maxlength="15" required>
                 </div>
                  <div class = 'eachOFTheree'>
-                     <label>Confirm Password</label><br>
-                    <input type="text" name = 'password2'minlength="5" value = '<?=$password2Value?>' maxlength="15"  required>
+                     <label>Enter Old Password</label><br>
+                    <input type="password" name = 'oldPassword'minlength="5" value = '<?=$oldPasswordValue?>' maxlength="15"  required>
                 </div> 
             </div>     
             <!-- USERNAME PASSWORD -->

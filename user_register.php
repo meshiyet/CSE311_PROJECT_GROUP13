@@ -15,7 +15,7 @@
         $password1Value = "";
         $password2Value = "";
         $errorMassege = "";
-        if(isset($_SERVER["REQUEST_METHOD"]) == "POST")
+        if($_SERVER["REQUEST_METHOD"] == "POST")
         {
             $firstName = $_POST['firstName'];
             $middleName = $_POST['middleName'];
@@ -232,11 +232,11 @@
                 </div>
                 <div class = 'eachOFTheree' >
                      <label>Password</label><br>
-                    <input type="text" name = 'password1' value = '<?=$password1Value?>' minlength="5" maxlength="15" required>
+                    <input type="password" name = 'password1' value = '<?=$password1Value?>' minlength="5" maxlength="15" required>
                 </div>
                  <div class = 'eachOFTheree'>
                      <label>Confirm Password</label><br>
-                    <input type="text" name = 'password2'minlength="5" value = '<?=$password2Value?>' maxlength="15"  required>
+                    <input type="password" name = 'password2'minlength="5" value = '<?=$password2Value?>' maxlength="15"  required>
                 </div> 
             </div>     
             <!-- USERNAME PASSWORD -->
