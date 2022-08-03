@@ -162,6 +162,19 @@
         $genderValue = $user['gender'];
         $password1Value = $user['password'];
         $password2Value = $user['password'];
+        $temp = $user['dob'];
+        
+        $yearValue = $temp[0].$temp[1].$temp[2].$temp[3];
+        $monthN = $temp[5].$temp[6];
+        $dayValue = $temp[8].$temp[9];
+
+        $the_month = array(
+            "1" => "January","2" => "February", "3" => "March" , 
+            "4" => "April", "5" => "May","6" => "June",
+            "7" => "July" , "8" => "August", "9"=>"September",
+            "10" => "October" , "11" => "November" , "12" => "December"
+        );
+        $monthValue = $the_month[$monthN];
 
     }     
     else
