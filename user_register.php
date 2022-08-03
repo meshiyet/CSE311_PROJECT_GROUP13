@@ -205,8 +205,8 @@
                     </select>
                      <select name="gender" id="gender">
                         <option value="<?=$genderValue?>"><?=$genderValue?></option>
-                        <option value="female">Male</option>
-                        <option value="female">Female</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
                         <option value="hidden">Hidden</option>
                     </select>
                 </div>  
