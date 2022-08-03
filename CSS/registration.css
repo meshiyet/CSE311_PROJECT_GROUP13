@@ -14,7 +14,7 @@ body{
 }
 label {
 	text-align: left;
-	font-family: Ariel;
+	font-family: "Roboto", sans-serif;
 	font-weight: bold;
 	font-size: 20px;
 	margin-left: -10px;

@@ -1,5 +1,10 @@
 <html>
     <?php
+    session_start();
+     if(isset($_SESSION['username']))
+     {
+        header("location: user_profile.php");
+     }
         include("connection.php");
         $firstNameValue = "";
         $middleNameValue = "";

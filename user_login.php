@@ -1,6 +1,10 @@
 <?php 
     include("connection.php");
      session_start();
+     if(isset($_SESSION['username']))
+     {
+        header("location: user_profile.php");
+     }
      if($_SERVER["REQUEST_METHOD"] == "POST")
      {
         $username = $_POST['username'];
@@ -18,7 +22,6 @@
             {
                 $_SESSION['username'] = $username;
                 header("location: user_profile.php");
-                $error = "You Are Logged In";
             }
             else
                 
@@ -35,45 +38,47 @@
             $error = "Incorrect Username or Password";
         }    
      }
-    
 ?>
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Member Login</title>
+  <link rel="stylesheet" href="CSS/login2.css">
+  <?php
+  include('navbar.php');
+   ?>
+</head>
+<body>
+  <div class="gap"></div>
+<!-- partial:index.partial.html -->
+<div class="login-page">
+  <div class="form">
+    <div class="heading">
+      <h1>Member Login</h1>
+    </div>
+    <form class="login-form" action = "" method = "POST" >
 
-
-<html>
-    
-    <head>
-         <link href = 'CSS/login.css' rel='stylesheet'>
-    </head>
-    <nav>
-        <?php include 'navbar.php';?>
-    </nav> 
-    <body>
-        
-         <section class = 'loginPanel'>
-            <?php 
-            // $usernameValue = "";
-            // $passwordValue = "";
-             ?>
-            <h1>Login To Your Account</h1>
-            <div class = 'form' >
-            <form action="" method="POST">
-                <h4> Enter Username</h4>
-                <input class = "textField" type = 'text' id = 'username' name = 'username' value='<?=$usernameValue?>' required ><br>
-                 <h4> Enter Password</h4>
-                <input class = "textField"  type = 'text' id = 'password' name = 'password' value='<?=$passwordValue?>'required ><br>
-                <input class = 'loginButton' type = 'submit' id = 'submit' value = 'Login' >
-            </form>
-             <div style = "
+      <input type="text" name = "username" value='<?=$usernameValue?>' required  placeholder="username"/>
+      <input type="password" name = "password" value='<?=$passwordValue?>'required placeholder="password"/>
+      <button type="submit">login</button>
+      <p class="message">Not registered? <a href="user_register.php">Create an account</a></p>
+      <div style = "
                color:#cc0000;
-               margin: 4% auto;
+               font-family: Roboto, sans-serif;
+               margin: 3% auto;
                text-align: center;
                font-size: 20px;
-               "><?=$error; ?></div>
+               "><?=$error?></div>
          </div>
-            <h3>Login Using Socials</h3>
-        </section>
-    </body>
-    <footer>
-        <?php include 'footer.html';?>
-    </footer>
+    </form>
+  </div>
+</div>
+<!-- partial -->
+<footer>
+  <?php
+  include('footer.html');
+   ?>
+</footer>
+</body>
 </html>
