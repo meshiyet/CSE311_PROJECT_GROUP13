@@ -12,10 +12,10 @@
         $emailValue = "";
         $phoneValue = "";
         $addressValue = "";
-        $dayValue = "";
-        $monthValue = "";
-        $yearValue = "";
-        $genderValue = "";
+        $dayValue = "Day";
+        $monthValue = "Month";
+        $yearValue = "Year";
+        $genderValue = "Select";
         $usernameValue = "";
         $password1Value = "";
         $password2Value = "";
@@ -83,7 +83,7 @@
                 $password1Value = $password1;
                 $password2Value = $password2;
             }
-            else if($day == "" || $month == "" || $year == "" || $gender == "")
+            else if($day == "Day" || $month == "Month" || $year == "Year" || $gender == "Select")
             {
                 $errorMassege = "Select Date of birth and Gender correctly!\n";
                 $firstNameValue = $firstName;
@@ -124,12 +124,13 @@
          <link href = 'CSS/registration.css' rel='stylesheet'>
     </head>
     <body>
-       <div class = 'top'>
-           <h1>Become a member<h1>
-       </div>
+      
 
         <!-- FORM  START-->
          <section class = 'loginPanel'>
+             <div class = 'top'>
+                <h1>Become a member<h1>
+            </div>
             <form action="" method="POST">
                 <div class="gap"></div>
             <!-- NAME START-->
@@ -206,7 +207,7 @@
                 </div>
                 <!-- DOB -->
                 <div class = 'eachOFTheree'>
-                    <label for="gender">Select Gender</label><br>
+                    <label for="gender">Gender</label><br>
                     </select>
                      <select name="gender" id="gender">
                         <option value="<?=$genderValue?>"><?=$genderValue?></option>
@@ -233,7 +234,7 @@
             <div class = 'threeElement'>
                 <div class = 'eachOFTheree' >
                     <label>Choose Username</label><br>
-                    <input type="text" name = 'username' value = '<?=$usernameValue?>' minlength="5" maxlength="15" required>
+                    <input type="text" name = 'username' value = '<?=$usernameValue?>' minlength="5" maxlength="15" placeholder ="will be used later to login" required>
                 </div>
                 <div class = 'eachOFTheree' >
                      <label>Password</label><br>

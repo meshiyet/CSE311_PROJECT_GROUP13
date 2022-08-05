@@ -11,14 +11,22 @@
     <a class="logo" href="index.php"><img src="images/logo.svg" alt="logo"></a>
     <nav>
         <?php
+       include("connection.php");
         session_start();
         if(isset($_SESSION['username']))
         {
             $username = $_SESSION['username'];
             echo "<div class='usernameHead'> 
-                     <a href = 'user_profile.php'><div class = 'txt' >
-                        <p>$username<p>
-                     </div></a>
+                     <ul>
+                        <li>
+                            <a href='javascript:void(0)'> Tahmid </a>
+                            <div class='dropdown-content'>
+                                <a href='user_profile.php'>My Profile</a>
+                                <a href='user_info_update.php'>Edit Account</a>
+                                <a href='services.php'>Borrowing and returns</a>
+                            </div>
+                        </li>
+                    </ul>
                      <img src = 'images/avater.webp' hight = '55' width = '55'>
                 </div>";
         }

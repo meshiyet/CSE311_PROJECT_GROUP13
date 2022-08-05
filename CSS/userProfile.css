@@ -1,7 +1,7 @@
 .account{
 	/*border: 2px solid red;*/
 	height: 740px;
-	width: 100%;
+	width: 80%;
 	margin: 0 auto;
 	overflow: hidden;
 }
@@ -29,9 +29,17 @@
 }
 .information{
 	/*border: 2px solid red;*/
-	height: 50px;
+	height: 45px;
 	width: 90%;
 	margin: 2% auto;
-	text-align: center;
+	text-align: left;
 	overflow: hidden;
+	font-family: "Roboto", sans-serif;
+}
+.information p{
+	padding-left: 150px;
+	font-size: 20px;
+}
+.information:hover{
+	font-weight: bold;
 }

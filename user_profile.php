@@ -63,25 +63,25 @@
                 </div>
                 <a href="user_info_update.php">Edit Information</a>
                  <div class="information">
-                    <h2>Username: <?=$username?></h2>
+                    <p>Username: <?=$username?></p>
                 </div>
                 <div class="information">
-                    <h2><?=$firstName. " " . $middleName . " " . $lastName?></h2>
+                    <p><?=$firstName. " " . $middleName . " " . $lastName?></p>
                 </div>
                 <div class="information">
-                    <h2>Email: <?=$email?></h2>
+                    <p>Email: <?=$email?></p>
                 </div>
                 <div class="information">
-                    <h2>Phone: <?=$phone?></h2>
+                    <p>Phone: <?=$phone?></p>
                 </div>
                  <div class="information">
-                    <h2>Address: <?=$address?></h2>
+                    <p>Address: <?=$address?></p>
                 </div>
                  <div class="information">
-                    <h2>Date Of Birth: <?=$dob?></h2>
+                    <p>Date Of Birth: <?=$dob?></p>
                 </div>
                  <div class="information">
-                    <h2>Gender: <?=$gender?></h2>
+                    <p>Gender: <?=$gender?></p>
                 </div>
                   <form action="" method="POST">
                     <input style="
@@ -98,6 +98,7 @@
 
                     text-align: center;
                     margin: 20% auto;
+                    font-family: Roboto, sans-serif;
                     " >Other informations like book list will show up here</h1>
                 </div>
             </div>

@@ -12,6 +12,8 @@ header {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: #e9edff;
+    height: 120px;
+    max-height: 120px;
   }
   
 .logo {
@@ -87,17 +89,45 @@ ul {
     text-align: left;
   }
   
-  .dropdown-content a:hover {background-color: #f1f1f1;}
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
+  }
   
   .dropdown:hover .dropdown-content {
     display: block;
   }
   /*Tahmid Added*/
-    .username{
-    border: 2px solid red;
+    .usernameHead{
+      width: auto;
+      /*display: inline-block;*/
+    /*border: 2px solid red;*/
+    font-family: "Roboto", sans-serif;
+    text-align: right;
+    /*color: red;*/
+    text-decoration: none;
     /*text-transform: uppercase;*/
+    padding-right: 20px;
+    
+    height: 55px;
+    overflow: hidden;
   }
-  .username a:hover{
-    color: red;
-    text-decoration: underline;
+.txt{
+    color: black;
+    padding: 20px;
+    height: 55px;
+    display: inline-block;
+    /*border: 2px solid red;*/
+    font-size: 22px;
+    overflow: hidden;
+    letter-spacing: 1px;
+  }
+  .usernameHead img{
+    /*border: 2px solid red;*/
+    display: inline-block;
+    height: 55px;
+    width: 55px;
+    border-radius: 50%;
+  }
+  .usernameHead:hover{
+    font-weight: bold;
   }

@@ -73,6 +73,23 @@
             $password2Value = $password2;
             $oldPasswordValue = $oldPassword;
         }
+        elseif($password1 !== "" && strlen($password1)<5)
+        {
+            $errorMassege = "Password must contain at leat 5 characters\n";
+            $firstNameValue = $firstName;
+            $middleNameValue = $middleName;
+            $lastNameValue = $lastName;
+            $emailValue = $email;
+            $phoneValue = $phone;
+            $addressValue = $address;
+            $dayValue =  $day;
+            $monthValue = $month;
+            $yearValue = $year;
+            $genderValue = $gender;
+            $password1Value = $password1;
+            $password2Value = $password2;
+            $oldPasswordValue = $oldPassword;
+        }
         elseif($user['password'] !== $oldPassword)
         {
             $errorMassege = "Wrong Password\n";
@@ -107,7 +124,8 @@
             $password1Value = $password1;
             $password2Value = $password2;
         }
-       else
+        
+        else
         {
             if($password1 == "")
             {
@@ -160,14 +178,15 @@
         $phoneValue  = $user['phone'];
         $addressValue  = $user['address'];
         $genderValue = $user['gender'];
-        $password1Value = $user['password'];
-        $password2Value = $user['password'];
+        // $password1Value = $user['password'];
+        // $password2Value = $user['password'];
+        $password1Value = "";
+        $password2Value = "";
         $temp = $user['dob'];
-        
-        $yearValue = $temp[0].$temp[1].$temp[2].$temp[3];
-        $monthN = $temp[5].$temp[6];
-        $dayValue = $temp[8].$temp[9];
-
+        $year_month_day = explode("-",$temp);
+        $yearValue = $year_month_day[0];
+        $monthN = $year_month_day[1];
+        $dayValue = $year_month_day[2];
         $the_month = array(
             "1" => "January","2" => "February", "3" => "March" , 
             "4" => "April", "5" => "May","6" => "June",
@@ -188,15 +207,14 @@
         <?php include 'navbar.php';?>
     </nav> 
     <head>
-         <link href = 'CSS/registration.css' rel='stylesheet'>
+         <link href = 'CSS/user_update.css' rel='stylesheet'>
     </head>
     <body>
-       <div class = 'top'>
-           <h1>UPDATE INFORMATION<h1>
-       </div>
-
         <!-- FORM  START-->
          <section class = 'loginPanel'>
+            <div class = 'top'>
+                 <h1>UPDATE ACCOUNT INFORMATION<h1>
+            </div>
             <form action="" method="POST">
                 <div class="gap"></div>
             <!-- NAME START-->
@@ -300,15 +318,15 @@
             <div class = 'threeElement'>
                 <div class = 'eachOFTheree' >
                     <label>Change Password</label><br>
-                    <input type="password" name = 'password1' value = '<?=$password1Value?>' minlength="5" maxlength="15" required>
+                    <input type="password" name = 'password1' value = '<?=$password1Value?>'  maxlength="15" placeholder ="leave empty to keep old password" >
                 </div>
                 <div class = 'eachOFTheree' >
                      <label>Confirm Password</label><br>
-                    <input type="password" name = 'password2' value = '<?=$password2Value?>' minlength="5" maxlength="15" required>
+                    <input type="password" name = 'password2' value = '<?=$password2Value?>' maxlength="15"  placeholder ="leave empty to keep old password" >
                 </div>
                  <div class = 'eachOFTheree'>
-                     <label>Enter Old Password</label><br>
-                    <input type="password" name = 'oldPassword'minlength="5" value = '<?=$oldPasswordValue?>' maxlength="15"  required>
+                     <label>Enter Old Password to Confirm Change</label><br>
+                    <input type="password" name = 'oldPassword' value = '<?=$oldPasswordValue?>'required>
                 </div> 
             </div>     
             <!-- USERNAME PASSWORD -->
