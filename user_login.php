@@ -1,10 +1,14 @@
 <?php 
+
     include("connection.php");
-     session_start();
+     // session_start();
      if(isset($_SESSION['username']))
      {
         header("location: user_profile.php");
      }
+     $usernameValue = "";
+     $passwordValue = "";
+     $error = "";
      if($_SERVER["REQUEST_METHOD"] == "POST")
      {
         $username = $_POST['username'];
