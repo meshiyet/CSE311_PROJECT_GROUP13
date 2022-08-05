@@ -52,7 +52,7 @@
         <section class="account">
             <div class="left">
                 <div class="dp">
-                    <img src="images/avater.webp" height="200" width="200">
+                    <img src="images/avater.png" height="200" width="200">
                 </div>
                 <a href="user_info_update.php">Edit Information</a>
                  <div class="information">

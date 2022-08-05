@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="CSS/navbar.css">
+    <link rel="stylesheet" href="CSS/admin_nav.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <header>
@@ -17,7 +17,7 @@
             $username = $_SESSION['username'];
             echo "<div class = 'dropdown' >
                     <div class='usernameHead'> 
-                         <a href = 'user_profile.php'><div class = 'txt' >
+                         <a href = 'admin_portal.php'><div class = 'txt'>
                             <p>$username<p>
                          </div></a>
                          <img src = 'images/avater.png' hight = '55' width = '55'>
@@ -34,13 +34,11 @@
         {
             echo "
             <ul class='top-nav' style = 'margin-left: 170px'>
-                <li class='top-nav' id='login'><a href='user_login.php'>Login</a></li>
-                <li class='top-nav' id='button'><a id='registration' href='user_register.php'>Become a member</a></li>        
+                <li class='top-nav' id='button'><a id='registration' href='admin_login.php'>Admin Login</a></li>        
              </ul>
             ";
         }
-        ?>
-        
+        ?> 
         <ul class="bottom-nav">
             <li class="menu"><a href="index.php">Search</a></li>
             <li class="dropdown">
