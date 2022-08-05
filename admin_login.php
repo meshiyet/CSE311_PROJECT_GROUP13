@@ -3,8 +3,11 @@
      session_start();
      if(isset($_SESSION['username']))
      {
-        header("location: admin_portal.php");
+        // header("location: admin_profile.php");
      }
+     $usernameValue = "";
+     $passwordValue = "";
+     $error = "";
      if($_SERVER["REQUEST_METHOD"] == "POST")
      {
         $username = $_POST['username'];
@@ -21,7 +24,7 @@
             if($user['password'] == $password)
             {
                 $_SESSION['username'] = $username;
-                header("location: admin_portal.php");
+                header("location: admin_profile.php");
             }
             else
                 

@@ -11,7 +11,7 @@
     <a class="logo" href="index.php"><img src="images/logo.svg" alt="logo"></a>
     <nav>
         <?php
-        session_start();
+        // session_start(); this causes error on the top
         if(isset($_SESSION['username']))
         {
             $username = $_SESSION['username'];
