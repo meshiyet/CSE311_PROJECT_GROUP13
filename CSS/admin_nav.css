@@ -110,7 +110,7 @@ ul {
 .usernameHead{
     width: auto;
     /*display: inline-block;*/
-  border: 2px solid red;
+  /*border: 2px solid red;*/
   font-family: "Roboto", sans-serif;
   text-align: right;
   /*color: red;*/
@@ -132,7 +132,7 @@ ul {
     letter-spacing: 1px;
   }
   .usernameHead img{
-    border: 2px solid red;
+    /*border: 2px solid red;*/
     display: inline-block;
     height: 55px;
     width: 55px;

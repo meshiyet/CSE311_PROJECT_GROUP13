@@ -23,9 +23,8 @@
                          <img src = 'images/avater.png' hight = '55' width = '55'>
                     </div>
                      <div class='dropdown-content'style = ' width:200px; margin-left: 230px'>
-                        <a href='user_profile.php'>My Account</a>
-                        <a href='user_info_update.php'>Edit Information</a>
-                        <a href='logout.php'>Logout</a>
+                        <a href='admin_profile.php'>Admin Panel</a>
+                        <a href='admin_logout.php'>Logout</a>
                       </div>
                 </div>
                 ";
