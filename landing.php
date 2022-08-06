@@ -14,6 +14,9 @@
             <div class="banner">
                 <h1>Landing page in development</h1>
             </div>
+            <div class="featured">
+                <h1>Featured books</h1>
+            </div>
         </div>
     </body>
     <footer>
@@ -26,7 +29,8 @@
     .flex-container {
     position: relative;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /* justify-content: center; */
     align-items: center;
     margin-left: 10%;
     margin-right: 10%;
@@ -37,16 +41,18 @@
     .banner {
         margin: 0;
         padding: 0;
-        max-width: max-content;
+        max-width: 100%;
+        max-height: 100%;
         background-image: url('images/landing_background.jpg');
+        background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
+        /* position: relative; */
     }
 
-    .content {
-        align-items: flex-start;
+    .featured {
+        align-content: flex-start;
     }
+
 
 </style>
