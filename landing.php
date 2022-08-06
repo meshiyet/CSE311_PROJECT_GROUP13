@@ -4,49 +4,138 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Dhaka Library</title>
     </head>
     <nav>
         <?php include 'navbar.php';?>
     </nav> 
     <body>
-        <div class="flex-container">
+        <div class="container">
             <div class="banner">
-                <h1>Landing page in development</h1>
+                    <div class="banner-content">
+                        <div class="search">
+                            <input type="text" class="searchTerm" placeholder="Search for books by ISBN, title, or author">
+                            <button href="#" type="submit" class="searchButton">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+            </div>
+            
+            <div class="featured">
+                <div class="featured-content">
+                    <h1>Featured books</h1>
+                    <div class="featured-items">
+                        <h3>book 1</h3>
+                        <h3>book 2</h3>
+                        <h3>book 3</h3>
+                    </div>
+                </div>      
             </div>
         </div>
     </body>
     <footer>
-        <?php include 'footer.html';?>
+        <!-- <?php include 'footer.html';?> -->
     </footer>
 </html>
 
 <style>
-   
-    .flex-container {
+
+.container{
+    display: flex;
+    flex-direction: column;
     position: relative;
+    justify-content: center;
+    background-color: lemonchiffon;
+    font-family: 'Roboto', sans-serif;
+    /* min-height: 100vh; */
+}
+
+.banner{
+    margin: 0 10%;
+    padding: 0;
+    height: 15rem;
+    /* width: 100%; */
+    background-color: gray;
+    background-image: url("../images/landing_background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10%;
-    margin-right: 10%;
-    background-color: gray;
-    font-family: 'Roboto', sans-serif;
+
 }
 
-    .banner {
-        margin: 0;
-        padding: 0;
-        max-width: max-content;
-        background-image: url('images/landing_background.jpg');
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        position: relative;
-    }
+.banner-content{
+        background-color: white;
+        border-radius: 10px;
+        height: 50%;
+        width: 50%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+}
 
-    .content {
-        align-items: flex-start;
-    }
+.search {
+  width: 75%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchTerm {
+  width: 100%;
+  border: 2px solid gray;
+  border-right: none;
+  padding: 10px;
+  height: 50px;
+  outline: none;
+  color: black;
+}
+
+.searchTerm:focus{
+  color: black;
+}
+
+.searchButton {
+  width: 50px;
+  height: 50px;
+  border: 1px solid plum;
+  background: plum;
+  text-align: center;
+  color: #fff;
+  cursor: pointer;
+  font-size: 20px;
+}
+.featured{
+    margin: 2rem 10%;
+    justify-content: left;
+}
+
+.featured-content{
+    background-color: white;
+}
+
+h1{
+    padding-bottom: 2rem;
+}
+
+.featured-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: nowrap;
+}
+
+h3{
+    background-color: pink;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    height: 2rem;
+    width: 1rem;
+}
 
 </style>
