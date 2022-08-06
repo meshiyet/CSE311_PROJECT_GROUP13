@@ -32,7 +32,7 @@
         $dob = $user['dob'];
         $gender = $user['gender'];
         $username = $user['username'];
-    }user_info_update
+    }
     else
     {
          header("location: user_login.php");
