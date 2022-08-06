@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <header>
-    <a class="logo" href="index.php"><img src="images/logo.svg" alt="logo"></a>
+    <a class="logo" href=""><img src="images/logo.svg" alt="logo"></a>
     <nav>
         <?php
         // session_start();
@@ -17,7 +17,7 @@
             $username = $_SESSION['username'];
             echo "<div class = 'dropdown' >
                     <div class='usernameHead'> 
-                         <a href = 'admin_portal.php'><div class = 'txt'>
+                         <a href = 'admin_profile.php'><div class = 'txt'>
                             <p>$username<p>
                          </div></a>
                          <img src = 'images/avater.png' hight = '55' width = '55'>
@@ -33,7 +33,7 @@
         {
             echo "
             <ul class='top-nav' style = 'margin-left: 170px'>
-                <li class='top-nav' id='button'><a id='registration' href='admin_login.php'>Admin Login</a></li>        
+                <li class='top-nav' id='button'><a id='registration' href='user_login.php'> Go User Mode</a></li>        
              </ul>
             ";
         }
