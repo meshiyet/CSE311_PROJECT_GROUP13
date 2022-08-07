@@ -19,10 +19,10 @@ CREATE TABLE book(
 
 CREATE TABLE member( 
     username VARCHAR(20) NOT NULL,
-    password INT(50) NOT NULL, 
+    password VARCHAR(50) NOT NULL, 
     first_name VARCHAR(15) NOT NULL,
     middle_name VARCHAR(15),
-    last_name VARCHAR(15) NOT NULL,
+    last_name VARCHAR(15),
     dob DATE,
     gender VARCHAR(8),
     email VARCHAR(30),
@@ -34,7 +34,7 @@ CREATE TABLE member(
 
 CREATE TABLE admin(
     id INT(10) NOT NULL,
-    password INT(50) NOT NULL, 
+    password VARCHAR(50) NOT NULL, 
     first_name VARCHAR(15) NOT NULL,
     middle_name VARCHAR(15),
     last_name VARCHAR(15) NOT NULL,
@@ -109,3 +109,13 @@ VALUES
 
 
 
+
+INSERT INTO admin (id,password,first_name,middle_name,last_name,dob,gender,email,phone,address,start_date,branch_id,branch_name)
+VALUES
+	(01, 'abcd', 'Baburao','Ganpatrao','Apte','1949-12-19','Male','baburao@herapheri.com',01234524455,'150/6, Block-D, G Road','1979-10-31',01,'Banani'),
+	(02, 'abcd', 'Anuradha','Shivshankar','Panikar','1959-10-25','Female','anuradha@herapheri.com',01234524455,'52/15, Block-G, Y Road','1983-11-16',02,'Kataban'),
+	(03, 'abcd', 'Kharakh','Singh','H','1961-11-25','Male','kharakhsing@herapheri.com',01234524455,'89/8, Block-D, Chayabithi Road','1953-12-31',03,'Gazipur'),
+    
+    (04, 'abcd', 'Kachra','Seth','J','1945-12-18','Male','kachra@herapheri.com',01234524455,'150/6, Block-D, G Road','1979-11-10',01,'Banani'),
+	(05, 'abcd', 'Kabira','Speeking','K','1959-10-31','Male','kabira@herapheri.com',01234524455,'52/15, Block-G, Y Road','1983-11-13',02,'Kataban'),
+	(06, 'abcd', 'Devi','Prashad','L','1931-11-21','Male','devi@herapheri.com',01234524455,'89/8, Block-D, Chayabithi Road','1953-11-14',03,'Gazipur');
