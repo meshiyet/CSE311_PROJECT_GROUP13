@@ -96,3 +96,16 @@ CREATE TABLE branch_phone(
     CONSTRAINT fk8 FOREIGN KEY(branch_id, branch_name)
     REFERENCES branch(id, name)
 );
+
+
+
+
+
+INSERT INTO branch (id, name, address)
+VALUES
+	(01, 'Banani', '150/6, Block-D, G Road'),
+	(02, 'Kataban', '52/15, Block-G, Y Road'),
+	(03, 'Gazipur', '89/8, Block-D, Chayabithi Road');
+
+
+
