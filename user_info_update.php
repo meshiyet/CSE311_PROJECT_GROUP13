@@ -36,13 +36,13 @@
         $username = $_SESSION['username'];
         $sql = "
         SELECT username, password
-        FROM members 
+        FROM member 
         WHERE username = '$username'
         ";
         $no_of_month = array("
-            January" => "1","February" => "2", "March" => "3", 
-            "April" => "4", "May" => "5", "June" => "6",
-            "July" => 7, "August" => 8, "September" => 9,
+            January" => "01","February" => "02", "March" => "03", 
+            "April" => "04", "May" => "05", "June" => "06",
+            "July" => "07", "August" => "08", "September" => "09",
             "October" => "10", "November" => "11", "December" => "12"
         );
         $dob = $year."-".$no_of_month[$month]."-".$day;
@@ -90,7 +90,7 @@
             $password2Value = $password2;
             $oldPasswordValue = $oldPassword;
         }
-        elseif($user['password'] !== $oldPassword)
+        elseif(!password_verify($oldPassword, $user["password"]))
         {
             $errorMassege = "Wrong Password\n";
             $firstNameValue = $firstName;
@@ -131,13 +131,17 @@
             {
                 $password1 = $user['password'];
             }
+            else
+            {
+                $password1 = password_hash($password2, PASSWORD_DEFAULT);
+            }
 
             $sql = "
-            UPDATE members 
+            UPDATE member 
                 SET 
-                firstName = '$firstName',
-                middleName = '$middleName',
-                lastName = '$lastName',
+                first_name = '$firstName',
+                middle_name = '$middleName',
+                last_name = '$lastName',
                 email = '$email',
                 phone = '$phone',
                 address = '$address',
@@ -161,7 +165,7 @@
     elseif(isset($_SESSION['username']))
     {
         $username = $_SESSION['username'];
-        $sql = "SELECT username, firstName, middleName, lastName, email, phone, address, dob, gender, password  FROM members WHERE username = '${username}'";
+        $sql = "SELECT username, first_name, middle_name, last_name, email, phone, address, dob, gender, password  FROM member WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
         $user = "";
         if ($result->num_rows > 0) 
@@ -171,26 +175,24 @@
                 $user = $row;
             }
         }
-        $firstNameValue = $user['firstName'];
-        $middleNameValue  = $user['middleName'];
-        $lastNameValue  = $user['lastName'];
+        $firstNameValue = $user['first_name'];
+        $middleNameValue  = $user['middle_name'];
+        $lastNameValue  = $user['last_name'];
         $emailValue  = $user['email'];
         $phoneValue  = $user['phone'];
         $addressValue  = $user['address'];
         $genderValue = $user['gender'];
-        // $password1Value = $user['password'];
-        // $password2Value = $user['password'];
         $password1Value = "";
         $password2Value = "";
-        $temp = $user['dob'];
+        $temp = (string) $user['dob'];
         $year_month_day = explode("-",$temp);
         $yearValue = $year_month_day[0];
         $monthN = $year_month_day[1];
         $dayValue = $year_month_day[2];
         $the_month = array(
-            "1" => "January","2" => "February", "3" => "March" , 
-            "4" => "April", "5" => "May","6" => "June",
-            "7" => "July" , "8" => "August", "9"=>"September",
+            "01" => "January","02" => "February", "03" => "March" , 
+            "04" => "April", "05" => "May","06" => "June",
+            "07" => "July" , "08" => "August", "09"=>"September",
             "10" => "October" , "11" => "November" , "12" => "December"
         );
         $monthValue = $the_month[$monthN];

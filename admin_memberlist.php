@@ -1,9 +1,12 @@
 <?php
     session_start();
     include("connection.php");
-    if(!isset($_SESSION['username']))
+    if(!isset($_SESSION['admin_username']))
     {
-        header("location: admin_login.php");
+       $_SESSION = array();
+       session_unset();
+       session_destroy();
+       header("location: admin_login.php");
     }
 ?>
 <!DOCTYPE html>
@@ -34,7 +37,7 @@
             </div>
             <?php 
 
-                $sql = "SELECT * FROM members ORDER BY username";
+                $sql = "SELECT * FROM member ORDER BY username";
                 $result = mysqli_query($db, $sql);
                 if ($result->num_rows > 0) 
                 {
@@ -42,7 +45,7 @@
                     {
                         $user = $row;
                         $username = $row["username"];
-                        $firstName = $row["firstName"];
+                        $firstName = $row["first_name"];
                         $email = $row["email"];
                         $phone = $row["phone"];
                         $address = $row["address"];

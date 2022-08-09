@@ -10,32 +10,38 @@
     $dob = "";
     $gender = "";
     $username = "";
-    if(isset($_SESSION['username']))
+    $branchName = "";
+    $startDate = "";
+    if(isset($_SESSION['admin_username']))
     {
-        $username = $_SESSION['username'];
-        $sql = "SELECT username, firstName, middleName, lastName, email, phone, address, dob, gender  FROM members WHERE username = '${username}'";
+        $username = $_SESSION['admin_username'];    
+        $sql = "
+        SELECT username, first_name, middle_name, last_name, email, phone, address, dob, gender, start_date, branch_name  
+        FROM admin
+        WHERE username = '${username}'
+        ";
+
         $result = mysqli_query($db,$sql);
-        $user = "";
-        if ($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc())
-            {
-                $user = $row;
-            }
-        }
-        $firstName = $user['firstName'];
-        $middleName = $user['middleName'];
-        $lastName = $user['lastName'];
+        $user = $result->fetch_assoc();
+
+        $firstName = $user['first_name'];
+        $middleName = $user['middle_name'];
+        $lastName = $user['last_name'];
         $email = $user['email'];
         $phone = $user['phone'];
         $address = $user['address'];
-        $dob = $user['dob'];
+        $dob = (string)$user['dob'];
         $gender = $user['gender'];
+        $branchName = $user['branch_name'];
+        $startDate = (string) $user['start_date'];
         $username = $user['username'];
     }
     else
     {
-         header("location: admin_login.php");
+       $_SESSION = array();
+       session_unset();
+       session_destroy();
+       header("location: admin_login.php");
     }
 ?>
 
@@ -57,7 +63,10 @@
                     <p>Username: <?=$username?></p>
                 </div>
                 <div class="information">
-                    <p><?=$firstName. " " . $middleName . " " . $lastName?></p>
+                    <p>Branch: <?=$branchName?></p>
+                </div>
+                <div class="information">
+                    <p>Name: <?=$firstName. " " . $middleName . " " . $lastName?></p>
                 </div>
                 <div class="information">
                     <p>Email: <?=$email?></p>
@@ -74,13 +83,6 @@
                  <div class="information">
                     <p>Gender: <?=$gender?></p>
                 </div>
-                  <form action="" method="POST">
-                    <input style="
-                        padding: 1%;
-                        margin-left: 45%;
-                        text-align: center;
-                    " type="submit" name="logout" value="LOGOUT">
-                     </form>
             </div>
             <div class="right">
                 <div>
@@ -90,7 +92,7 @@
                     text-align: center;
                     margin: 20% auto;
                     font-family: Roboto, sans-serif;
-                    " >Admin Portal Page conflicts with Header and footer<br>This Page need complete redesign</h1>
+                    " >Admin Portal Page conflicts with Header and footer<br>This Page is Same as Member Profile and needs complete redesign</h1>
                 </div>
             </div>
         </section>

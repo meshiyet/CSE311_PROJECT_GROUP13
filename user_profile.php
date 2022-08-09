@@ -13,19 +13,12 @@
     if(isset($_SESSION['username']))
     {
         $username = $_SESSION['username'];
-        $sql = "SELECT username, firstName, middleName, lastName, email, phone, address, dob, gender  FROM members WHERE username = '${username}'";
+        $sql = "SELECT username, first_name, middle_name, last_name, email, phone, address, dob, gender  FROM member WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
-        $user = "";
-        if ($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc())
-            {
-                $user = $row;
-            }
-        }
-        $firstName = $user['firstName'];
-        $middleName = $user['middleName'];
-        $lastName = $user['lastName'];
+        $user = $result->fetch_assoc();
+        $firstName = $user['first_name'];
+        $middleName = $user['middle_name'];
+        $lastName = $user['last_name'];
         $email = $user['email'];
         $phone = $user['phone'];
         $address = $user['address'];
@@ -57,7 +50,7 @@
                     <p>Username: <?=$username?></p>
                 </div>
                 <div class="information">
-                    <p><?=$firstName. " " . $middleName . " " . $lastName?></p>
+                    <p>Name: <?=$firstName. " " . $middleName . " " . $lastName?></p>
                 </div>
                 <div class="information">
                     <p>Email: <?=$email?></p>

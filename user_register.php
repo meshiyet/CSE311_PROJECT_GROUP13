@@ -35,11 +35,6 @@
             $username = $_POST['username'];
             $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
-            $sql = "
-            SELECT username 
-            FROM members 
-            WHERE username = '$username'
-            ";
             $no_of_month = array("
                 January" => "1","February" => "2", "March" => "3", 
                 "April" => "4", "May" => "5", "June" => "6",
@@ -47,26 +42,15 @@
                 "October" => "10", "November" => "11", "December" => "12"
             );
             $dob = $year."-".$no_of_month[$month]."-".$day;
-            $result = mysqli_query($db,$sql);
-            if($password2 !== $password1)
-            {
-                $errorMassege = "Both Password not match\n";
-                $firstNameValue = $firstName;
-                $middleNameValue = $middleName;
-                $lastNameValue = $lastName;
-                $emailValue = $email;
-                $phoneValue = $phone;
-                $addressValue = $address;
-                $dayValue =  $day;
-                $monthValue = $month;
-                $yearValue = $year;
-                $genderValue = $gender;
-                $usernameValue = $username;
-                $password1Value = $password1;
-                $password2Value = $password2;
-            }
-            
-            elseif(mysqli_num_rows($result) > 0)
+
+            $sql = " SELECT username FROM member WHERE username = '${username}'";
+            $result_in_member = mysqli_query($db,$sql);
+            $sql = " SELECT username FROM admin WHERE username = '${username}'";
+            $result_in_admin = mysqli_query($db,$sql);
+            $found = mysqli_num_rows($result_in_member) + mysqli_num_rows($result_in_admin);
+            /*Found is greater than zero when any member or admin is using the username*/
+
+            if($found > 0)
             {
                 $errorMassege = "this username is not available!\n";
                 $firstNameValue = $firstName;
@@ -82,6 +66,42 @@
                 $usernameValue = $username;
                 $password1Value = $password1;
                 $password2Value = $password2;
+            }
+            elseif($password2 !== $password1)
+            {
+                $errorMassege = "Both Password not matched\n";
+                $firstNameValue = $firstName;
+                $middleNameValue = $middleName;
+                $lastNameValue = $lastName;
+                $emailValue = $email;
+                $phoneValue = $phone;
+                $addressValue = $address;
+                $dayValue =  $day;
+                $monthValue = $month;
+                $yearValue = $year;
+                $genderValue = $gender;
+                $usernameValue = $username;
+                $password1Value = $password1;
+                $password2Value = $password2;
+            }
+
+            elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+            {
+                $errorMassege = "Invalid email format";
+                $firstNameValue = $firstName;
+                $middleNameValue = $middleName;
+                $lastNameValue = $lastName;
+                $emailValue = $email;
+                $phoneValue = $phone;
+                $addressValue = $address;
+                $dayValue =  $day;
+                $monthValue = $month;
+                $yearValue = $year;
+                $genderValue = $gender;
+                $usernameValue = $username;
+                $password1Value = $password1;
+                $password2Value = $password2;
+              
             }
             else if($day == "Day" || $month == "Month" || $year == "Year" || $gender == "Select")
             {
@@ -102,16 +122,16 @@
             }
            else
             {
-                $sql ="INSERT INTO members(username, firstName, middleName, lastName, email, phone, address, dob, gender, password) 
-                       VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$password1')"; 
-                //$sql = "INSERT INTO demo(firstName, username, password) VALUES ('$firstName', '$username', '$password1')";
+                $hashed_password = password_hash($password1, PASSWORD_DEFAULT);
+                $sql ="INSERT INTO member(username, first_name, middle_name, last_name, email, phone, address, dob, gender, password) 
+                       VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$hashed_password')"; 
                  if(mysqli_query($db,$sql))
                  {
                     $errorMassege = "Registration Complete";
                  }
                  else
                  {
-                    $errorMassege = "Something went Wrong";
+                    $errorMassege = " Oh no ! Something went Wrong.";
                  }
             }
 

@@ -1,9 +1,12 @@
 <?php
     session_start();
     include("connection.php");
-    if(!isset($_SESSION['username']))
+    if(!isset($_SESSION['admin_username']))
     {
-        header("location: admin_login.php");
+       $_SESSION = array();
+       session_unset();
+       session_destroy();
+       header("location: admin_login.php");
     }
 ?>
 <!DOCTYPE html>

@@ -13,16 +13,12 @@
      {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql = "SELECT password FROM members WHERE username = '${username}'";
+        $sql = "SELECT password FROM member WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
-        $user = "";
         if ($result->num_rows > 0) 
         {
-            while($row = $result->fetch_assoc())
-            {
-                $user = $row;
-            }
-            if($user['password'] == $password)
+            $user = $result->fetch_assoc();
+            if(password_verify($password,$user['password']))
             {
                 $_SESSION['username'] = $username;
                 header("location: user_profile.php");
@@ -32,14 +28,14 @@
             {
                 $usernameValue = $username;
                 $passwordValue = $password;
-                $error = "Incorrect Username or Password";
+                $error = "Incorrect Password";
             }
         } 
         else 
         {
             $usernameValue = $username;
             $passwordValue = $password;
-            $error = "Incorrect Username or Password";
+            $error = "Username is not registered!";
         }    
      }
 ?>

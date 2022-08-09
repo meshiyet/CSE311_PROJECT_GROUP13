@@ -1,7 +1,7 @@
 <?php 
-    include("connection.php");
+   include("connection.php");
      session_start();
-     if(isset($_SESSION['username']))
+     if(isset($_SESSION['admin_username']))
      {
         header("location: admin_portal.php");
      }
@@ -12,33 +12,31 @@
      {
         $username = $_POST['username'];
         $password = $_POST['password'];
-        $sql = "SELECT password FROM members WHERE username = '${username}'";
+        $sql = "SELECT password FROM admin WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
-        $user = "";
         if ($result->num_rows > 0) 
         {
-            while($row = $result->fetch_assoc())
+            $user = $result->fetch_assoc();
+            // if(password_verify($password,$user['password'])) /*USE HASS CHECK*/
+            if($password == $user['password'])  /*USE PLAIN STRING CHECK*/
             {
-                $user = $row;
-            }
-            if($user['password'] == $password)
-            {
-                $_SESSION['username'] = $username;
-                header("location: admin_portal.php");
+                $_SESSION['admin_username'] = $username;
+                header("location: admin_profile.php");
+                 // $error = "LOGGED IN";
             }
             else
                 
             {
                 $usernameValue = $username;
                 $passwordValue = $password;
-                $error = "Incorrect Username or Password";
+                $error = "Wrong Password";
             }
         } 
         else 
         {
             $usernameValue = $username;
             $passwordValue = $password;
-            $error = "Incorrect Username or Password";
+            $error = "$username is not an admin";
         }    
      }
 ?>

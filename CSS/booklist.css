@@ -14,7 +14,10 @@ h1{
 	border: 2px solid red;
 	height: 600px;
 	width: 100%;
-	overflow: scroll;
+	overflow: hidden;
+}
+.listbox:hover{
+	overflow: auto;
 }
 .row{
 	border: 2px solid red;

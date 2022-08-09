@@ -11,10 +11,9 @@
     <a class="logo" href=""><img src="images/logo.svg" alt="logo"></a>
     <nav>
         <?php
-        // session_start();
-        if(isset($_SESSION['username']))
+        if(isset($_SESSION['admin_username']))
         {
-            $username = $_SESSION['username'];
+            $username = $_SESSION['admin_username'];
             echo "<div class = 'dropdown' >
                     <div class='usernameHead'> 
                          <a href = 'admin_portal.php'><div class = 'txt'>
@@ -27,7 +26,7 @@
                         <a href='admin_profile.php'>My Account</a>
                         <a href='admin_memberlist.php'>Member List</a>
                         <a href='admin_booklist.php'>Book List</a>
-                        <a href='admin_logout.php'>Logout</a>
+                        <a href='logout.php'>Logout</a>
                       </div>
                 </div>
                 ";

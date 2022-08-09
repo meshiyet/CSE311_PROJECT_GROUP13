@@ -8,13 +8,12 @@ CREATE TABLE branch(
 
 CREATE TABLE book( 
     isbn INT(15), 
-    title VARCHAR(15) NOT NULL,
+    title VARCHAR(30) NOT NULL,
     author VARCHAR(20) NOT NULL, 
     publisher VARCHAR(20) NOT NULL, 
     cover VARCHAR(20),
     Primary Key(isbn)
 );
-
 
 
 CREATE TABLE member( 
@@ -26,14 +25,15 @@ CREATE TABLE member(
     dob DATE,
     gender VARCHAR(8),
     email VARCHAR(30),
-    phone INT(11),
+    phone VARCHAR(20),
     address VARCHAR(50),
     photo LONGBLOB,
     Primary Key(username)
 );
 
+
 CREATE TABLE admin(
-    id INT(10) NOT NULL,
+    username VARCHAR(20) NOT NULL,
     password VARCHAR(250) NOT NULL, 
     first_name VARCHAR(15) NOT NULL,
     middle_name VARCHAR(15),
@@ -41,11 +41,11 @@ CREATE TABLE admin(
     dob DATE,
     gender VARCHAR(8),
     email VARCHAR(30),
-    phone INT(11),
+    phone VARCHAR(20),
     address VARCHAR(50),
     photo LONGBLOB,
     start_date DATE,
-    Primary Key(id),
+    Primary Key(username),
     branch_id INT(10),
     branch_name VARCHAR(20),
     CONSTRAINT fk1 FOREIGN KEY(branch_id, branch_name)
@@ -112,12 +112,11 @@ VALUES
 
 INSERT INTO admin (id,password,first_name,middle_name,last_name,dob,gender,email,phone,address,start_date,branch_id,branch_name)
 VALUES
-	(01, 'abcd', 'Baburao','Ganpatrao','Apte','1949-12-19','Male','baburao@herapheri.com',01234524455,'150/6, Block-D, G Road','1979-10-31',01,'Banani'),
-	(02, 'abcd', 'Anuradha','Shivshankar','Panikar','1959-10-25','Female','anuradha@herapheri.com',01234524455,'52/15, Block-G, Y Road','1983-11-16',02,'Kataban'),
-	(03, 'abcd', 'Kharakh','Singh','H','1961-11-25','Male','kharakhsing@herapheri.com',01234524455,'89/8, Block-D, Chayabithi Road','1953-12-31',03,'Gazipur'),
+	('tahmid', 'password', 'Tahmid','Ahmed','Rakib','2001-11-22','Male','withtahmid@gmail.com.com','01750716668','150/6, KURIL, G Road','1979-10-31',01,'Banani'),
+	('02', 'abcd', 'Anuradha','Shivshankar','Panikar','1959-10-25','Female','anuradha@herapheri.com','01234524455','52/15, Block-G, Y Road','1983-11-16',02,'Kataban'),
+	('', 'abcd', 'Kharakh','Singh','H','1961-11-25','Male','kharakhsing@herapheri.com','01234524455','89/8, Block-D, Chayabithi Road','1953-12-31',03,'Gazipur'),
     
-    (04, 'abcd', 'Kachra','Seth','J','1945-12-18','Male','kachra@herapheri.com',01234524455,'150/6, Block-D, G Road','1979-11-10',01,'Banani'),
-	(05, 'abcd', 'Kabira','Speeking','K','1959-10-31','Male','kabira@herapheri.com',01234524455,'52/15, Block-G, Y Road','1983-11-13',02,'Kataban'),
-	(06, 'abcd', 'Devi','Prashad','L','1931-11-21','Male','devi@herapheri.com',01234524455,'89/8, Block-D, Chayabithi Road','1953-11-14',03,'Gazipur');
-
+    ('03', 'abcd', 'Kachra','Seth','J','1945-12-18','Male','kachra@herapheri.com','01234524455','150/6, Block-D, G Road','1979-11-10',01,'Banani'),
+	('04', 'abcd', 'Kabira','Speeking','K','1959-10-31','Male','kabira@herapheri.com','01234524455','52/15, Block-G, Y Road','1983-11-13',02,'Kataban'),
+	('05', 'abcd', 'Devi','Prashad','L','1931-11-21','Male','devi@herapheri.com','01234524455','89/8, Block-D, Chayabithi Road','1953-11-14',03,'Gazipur');
 
