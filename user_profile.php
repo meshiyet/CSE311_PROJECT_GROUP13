@@ -40,12 +40,11 @@
 ?>
 
 <!DOCTYPE html>
-<html>
-    <link href = "CSS/userProfile.css" rel = "stylesheet">
-    <body>
-  <?php include 'navbar.php';?>
-    
+<html> 
     <head>
+         <link href = "CSS/userProfile.css" rel = "stylesheet">
+         <title><?=$username?></title>
+        <?php include 'navbar.php';?>
         <link href = "style.css" rel = "stylesheet">
     </head>
     <body>
@@ -54,7 +53,6 @@
                 <div class="dp">
                     <img src="images/avater.png" height="200" width="200">
                 </div>
-                <a href="user_info_update.php">Edit Information</a>
                  <div class="information">
                     <p>Username: <?=$username?></p>
                 </div>
@@ -76,24 +74,26 @@
                  <div class="information">
                     <p>Gender: <?=$gender?></p>
                 </div>
-                  <form action="" method="POST">
+                  <!-- <form action="" method="POST">
                     <input style="
                         padding: 1%;
                         margin-left: 45%;
                         text-align: center;
                     " type="submit" name="logout" value="LOGOUT">
-                     </form>
+                     </form> -->
             </div>
             <div class="right">
                 <div>
-                    <h1 style="
-                    padding: 10%;
-
-                    text-align: center;
-                    margin: 20% auto;
-                    font-family: Roboto, sans-serif;
-                    " >Other informations like book list will show up here</h1>
-                </div>
+                    <div class="right_content">
+                        <h2>My Borrowing</h2>
+                        <div class="scroll">
+                        </div>
+                    </div>
+                    <div class="right_content">
+                         <h2>My Wishlist</h2>
+                         <div class="scroll">
+                        </div>
+                    </div>
             </div>
         </section>
     </body>

@@ -3,7 +3,7 @@
      session_start();
      if(isset($_SESSION['username']))
      {
-        // header("location: admin_profile.php");
+        header("location: admin_portal.php");
      }
      $usernameValue = "";
      $passwordValue = "";
@@ -24,7 +24,7 @@
             if($user['password'] == $password)
             {
                 $_SESSION['username'] = $username;
-                header("location: admin_profile.php");
+                header("location: admin_portal.php");
             }
             else
                 

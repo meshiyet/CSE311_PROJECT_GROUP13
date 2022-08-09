@@ -41,11 +41,10 @@
 
 <!DOCTYPE html>
 <html>
-    <link href = "CSS/userProfile.css" rel = "stylesheet">
-    <body>
-  <?php include 'admin_navbar.php';?>
-    
     <head>
+         <link href = "CSS/userProfile.css" rel = "stylesheet">
+         <title><?=$username?></title>
+        <?php include 'admin_navbar.php';?>
         <link href = "style.css" rel = "stylesheet">
     </head>
     <body>

@@ -1,41 +1,42 @@
 <?php
-// Initialize the session
-session_start();
- 
-// Check if the user is logged in, if not then redirect him to login page
-if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
-    // header("location: admin_login.php");
-    // exit;
-}
+    session_start();
+    include("connection.php");
+    if(!isset($_SESSION['username']))
+    {
+        header("location: admin_login.php");
+    }
 ?>
- 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    
-    <meta charset="UTF-8">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <?php include('admin_navbar.php')?>
-    <style>
-        body{ font: 14px sans-serif; text-align: center; }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
+    <link href="CSS/admin_portal.css" rel="stylesheet">
+    <?php include 'admin_navbar.php';?>
 </head>
 <body>
-    <h1 class="my-5">Hi, <b><?php echo htmlspecialchars($_SESSION["username"]); ?></b>. Welcome to our site.</h1>
-    
-        <a href="#" class="btn btn-warning">My Profile</a>
-        <a href="admin_memberlist.php" class="btn btn-warning">Member List</a>
-        <a href="#" class="btn btn-warning">Borrower List</a>
-   
-    <hr>
-    <hr>
-    
-         <a href="reset-password.php" class="btn btn-warning">Reset Your Password</a>
-        <a href="admin_logout.php" class="btn btn-danger ml-3">Sign Out of Your Account</a>
-    
+    <section class="main">
+        <h1>With great power comes great responsibility</h1>
+        <a href="admin_memberlist.php"><div class="button">
+            <h2>See All Members</h2>
+            <p>Currently there are 50 registered members to show</p>
+        </div></a>
+      <a href="admin_booklist.php">  <div class="button">
+            <h2>See All Books</h2>
+            <p>Currently there are 50 books to show</p>
+        </div></a>
+        <a href="admin_borrowlist.php"><div class="button">
+            <h2>See Borrow List</h2>
+             <p>Currently there are 50 borrows to show</p>
+        </div></a>
+        <a href="admin_addbook.php"><div class="button">
+            <h2>Add New Book</h2>
+             <p>Add new book </p>
+        </div></a>
+    </section>
 </body>
 <footer>
-     <?php include('admin_footer.html') ?>
+    <?php include 'admin_footer.html';?>
 </footer>
 </html>

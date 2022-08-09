@@ -1,27 +1,35 @@
 .account{
 	/*border: 2px solid red;*/
-	height: 740px;
+	height: 710px;
 	width: 80%;
-	margin: 0 auto;
-	overflow: hidden;
+	margin: 15px auto;
+	overflow: auto;
 }
 .left{
+
+	border-radius: 50px;
+	background-color: lavender;
 	display: inline-block;
 	/*border: 2px solid red;*/
 	width: 35%;
-	height: 740px;
+	height: 700px;
 	overflow: hidden;
+	min-width: 400px;
+}
+.left:hover{
+	background-color: rgb(220,220,240);
 }
 .right{
 	display: inline-block;
 	/*border: 2px solid red;*/
-	width: 61%;
-	height: 740px;
+	width: 63%;
+	height: 700px;
 	overflow: hidden;
 }
 .dp{
 	/*border: 2px solid red;*/
 	height: 200px;
+	border-radius: 50%;
 	width: 200px;
 	margin-left: 35%;
 	margin-top: 2%;
@@ -37,9 +45,37 @@
 	font-family: "Roboto", sans-serif;
 }
 .information p{
-	padding-left: 150px;
+	padding-left: 30%;
 	font-size: 20px;
 }
 .information:hover{
 	font-weight: bold;
+}
+.right_content{
+	box-shadow: 0px 15px 15px 0px rgba(221,160,221,0.7);
+	/*border: 2px solid red;*/
+	border-radius: 20px;
+	height: 300px;
+	width: 95%;
+	margin: 3.5% auto;
+}
+.right_content h2{
+	padding: 5px;
+	height: 40px;
+	/*border: 2px solid red;*/
+	background-color: plum;
+	border-radius: 20px;
+	font-family: "Roboto", sans-serif;
+	text-align: center;
+	overflow: hidden;
+	font-size: ;
+}
+.scroll{
+	border-radius: 20px;
+	/*border: 2px solid red;*/
+	height: 260px;
+	overflow: hidden;
+}
+.scroll:hover {
+	overflow: auto;
 }

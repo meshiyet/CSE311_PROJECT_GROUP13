@@ -17,13 +17,16 @@
             $username = $_SESSION['username'];
             echo "<div class = 'dropdown' >
                     <div class='usernameHead'> 
-                         <a href = 'admin_profile.php'><div class = 'txt'>
+                         <a href = 'admin_portal.php'><div class = 'txt'>
                             <p>$username<p>
                          </div></a>
                          <img src = 'images/avater.png' hight = '55' width = '55'>
                     </div>
                      <div class='dropdown-content'style = ' width:200px; margin-left: 230px'>
-                        <a href='admin_profile.php'>Admin Panel</a>
+                        <a href='admin_portal.php'>Admin Panel</a>
+                        <a href='admin_profile.php'>My Account</a>
+                        <a href='admin_memberlist.php'>Member List</a>
+                        <a href='admin_booklist.php'>Book List</a>
                         <a href='admin_logout.php'>Logout</a>
                       </div>
                 </div>

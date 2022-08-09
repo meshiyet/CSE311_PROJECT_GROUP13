@@ -1,0 +1,17 @@
+.main{
+	border: 2px solid red;
+	width: 80%;
+	height: 700px;
+	margin: 0 auto;
+}
+h1{
+	font-family: "Roboto", sans-serif;
+	font-size: 40px;
+	margin: 2% auto;
+	text-align: center;
+}
+.addform{
+	border: 2px solid red;
+	height: auto;
+	width: 100%;
+}
