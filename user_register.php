@@ -140,7 +140,7 @@
                 </div>
                  <div class = 'eachOFTheree'>
                     <label>Middle Name</label><br>
-                    <input type="text" name = 'middleName' value = '<?=$middleNameValue?>' required>
+                    <input type="text" name = 'middleName' value = '<?=$middleNameValue?>' placeholder = "Optional">
                 </div>
                  <div class = 'eachOFTheree'>
                     <label>Last Name</label><br>
