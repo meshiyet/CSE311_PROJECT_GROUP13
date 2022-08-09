@@ -28,9 +28,40 @@
                 <div class="featured-content">
                     <h1>Featured books</h1>
                     <div class="featured-items">
-                        <h3>book 1</h3>
-                        <h3>book 2</h3>
-                        <h3>book 3</h3>
+                        <div class="book-container">
+                            <img class="cover" src="">
+                            <h3 class="title">book 1</h3>
+                            <p class="author">author</p>
+                            <br>
+                            <p class="availability">available in: branch 1, branch 2, branch 3</p>
+                        </div>
+                        <div class="book-container">
+                            <img class="cover" src="">
+                            <h3 class="title">book 2</h3>
+                            <p class="author">author</p>
+                            <br>
+                            <p class="availability">available in: branch 1, branch 2, branch 3</p>
+                        </div>
+                        <div class="book-container">
+                            <img class="cover" src="">
+                            <h3 class="title">book 3</h3>
+                            <p class="author">author</p>
+                            <br>
+                            <p class="availability">available in: branch 1, branch 2, branch 3</p>
+                        </div>
+                        <div class="book-container">
+                            <img class="cover" src="">
+                            <h3 class="title">book 4</h3>
+                            <p class="author">author</p>
+                            <br>
+                            <p class="availability">available in: branch 1, branch 2, branch 3</p>
+                        </div>
+                        <!-- <div class="book-container">
+                            <img class="cover" src="">
+                            <h3 class="title">book 5</h3>
+                            <p class="author"></p>
+                            <p class="availability"></p>
+                        </div> -->
                     </div>
                 </div>      
             </div>
@@ -59,7 +90,7 @@
     height: 15rem;
     /* width: 100%; */
     background-color: gray;
-    background-image: url("../images/landing_background.jpg");
+    background-image: url("images/landing_background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -117,25 +148,55 @@
 
 .featured-content{
     background-color: white;
+    height: auto;
 }
 
 h1{
-    padding-bottom: 2rem;
+    padding-bottom: 1rem;
 }
 
 .featured-items{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-around;
-    flex-wrap: nowrap;
+    flex-wrap: nowrap; */
+    height: 20rem;
+    display: grid;
+    grid-template: 1fr / repeat(4, 1fr);
 }
 
-h3{
+.book-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background-color: pink;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    height: 2rem;
-    width: 1rem;
+    padding: 0 15%;
+    border: 2px magenta solid;
+    font-family: "Roboto", sans-serif;
+    font-size: 14px;
 }
 
+.cover{
+    height: 13rem;
+    width: 10rem;
+    background-color: grey;
+    margin-bottom: 1rem;
+}
+
+.title{
+    text-align: center;
+}
+
+.author{
+    text-align: center;
+    color: darkslategrey;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.availibility{
+    text-align: center;
+    font-size: xx-small;
+}
 </style>
