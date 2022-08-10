@@ -8,6 +8,9 @@
        session_destroy();
        header("location: admin_login.php");
     }
+    $number_of_member = mysqli_num_rows( mysqli_query($db, "SELECT username FROM member"));
+    $number_of_book = mysqli_num_rows( mysqli_query($db, "SELECT isbn FROM book"));
+    $number_of_borrow = 0;//mysqli_num_rows( mysqli_query($db, "SELECT isbn FROM loans"));
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,15 +26,15 @@
         <h1>With great power comes great responsibility</h1>
         <a href="admin_memberlist.php"><div class="button">
             <h2>See All Members</h2>
-            <p>Currently there are 50 registered members to show</p>
+            <p>Currently there are <?=$number_of_member?> registered members in Dhaka Library</p>
         </div></a>
       <a href="admin_booklist.php">  <div class="button">
             <h2>See All Books</h2>
-            <p>Currently there are 50 books to show</p>
+            <p>Currently there are <?=$number_of_book?>  books available in Dhaka Library</p>
         </div></a>
         <a href="admin_borrowlist.php"><div class="button">
             <h2>See Borrow List</h2>
-             <p>Currently there are 50 borrows to show</p>
+             <p>Currently there are <?=$number_of_borrow?> borrows to show</p>
         </div></a>
         <a href="admin_addbook.php"><div class="button">
             <h2>Add New Book</h2>

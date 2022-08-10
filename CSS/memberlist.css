@@ -29,6 +29,10 @@ h1{
 	padding: 0 3%;
 	background-color: rgba(220,220,220,0.8);
 }
+.row:hover{
+	background-color: lightgray;
+	font-weight: bold;
+}
 .element{
 	padding: 5px 0;
 	margin-top: 5px;
@@ -48,4 +52,7 @@ h1{
 .element p:hover {
 	overflow: auto;
 	width: auto;
+}
+a{
+	color: black;
 }

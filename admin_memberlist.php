@@ -27,12 +27,16 @@
             border: 3px solid black;
             ">
                 <div class="element"><p>Username</p></div>
-                <div class="element"><p>Name</p></div>
+                <!-- <div class="element"><p>Name</p></div> -->
                 <div class="element"><p>Email</p></div>
                 <div class="element"><p>Phone</p></div>
-                <div class="element"><p>Address</p></div>
-                <div class="element"><p>DoB</p></div>
-                 <div class="element"><p>Gender</p></div>
+                <!-- <div class="element"><p>Address</p></div> -->
+                <!-- <div class="element"><p>DoB</p></div> -->
+                 <!-- <div class="element"><p>Gender</p></div> -->
+                 <div class="element"><p>Num Of Borrow</p></div>
+                 <div class="element"><p>Book Taken</p></div>
+                 <div class="element"><p>Payment</p></div>
+                 <div class="element"><p>Fine</p></div>
                 
             </div>
             <?php 
@@ -53,7 +57,8 @@
                         $gender = $user["gender"];
 
                         echo "
-                             <div class='row'>
+                           <a href = 'admin_full_userinfo.php?username=$username'> 
+                           <div class='row'>
                                 <div class='element'><p>$username</p></div>
                                 <div class='element'><p>$firstName</p></div>
                                 <div class='element'><p>$email</p></div>
@@ -62,7 +67,7 @@
                                 <div class='element'><p>$dob</p></div>
                                 <div class='element'><p>$gender</p></div>
                             </div>
-
+                            </a>
 
                         ";
 

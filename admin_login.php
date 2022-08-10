@@ -21,7 +21,7 @@
             if($password == $user['password'])  /*USE PLAIN STRING CHECK*/
             {
                 $_SESSION['admin_username'] = $username;
-                header("location: admin_profile.php");
+                header("location: admin_portal.php");
                  // $error = "LOGGED IN";
             }
             else
