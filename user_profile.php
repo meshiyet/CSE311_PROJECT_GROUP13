@@ -30,6 +30,7 @@
     {
          header("location: user_login.php");
     }
+    $username = $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -67,19 +68,55 @@
                  <div class="information">
                     <p>Gender: <?=$gender?></p>
                 </div>
-                  <!-- <form action="" method="POST">
-                    <input style="
-                        padding: 1%;
-                        margin-left: 45%;
-                        text-align: center;
-                    " type="submit" name="logout" value="LOGOUT">
-                     </form> -->
             </div>
             <div class="right">
                 <div>
                     <div class="right_content">
                         <h2>My Borrowing</h2>
                         <div class="scroll">
+                            <div class="row" style="margin-top: 25px; font-weight: bold; border: 2px solid black;">
+                                <div class="element" ><p>ISBN</p></div>
+                                <div class="element" ><p>Title</p></div>
+                                 <div class="element" ><p>Branch Name</p></div>
+                                <div class="element" ><p>Return date</p></div>
+                                <div class="element" ><p>Fee</p></div>
+                            </div>
+                            <?php
+
+                                $sql = "SELECT * FROM loans WHERE member_username = '$username' ORDER BY return_date";
+                                $result =  mysqli_query($db, $sql);
+                                if ($result->num_rows > 0) 
+                                 {
+                                    while($row = $result->fetch_assoc())
+                                    {
+                                        $isbn = $row['book_isbn'];
+                                        $return_date = $row['return_date'];
+                                        $fee = $row['fee'];
+                                        $branchName = $row['branch_name'];
+
+                                        $sql2 = "SELECT title FROM book WHERE isbn = '$isbn'";
+                                        $result2 = mysqli_query($db,$sql2);
+                                        $row2 = $result2->fetch_assoc();
+                                        $title = $row2['title'];
+                                        if(strlen($title)>13){
+                                            $title =  substr($row2['title'], 0, 11)."..";
+                                        }
+
+                                          
+                                        echo "
+                                            <div class='row'>
+                                                <div class='element' ><p>$isbn</p></div>
+                                                <div class='element' ><p style = 'font-size: auto;' >$title</p></div>
+                                                 <div class='element' ><p>$branchName</p></div>
+                                                <div class='element' ><p>$return_date</p></div>
+                                                <div class='element' ><p>$fee</p></div>
+                                            </div>
+                                        "; 
+                                    }
+                                }
+
+
+                            ?>
                         </div>
                     </div>
                     <div class="right_content">

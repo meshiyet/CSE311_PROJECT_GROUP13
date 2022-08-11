@@ -149,7 +149,8 @@
                 gender = '$gender',
                 password = '$password1'
             WHERE
-                username = '$username'";
+                username = '$username'
+                ";
 
              if(mysqli_query($db,$sql))
              {

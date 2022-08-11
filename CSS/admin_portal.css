@@ -18,7 +18,7 @@ a{
 .button{
 	border-radius: 40px;
 	/*border: 2px solid red;*/
-	height: 100px;
+	height: 75px;
 	width: 60%;
 	margin: 3% auto;
 	background-color: darkcyan;
@@ -28,15 +28,15 @@ a{
 
 .button h2{
 	color: white;
-	padding-top: 8px;
+	padding-top: 5px;
 	font-family: "Roboto", sans-serif;
-	font-size: 40px;
+	font-size: 30px;
 	text-align: center;
 	font-weight: normal;
 }
 .button p{
 	color: white;
-	padding: 8px;
+	padding: 4px;
 	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 	text-align: center;

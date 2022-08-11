@@ -36,7 +36,11 @@
             <h2>See Borrow List</h2>
              <p>Currently there are <?=$number_of_borrow?> borrows to show</p>
         </div></a>
-        <a href="admin_addbook.php"><div class="button">
+        <a href="admin_borrowlist.php"><div class="button">
+            <h2>Manage Borrowing</h2>
+             <p>Add New Borrow or remove specific borrow</p>
+        </div></a>
+          <a href="admin_addbook.php"><div class="button">
             <h2>Add New Book</h2>
              <p>Add new book </p>
         </div></a>
