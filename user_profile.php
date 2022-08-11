@@ -98,9 +98,8 @@
                                         $result2 = mysqli_query($db,$sql2);
                                         $row2 = $result2->fetch_assoc();
                                         $title = $row2['title'];
-                                        if(strlen($title)>13){
+                                        if(strlen($title)>11)
                                             $title =  substr($row2['title'], 0, 11)."..";
-                                        }
 
                                           
                                         echo "

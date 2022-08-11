@@ -10,7 +10,7 @@
     }
     $number_of_member = mysqli_num_rows( mysqli_query($db, "SELECT username FROM member"));
     $number_of_book = mysqli_num_rows( mysqli_query($db, "SELECT isbn FROM book"));
-    $number_of_borrow = 0;//mysqli_num_rows( mysqli_query($db, "SELECT isbn FROM loans"));
+    $number_of_borrow = mysqli_num_rows( mysqli_query($db, "SELECT book_isbn FROM loans"));
 ?>
 <!DOCTYPE html>
 <html>
@@ -36,13 +36,13 @@
             <h2>See Borrow List</h2>
              <p>Currently there are <?=$number_of_borrow?> borrows to show</p>
         </div></a>
-        <a href="admin_borrowlist.php"><div class="button">
+        <a href="admin_manage_borrow.php"><div class="button">
             <h2>Manage Borrowing</h2>
              <p>Add New Borrow or remove specific borrow</p>
         </div></a>
           <a href="admin_addbook.php"><div class="button">
             <h2>Add New Book</h2>
-             <p>Add new book </p>
+             <p>Add a existing book or add a new book </p>
         </div></a>
     </section>
 </body>
