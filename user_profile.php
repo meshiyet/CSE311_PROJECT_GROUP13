@@ -74,19 +74,22 @@
                     <div class="right_content">
                         <h2>My Borrowing</h2>
                         <div class="scroll">
-                            <div class="row" style="margin-top: 25px; font-weight: bold; border: 2px solid black;">
-                                <div class="element" ><p>ISBN</p></div>
-                                <div class="element" ><p>Title</p></div>
-                                 <div class="element" ><p>Branch Name</p></div>
-                                <div class="element" ><p>Return date</p></div>
-                                <div class="element" ><p>Fee</p></div>
-                            </div>
+    
                             <?php
 
                                 $sql = "SELECT * FROM loans WHERE member_username = '$username' ORDER BY return_date";
                                 $result =  mysqli_query($db, $sql);
                                 if ($result->num_rows > 0) 
                                  {
+                                    echo "
+                                        <div class='row' style='margin-top: 25px; font-weight: bold; border: 2px solid black;'>
+                                            <div class='element' ><p>ISBN</p></div>
+                                            <div class='element' ><p>Title</p></div>
+                                             <div class='element' ><p>Branch Name</p></div>
+                                            <div class='element' ><p>Return date</p></div>
+                                            <div class='element' ><p>Fee</p></div>
+                                        </div>
+                                    ";
                                     while($row = $result->fetch_assoc())
                                     {
                                         $isbn = $row['book_isbn'];
@@ -112,6 +115,10 @@
                                             </div>
                                         "; 
                                     }
+                                }
+                                else
+                                {
+                                    echo "<p style = 'text-align:center; padding:20px;  '>YOU HAVE NO BOOK TO READ NOW</p>";
                                 }
 
 

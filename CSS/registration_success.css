@@ -1,0 +1,50 @@
+.main{
+
+}
+.top{
+	/*background-color: limegreen;*/
+	height: 100px;
+	width: 80%;
+	/*border: 2px solid red;*/
+	margin: 1% auto;
+	margin-bottom: 0;
+}
+.top p{
+	
+	margin: 0 auto;
+	margin-top: 5%;
+	font-family: "Roboto", sans-serif;
+	text-align: center;
+	font-size: 45px;
+	color: darkgreen;
+	letter-spacing: 3px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+.image{
+	/*border: 2px solid red;*/
+	margin: 0 auto;
+}
+.image img{
+	margin-left: 45%;
+}
+.login{
+	margin-top: 2%;
+}
+.login a{
+	color: black;
+	text-decoration: none;
+}
+.login p{
+	padding: 10px;
+	border-radius: 20px;
+	margin: 0 auto;
+	width: 20%;
+	background-color: darkgreen;
+	text-align: center;
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	text-decoration: none;
+	color: white;
+
+}

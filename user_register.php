@@ -33,6 +33,7 @@
             $year = (string)$_POST['year'];
             $gender = $_POST['gender'];
             $username = $_POST['username'];
+            $password1 = $_POST['password1'];
             $password2 = $_POST['password2'];
             $no_of_month = array("January" => "01","February" => "02", "March" => "03", 
                 "April" => "04", "May" => "05", "June" => "06",
@@ -125,7 +126,7 @@
                        VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$hashed_password')"; 
                  if(mysqli_query($db,$sql))
                  {
-                    $errorMassege = "Registration Complete";
+                    header("location: registration_success.php");
                  }
                  else
                  {

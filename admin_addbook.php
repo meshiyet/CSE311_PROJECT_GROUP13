@@ -129,7 +129,28 @@
                             <form action='' method='POST'>
                                 <div class='input'>
                                     <p class='label'>Enter ISBN</p>
-                                    <input class='inputbox' type='text' name='isbn' required>
+                                    <input list= 'book_list' class='inputbox' type='text' name='isbn' required>
+                                     <datalist id='book_list'>";
+                                           
+                                        // BOOKKKK
+                                           $sql = "SELECT * FROM book ORDER BY isbn";
+                                            $result = mysqli_query($db, $sql);
+                                            if ($result->num_rows > 0) 
+                                            {
+                                                while($row = $result->fetch_assoc())
+                                                {
+                                                    $isbn2 = $row['isbn']; 
+                                                    $title2 = $row['title'];
+                                                    $author2 = $row['author'];
+                                                    $genre = $row['genre'];
+                                                    $publisher = $row['publisher'];
+                                                    $str = $title2." | ".$author2." | ".$genre." | ".$publisher;
+                                                    echo "<option value='$isbn2'>$str</option>";
+                                                }
+                                            }
+                                        // BOOKKKK
+
+                                      echo"  </datalist>
                                 </div>
                                 <button class='inputButton' name = 'search' type='submit'>Search Book</button>
                             </form>

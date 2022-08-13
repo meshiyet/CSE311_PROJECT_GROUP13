@@ -4,18 +4,7 @@
     $welcomeText = "";
     if(isset($_SESSION['username']))
     {
-        $username = $_SESSION['username'];
-        $sql = "SELECT firstName, middleName, lastName  FROM members WHERE username = '${username}'";
-        $result = mysqli_query($db,$sql);
-        $user = "";
-        if ($result->num_rows > 0) 
-        {
-            while($row = $result->fetch_assoc())
-            {
-                $user = $row;
-            }
-        }
-        $welcomeText = "Welcome " . $user['firstName']." " . $user['middleName'] . " " . $user['lastName'];
+        
     } 
 
 ?>
