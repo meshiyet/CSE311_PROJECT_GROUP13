@@ -74,35 +74,57 @@
                 if($member->num_rows > 0 && $book->num_rows > 0)
                     $both_ok = true;
 
-                // NEED TO WORK ON FEE CALCULATION HERE
+                
 
                 if($both_ok)
                 {
-                    $sql = "INSERT INTO loans(branch_name, book_isbn, member_username, borrow_date,return_date, fee)
-                    VALUES('$this_branch', '$isbn', '$username', '$borrow_date', '$return_date', 100)
-                    ";
-                    if(mysqli_query($db, $sql))
-                    {  
-                         $sql = "
-                        UPDATE keeps
-                            SET 
-                            no_of_copies = no_of_copies - 1
-                        WHERE
-                            book_isbn = '$isbn' AND branch_name = '${this_branch}'
-                            ";
+                    $sql = "SELECT no_of_copies FROM keeps WHERE branch_name = '$this_branch' AND book_isbn = '$isbn'";
+                    $result = mysqli_query($db,$sql);
+                    $available_copy = false;
+                    if($result->num_rows > 0)
+                    {
+                        $result = $result->fetch_assoc();
+                        $result = $result['no_of_copies'];
+                        if($result>0)
+                            $available_copy = true;
+                    }
+                    if($available_copy)
+                    {
+
+                        // NEED TO WORK ON FEE CALCULATION HERE
+
+                        $sql = "INSERT INTO loans(branch_name, book_isbn, member_username, borrow_date,return_date, fee)
+                        VALUES('$this_branch', '$isbn', '$username', '$borrow_date', '$return_date', 100)
+                        ";
                         if(mysqli_query($db, $sql))
-                         {
-                             $errorMassege = "Borrow Successfull";
-                         }
-                         else
+                        {  
+                             $sql = "
+                            UPDATE keeps
+                                SET 
+                                no_of_copies = no_of_copies - 1
+                            WHERE
+                                book_isbn = '$isbn' AND branch_name = '${this_branch}'
+                                ";
+                            if(mysqli_query($db, $sql))
+                             {
+                                 $errorMassege = "Borrow Successfull";
+                             }
+                             else
+                            {
+                                $errorMassege = "Something went Wrong";
+                            }
+                        }
+                        else
                         {
                             $errorMassege = "Something went Wrong";
                         }
                     }
                     else
                     {
-                        $errorMassege = "Something went Wrong";
+                        $errorMassege = "This book is not available now";
                     }
+
+                   
                 }
                 else
                 {
@@ -174,6 +196,7 @@
             $changed_date = $changed_year."-".$no_of_month[$changed_month]."-".$changed_day;
 
             // NEED TO WORK ON FEE CALCULATION HERE
+
             $sql = "SELECT branch_name FROM loans WHERE member_username = '${username}' AND book_isbn = '${isbn}'";
             $result = mysqli_query($db, $sql);
             
@@ -207,7 +230,7 @@
             }
             else
             {
-                $errorMassege =  "Loadn not found";
+                $errorMassege =  "Loan not found";
             }
             $to_do = "edit_borrow";
         }

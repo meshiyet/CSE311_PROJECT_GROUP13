@@ -6,9 +6,6 @@
      {
         header("location: user_profile.php");
      }
-     $_SESSION = array();
-     session_unset();
-     session_destroy();
      $usernameValue = "";
      $passwordValue = "";
      $error = "";

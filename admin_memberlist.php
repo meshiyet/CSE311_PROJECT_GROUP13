@@ -33,10 +33,8 @@
                 <!-- <div class="element"><p>Address</p></div> -->
                 <!-- <div class="element"><p>DoB</p></div> -->
                  <!-- <div class="element"><p>Gender</p></div> -->
-                 <div class="element"><p>Num Of Borrow</p></div>
-                 <div class="element"><p>Book Taken</p></div>
-                 <div class="element"><p>Payment</p></div>
-                 <div class="element"><p>Fine</p></div>
+                 <div class="element"><p>Current Borrow</p></div>
+                 <div class="element"><p> Due Payment</p></div>
                 
             </div>
             <?php 
@@ -56,16 +54,34 @@
                         $dob = $user ["dob"];
                         $gender = $user["gender"];
 
+                        $sql = "SELECT COUNT(book_isbn) as copy FROM loans WHERE member_username = '$username'";
+                        $book = mysqli_query($db, $sql);
+                        $number_of_book = 0;
+                        if($book->num_rows>0)
+                        {
+                            $book = $book->fetch_assoc();
+                            $number_of_book = $book['copy'];
+                        }
+                        $sql = "SELECT SUM(fee) as sum FROM loans WHERE member_username = '$username'";
+                        $book = mysqli_query($db, $sql);
+                        $due_money = 0;
+                        if($book->num_rows > 0)
+                        {
+                            $book = $book->fetch_assoc();
+                            if($book['sum']>0)
+                                $due_money = $book['sum'];
+                        }
+
+
+
                         echo "
                            <a href = 'admin_full_userinfo.php?username=$username'> 
                            <div class='row'>
                                 <div class='element'><p>$username</p></div>
-                                <div class='element'><p>$firstName</p></div>
                                 <div class='element'><p>$email</p></div>
                                 <div class='element'><p>$phone</p></div>
-                                <div class='element'><p>$address</p></div>
-                                <div class='element'><p>$dob</p></div>
-                                <div class='element'><p>$gender</p></div>
+                                <div class='element'><p>$number_of_book</p></div>
+                                <div class='element'><p>$due_money</p></div>
                             </div>
                             </a>
 

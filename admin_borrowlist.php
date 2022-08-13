@@ -63,7 +63,6 @@
                         
                        // if($num_of_copy>0){
                         echo "
-                            <a href = 'admin_full_bookinfo.php?isbn=$isbn'> 
                                  <div class='row'>
                                     <div class='element'><p>$isbn</p></div>
                                     <div class='element'><p>$username</p></div>
@@ -72,7 +71,6 @@
                                     <div class='element'><p>$return_date</p></div>
                                     <div class='element'><p>$fee</p></div>
                                 </div>
-                            </a>
                         ";
                     }
 

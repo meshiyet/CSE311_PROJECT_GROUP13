@@ -28,7 +28,7 @@
     }
     else
     {
-         header("location: user_login.php");
+         // header("location: user_login.php");
     }
     $username = $_SESSION['username'];
 ?>
