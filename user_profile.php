@@ -1,6 +1,6 @@
 <?php
    include("connection.php");
-    session_start(); 
+    session_start();
     $firstName = "";
     $middleName = "";
     $lastName = "";
@@ -13,7 +13,7 @@
     if(isset($_SESSION['username']))
     {
         $username = $_SESSION['username'];
-        $sql = "SELECT username, first_name, middle_name, last_name, email, phone, address, dob, gender  FROM member WHERE username = '${username}'";
+        $sql = "SELECT *FROM member WHERE username = '${username}'";
         $result = mysqli_query($db,$sql);
         $user = $result->fetch_assoc();
         $firstName = $user['first_name'];
@@ -28,7 +28,7 @@
     }
     else
     {
-         // header("location: user_login.php");
+         header("location: user_login.php");
     }
     $username = $_SESSION['username'];
 ?>
@@ -45,7 +45,31 @@
         <section class="account">
             <div class="left">
                 <div class="dp">
-                    <img src="images/avater.png" height="200" width="200">
+
+                    <!-- Image -->
+                    <?php    
+                        $result = $db->query("SELECT photo FROM member WHERE username = '$username'"); 
+                         if($result->num_rows > 0)
+                         { 
+                                $row = $result->fetch_assoc();
+                                if($row['photo'] != NULL)
+                                {
+                                    $img = base64_encode($row['photo']);
+                                    echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='200' width='200'/>";
+                                }
+                                 else
+                                { 
+                                   echo "<img src='images/avater.png' height='200' width='200'>";
+                                }
+                                
+                        }
+                        else
+                        { 
+                           echo "<img src='images/avater.png' height='200' width='200'>";
+                        }
+                    ?>
+                    <!-- Image -->
+
                 </div>
                  <div class="information">
                     <p>Username: <?=$username?></p>

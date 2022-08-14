@@ -29,11 +29,19 @@
 .dp{
 	/*border: 2px solid red;*/
 	height: 200px;
-	border-radius: 50%;
+	
 	width: 200px;
 	margin-left: 35%;
 	margin-top: 2%;
 	overflow: hidden;
+}
+.dp img{
+	border-radius: 50%;
+	object-fit: contain;
+	/*border: 1px solid black;*/
+}
+.dp img:hover{
+	padding: 1%;
 }
 .information{
 	/*border: 2px solid red;*/

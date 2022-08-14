@@ -26,10 +26,11 @@
 	margin: 0 auto;
 }
 .image img{
-	margin-left: 45%;
+	margin-left: 46%;
 }
 .login{
 	margin-top: 2%;
+	margin-bottom: 1%;
 }
 .login a{
 	color: black;

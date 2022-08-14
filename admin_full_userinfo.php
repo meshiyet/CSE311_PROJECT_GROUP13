@@ -20,7 +20,7 @@
     $address = $user['address'];
     $dob = $user['dob'];
     $gender = $user['gender'];
-    $username = $user['username'];
+
 ?>
 
 <!DOCTYPE html>
@@ -33,17 +33,38 @@
         <link href = "style.css" rel = "stylesheet">
     </head>
     <body>
-    	<div class="heading">
-    		<p><?=$username?>'s Full Information</p>
-    	</div>
         <section class="account">
             <div class="top">
-                <div class="dp">
-                    <img src="images/avater.png" height="200" width="200">
+                 <div class="dp">
+
+                    <!-- Image -->
+                    <?php    
+                        $result = $db->query("SELECT photo FROM member WHERE username = '$member_username'"); 
+                         if($result->num_rows > 0)
+                         { 
+                                $row = $result->fetch_assoc();
+                                if($row['photo'] != NULL)
+                                {
+                                    $img = base64_encode($row['photo']);
+                                    echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='200' width='200'/>";
+                                }
+                                 else
+                                { 
+                                   echo "<img src='images/avater.png' height='200' width='200'>";
+                                }
+                                
+                        }
+                        else
+                        { 
+                           echo "<img src='images/avater.png' height='200' width='200'>";
+                        }
+                    ?>
+                    <!-- Image -->
+
                 </div>
                 <div class="top_infos">
                  <div class="information">
-                    <p>Username: <?=$username?></p>
+                    <p>Username: <?=$member_username?></p>
                 </div>
                 <div class="information">
                     <p>Name: <?=$firstName. " " . $middleName . " " . $lastName?></p>
@@ -64,7 +85,19 @@
                     <p>Gender: <?=$gender?></p>
                 </div>
                 <div class="information">
-                    <p>Gender: <?=$gender?></p>
+                    <?php
+                    $sql = "SELECT SUM(fee) as sum FROM loans WHERE member_username = '$member_username'";
+                        $book = mysqli_query($db, $sql);
+                        $due_money = 0;
+                        if($book->num_rows > 0)
+                        {
+                            $book = $book->fetch_assoc();
+                            if($book['sum']>0)
+                                $due_money = $book['sum'];
+                        }
+                            echo " <p>Due Payment: $due_money</p>";
+                        ?>
+                   
                 </div>
             </div>
             </div>

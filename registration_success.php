@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,8 +19,16 @@
 		<img src="images/done.png" height="200" width="200">
 	</div>
 	<div class="login">
-		<a href="user_login.php"><p>Let's Go to Login Page</p></a>
+		<a href="user_upload_image.php"><p>Upload Profile Picture</p></a>
 	</div>
+	<a
+		style = "
+		text-align: center;
+		font-size: 25px;
+		font-family: 'Roboto', sans-serif;
+		color: black;
+		"
+	href="user_profile.php"><p>skip</p></a>
 </div>
 </body>
 <footer>

@@ -24,6 +24,7 @@
 	width: 100%;
 	height: 250px;
 	overflow: hidden;
+	margin: 2% auto;
 }
 .top:hover{
 	background-color: rgb(220,220,240);
@@ -52,6 +53,11 @@
 .dp img{
 	/*border: 2px solid red;*/
 	border-radius: 50%;
+	object-fit: contain;
+	/*border: 1px solid black;*/
+}
+.dp img:hover{
+	padding: 1%;
 }
 .information{
 	display: inline-block;

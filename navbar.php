@@ -19,12 +19,39 @@
                     <div class='usernameHead'> 
                          <a href = 'user_profile.php'><div class = 'txt' >
                             <p>$username<p>
-                         </div></a>
-                         <img src = 'images/avater.png' hight = '55' width = '55'>
-                    </div>
+                         </div></a>";
+
+                         // echo"<img src = 'images/avater.png' hight = '55' width = '55'>";
+
+                         /**************************************************************/
+
+                        $result = $db->query("SELECT photo FROM member WHERE username = '$username'"); 
+                         if($result->num_rows > 0)
+                         { 
+                                $row = $result->fetch_assoc();
+                                if($row['photo'] != NULL)
+                                {
+                                    $img = base64_encode($row['photo']);
+                                    echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='200' width='200'/>";
+                                }
+                                 else
+                                { 
+                                   echo "<img src='images/avater.png' height='200' width='200'>";
+                                }
+                                
+                        }
+                        else
+                        { 
+                           echo "<img src='images/avater.png' height='200' width='200'>";
+                        }
+
+                         /**************************************************************/ 
+              
+                        echo" </div>
                      <div class='dropdown-content'style = ' width:200px; margin-left: 230px'>
                         <a href='user_profile.php'>My Account</a>
                         <a href='user_info_update.php'>Edit Information</a>
+                        <a href='user_upload_image.php'>Change Photo</a>
                         <a href='logout.php'>Logout</a>
                       </div>
                 </div>

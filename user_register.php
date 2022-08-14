@@ -126,6 +126,7 @@
                        VALUES('$username', '$firstName','$middleName', '$lastName', '$email', '$phone', '$address', '$dob', '$gender', '$hashed_password')"; 
                  if(mysqli_query($db,$sql))
                  {
+                    $_SESSION['username'] = $username;
                     header("location: registration_success.php");
                  }
                  else

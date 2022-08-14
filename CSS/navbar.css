@@ -138,6 +138,9 @@ ul {
     width: 55px;
     border-radius: 50%;
   }
+  .usernameHead img{
+  object-fit: contain;
+}
   .usernameHead:hover{
     font-weight: bold;
   }

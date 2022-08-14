@@ -28,15 +28,40 @@
         <link href = "style.css" rel = "stylesheet">
     </head>
     <body>
-    	<div class="heading">
-    		<p>All About '<?=$title?>'</p>
-    	</div>
         <section class="account">
-            <div class="top">
-                <div class="dp">
-                    <img src="images/book_cover.jpg" height="200" width="200">
+             <!--  <p class="p">Book Information</p>
+                <p class="p">Edit Information</p> -->
+            <div class="dp">
+                    <?php    
+                        $result = $db->query("SELECT cover FROM book WHERE isbn = '$isbn'"); 
+                         if($result->num_rows > 0)
+                         { 
+                                $row = $result->fetch_assoc();
+                                if($row['cover'] != NULL)
+                                {
+                                    $img = base64_encode($row['cover']);
+                                    echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='600' width='375'/>";
+                                }
+                                 else
+                                { 
+                                   echo "<img src='images/default_book.jpg' height='600' width='375'>";
+                                }
+                                
+                        }
+                        else
+                        { 
+                           echo "<img src='images/avater.png' height='600' width='375'>";
+                        }
+                    ?>
                 </div>
-                <div class="top_infos">
+
+            <div class="top">
+                <div class="edit">
+                    <a href="admin_change_book_cover.php?isbn=<?=$isbn?>">Change book Cover</a>
+                    <a href="admin_edit_book_info.php?isbn=<?=$isbn?>">Edit Book Information</a>
+                </div>
+                <!-- <p class="p">Book Information</p> -->
+                <div class="top_infos" style="width:55%;">
                  <div class="information">
                     <p>ISBN: <?=$isbn?></p>
                 </div>
@@ -54,63 +79,47 @@
                 </div>
             </div>
              <!-- NEED WORKING HERE  -->
+              <!-- <p class="p">Available in</p> -->
+                <div class="top_infos" style="overflow: auto; width:30%;">
+                    <div class='information'>
+                        <p style="
+                        border-radius: 15px;
+                        text-align: center;
+                        font-weight: bold;
+                        border: 2px solid black;
+                        margin-bottom: 15px;
+
+                          ">AvailAble In</p>
+                    </div>
              <?php
-             	$sql = "SELECT no_of_copies FROM keeps WHERE branch_name = 'Banani' AND book_isbn = '$isbn'";
-             	$result2 = mysqli_query($db,$sql);
-             	$copy_in_Banani = 0;
-             	if($result2->num_rows>0)
-             	{
-					$copy = $result2->fetch_assoc();
-             		$copy_in_Banani = $copy['no_of_copies'];
-             	}
-             	
+                $sql = "SELECT name FROM branch";
+                $branch = mysqli_query($db, $sql);
+                while($row = $branch->fetch_assoc())
+                {
+                    $branchName = $row['name'];
+                    $sql = "SELECT no_of_copies FROM keeps WHERE branch_name = '$branchName' AND book_isbn = '$isbn'";
+                    $result2 = mysqli_query($db,$sql);
+                    $copy_in = 0;
 
-             	$sql = "SELECT no_of_copies FROM keeps WHERE branch_name = 'Dhanmondi' AND book_isbn = '$isbn'";
-             	$result2 = mysqli_query($db,$sql);
-             	$copy_in_Dhanmondi = 0;
-             	if($result2->num_rows>0)
-             	{
-             		$copy = $result2->fetch_assoc();
-             		$copy_in_Dhanmondi= $copy['no_of_copies'];
-             	}
-             	
-             	
-             	$sql = "SELECT no_of_copies FROM keeps WHERE branch_name = 'Basundhara' AND book_isbn = '$isbn'";
-             	$result2 = mysqli_query($db,$sql);
-             	$copy_in_Basundhara = 0;
-
-             	if($result2->num_rows>0)
-             	{
-             		$copy = $result2->fetch_assoc();
-             		$copy_in_Basundhara = $copy['no_of_copies'];
-             	}
-             	
-             	
-
-
+                    if($result2->num_rows>0)
+                    {
+                        $copy = $result2->fetch_assoc();
+                        $copy_in= $copy['no_of_copies'];
+                    }
+                    echo "<div class='information'>
+                        <p>$branchName: $copy_in</p>
+                    </div>";
+                }
 
              ?>
 				
-                <div class="top_infos">
-                 <div class="information">
-                    <h3>Availability<h3>
-                </div>
-	                <div class="information">
-	                    <p>Banani: <?=$copy_in_Banani?></p>
-	                </div>
-	                <div class="information">
-	                    <p>Dhanmondi: <?=$copy_in_Dhanmondi?></p>
-	                </div>
-	                <div class="information">
-	                    <p>Basundhara: <?=$copy_in_Basundhara?></p>
-	                </div>
+	                <
                 </div>
               <!-- NEED WORKING HERE  -->
-            </div>
+
             <div class="bottom">
-                <div>
                     <div class="right_content">
-                        <h2>All Borrowing of <?=$title?></h2>
+                        <h2>All Borrowing of '<?=$title?>'</h2>
                         <div class="scroll">
     
                             <?php
@@ -161,6 +170,9 @@
                         </div>
                     </div>
             </div>
+
+            </div>
+              
         </section>
     </body>
 <footer>
