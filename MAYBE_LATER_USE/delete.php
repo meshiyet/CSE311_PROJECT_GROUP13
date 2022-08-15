@@ -1,18 +1,29 @@
+ SELECT * FROM member WHERE 
+            username LIKE '%$keyword%' OR
+            first_name LIKE '%$keyword%'OR
+            middle_name LIKE '%$keyword%'OR
+            last_name LIKE '%$keyword%'OR
+            dob LIKE '%$keyword%'OR
+            gender LIKE '%$keyword%'OR
+            email LIKE '%$keyword%'OR
+            address LIKE '%$keyword%'OR
+            first_name LIKE '%$keyword%'
+
 <?php
-    session_start();
-    include("connection.php");
+             $result;
+    if($_SERVER['REQUEST_METHOD'] == 'POST')
+    {
+        $keyword = $_POST['keyword'];
+        $keyword_value = $keyword;
+        $sql = "SELECT * FROM member WHERE username = '$keyword'";
+        $result = mysqli_query($db, $sql);
+    }
+    else
+    {
+        $sql = "SELECT * FROM member ORDER BY username";
+        $result = mysqli_query($db, $sql);
+    }
 
-    ?>
+<p
+>edit</p>
 
-<div class = 'return_borrow'>
-     <div style='height: 100px;'></div>
-    <form action='' method='POST'>
-        <div class='input'>
-            <p class='label'>Member Username</p>
-            <input list= 'username_list' class='inputbox'  type='text' name='username' required>
-                <datalist id="username_list">
-                  <option style="color:red;" value="Chrome"> HAHA</option>
-                </datalist>
-        </div>
-        </form>
-  </div>

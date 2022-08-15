@@ -117,7 +117,6 @@
                 </div>
               <!-- NEED WORKING HERE  -->
 
-            <div class="bottom">
                     <div class="right_content">
                         <h2>All Borrowing of '<?=$title?>'</h2>
                         <div class="scroll">
@@ -169,10 +168,48 @@
                             ?>
                         </div>
                     </div>
-            </div>
 
             </div>
-              
+                <div class="right_content">
+                    <h2>Reviews</h2>
+                    
+                    <div class="scroll">
+
+                        <?php
+                            $sql = "SELECT * FROM review WHERE isbn = '$isbn' ORDER BY created DESC";
+                            $result =  mysqli_query($db, $sql);
+                            if ($result->num_rows > 0) 
+                             {
+                                while($row = $result->fetch_assoc())
+                                {
+                                    $reviewre_username = $row['username'];
+                                    $review_text = $row['review_text'];
+                                    $created = $row['created'];
+                                    $date = explode(" ",$created);
+                                    $date = $date[0];
+                                    echo "
+                                        <div class='review'>
+                                                
+                                              <div class = 'username'>
+                                              <p>$reviewre_username [ $date ]</p>
+                                                    <a href = 'do_thing.php?todo=remove_review&who=admin&isbn=$isbn&username=$reviewre_username&created=$created'>
+                                                        <p style ='
+                                                            background-color: white;
+                                                            font-size: 15px;
+                                                            padding: .5%;
+                                                        ' 
+                                                        >Remove review</p>
+                                                    </a>
+                                                ";
+                                              echo"</div>
+                                            <div  class = 'review_text'> <p>$review_text</p></div>
+                                        </div>
+                                    "; 
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
         </section>
     </body>
 <footer>

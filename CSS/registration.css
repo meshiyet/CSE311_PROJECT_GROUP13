@@ -1,8 +1,9 @@
-body{
-	/*background-image: url("../images/login_background.webp");*/
-	/*background-repeat: no-repeat, repeat;*/
-	background-color: lightgray;
-	/*background-color: #e9edff;*/
+body {
+  background-image: url("../images/login_background.jpg");
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
+}
 }
 .total{
 	height: 90%;

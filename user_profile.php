@@ -132,7 +132,8 @@
                                         echo "
                                             <div class='row'>
                                                 <div class='element' ><p>$isbn</p></div>
-                                                <div class='element' ><p style = 'font-size: auto;' >$title</p></div>
+                                                <a href ='user_bookinfo.php?isbn=$isbn'>
+                                                <div class='element' ><p>$title</p></div></a>
                                                  <div class='element' ><p>$branchName</p></div>
                                                 <div class='element' ><p>$return_date</p></div>
                                                 <div class='element' ><p>$fee</p></div>

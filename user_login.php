@@ -50,35 +50,31 @@
    ?>
 </head>
 <body>
-  <div class="gap"></div>
-<!-- partial:index.partial.html -->
-<div class="login-page">
-  <div class="form">
-    <div class="heading">
-      <h1>Member Login</h1>
-    </div>
-    <form class="login-form" action = "" method = "POST" >
+      <div class="form">
+            <div class="heading">
+              <h1>Member Login</h1>
+            </div>
+                <form class="login-form" action = "" method = "POST" >
 
-      <input type="text" name = "username" value='<?=$usernameValue?>' required  placeholder="username"/>
-      <input type="password" name = "password" value='<?=$passwordValue?>'required placeholder="password"/>
-      <button type="submit">login</button>
-      <p class="message">Not registered? <a href="user_register.php">Create an account</a></p>
-      <div style = "
-               color:#cc0000;
-               font-family: Roboto, sans-serif;
-               margin: 3% auto;
-               text-align: center;
-               font-size: 20px;
-               "><?=$error?></div>
-         </div>
-    </form>
-  </div>
-</div>
-<!-- partial -->
+                  <input type="text" name = "username" value='<?=$usernameValue?>' required  placeholder="username"/>
+                  <input type="password" name = "password" value='<?=$passwordValue?>'required placeholder="password"/>
+                  <button type="submit">login</button>
+                  <p class="message">Not registered? <a href="user_register.php">Create an account</a></p>
+                  <div style = "
+                           color:#cc0000;
+                           font-family: Roboto, sans-serif;
+                           margin: 3% auto;
+                           text-align: center;
+                           font-size: 20px;
+                           "><?=$error?>
+                               
+                   </div>
+       
+                </form>
+        </div>
+</body>
 <footer>
-  <?php
-  include('footer.html');
+  <?php include('footer.html');
    ?>
 </footer>
-</body>
 </html>

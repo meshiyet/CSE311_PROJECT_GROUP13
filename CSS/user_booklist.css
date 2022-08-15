@@ -24,11 +24,12 @@ h1{
 	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 	text-align: center;
+	min-width: 300px;
 }
 .search_box button{
 	height: 50px;
 	width: 130px;
-	background-color: MediumAquamarine;
+	background-color: plum;
 	border-radius: 20px;
 	border-color: transparent;
 	margin-left: 2%;
@@ -37,7 +38,7 @@ h1{
 
 }
 .search_box button:hover{
-	 background: rgb(82,185,150);
+	 background: rgb(200,135,200);
 }
 .listbox{
 	/*border: 2px solid red;*/
@@ -50,37 +51,68 @@ h1{
 }
 .row{
 	/*border: 2px solid red;*/
-	border-radius: 20px;
-	height: 50px;
-	width: 100%;
-	margin: 1% auto;
+	border-radius: 10px;
+	height: 320px;
+	width: 250px;
 	overflow: hidden;
-	padding: 0 3%;
-	background-color: rgba(220,220,220,0.8);
+	/*padding: 0 1%;*/
+	background-color: transparent;
+	display: inline-block;
 }
 .row:hover{
-	background-color: lightgray;
-	font-weight: bold;
+	/*background-color: white;*/
+	/*font-weight: bold;*/
+	border: 3px solid black;
+	width: 400px;
+}
+
+.cover{
+	/*border: 2px solid red;*/
+	height: 320px;
+	width: 200px;
+	display: inline-block;
+	overflow: hidden;
+}
+.cover img{
+	border-radius: 10px;
+	height: 320px;
+	width: 200px;
+	margin: 0 auto;
+}
+.cover img:hover{
+	padding: 2%;
+}
+.info{
+	/*border: 2px solid red;*/
+	height:320px;
+	width: 160px;
+	display: inline-block;
+	overflow: hidden;
+	visibility:hidden;
+}
+.row:hover > .info{
+	visibility:visible;
+	/*background-color: lavender;*/
+}
+.info:hover{
+	padding: 2%;
 }
 .element{
-	padding: px 0;
-	margin-top: 5px;
+	margin: 20% auto;
 	/*border: 2px solid red;*/
-	height: 40px;
-	width: 15%;
-	margin-left: 1.2%;
-	display: inline-block;
+	height: 30px;
 	overflow: hidden;
 }
 .element p{
 	padding-top: 3px;
 	text-align: center;
 	font-family: "Roboto", sans-serif;
-	font-size: 20px;
+	font-size: 18px;
 }
 .element p:hover {
 	overflow: auto;
 	width: auto;
+	font-weight: bold;
 }
 a{
 	color: black;

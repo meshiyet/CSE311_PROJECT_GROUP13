@@ -69,6 +69,7 @@
         ?>
         
         <ul class="bottom-nav">
+            <li class="menu"><a href="user_booklist.php">All Books</a></li>
             <li class="menu"><a href="index.php">Search</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Services</a>

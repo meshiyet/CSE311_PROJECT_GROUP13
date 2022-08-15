@@ -3,8 +3,28 @@
 	height: 700px;
 	width: 80%;
 	margin: 15px auto;
-	overflow: auto;
+	overflow: hidden;
 
+}
+.add{
+	width: 95%;
+	/*border: 2px solid red;*/
+	height: 35px;
+	font-family: "Roboto", sans-serif;
+	
+	margin: 0 auto;
+}
+.add p{
+	background-color: rgba(200, 200, 200, .3);
+	width: 17%;
+	padding: .4%;
+	border-radius: 20px;
+	font-size: 20px;
+	padd
+} 
+.add p:hover{
+	font-weight: bold;
+	background-color: plum;
 }
 .edit{
 	/*border: 2px solid red;*/
@@ -29,7 +49,7 @@
 }
 .top{
 	
-	/*border: 2px solid black;*/
+	/*border: 2px solid red;*/
 	/*border-radius: 50px;*/
 	/*background-color: lavender;*/
 	/*display: inline-block;*/
@@ -37,34 +57,29 @@
 	height: 700px;
 	width: 75%;
 	display: inline-block;
-	overflow: auto;
+	overflow: hidden;
 }
 .top:hover{
 	
 }
 .top_infos{
+	/*border: 2px solid red;*/
+	margin: 0 auto;
 	padding: 25px;
-	margin-left: 5%;
 	height: 250px;
 	border: 2px solid black;
-	/*width: 40%;*/
-	display: inline-block;
+	width: 95%;
 	overflow: hidden;
-	display: inline-block;
 	margin-bottom: 1%;
 	background-color: lavender;
 	border-radius: 10px;
+	overflow: hidden;
+
 }
 .top_infos:hover{
 	background-color: rgb(220,220,240);
 }
-.bottom{
-	/*display: inline-block;*/
-	/*border: 2px solid red;*/
-	width: 100%;
-	/*height: 700px;*/
-	overflow: hidden;
-}
+
 .dp{
 	/*border: 2px solid red;*/
 	/*padding: 1.5%;*/
@@ -103,113 +118,51 @@
 	font-size: 25px;
 }
 .right_content{
-	/*border: 2px solid red;*/
+	/*border: 2px solid aqua;*/
 	border-radius: 20px;
-	height: 310px;
+	height: 330px;
 	width: 95%;
 	margin: 1% auto;
 }
 .right_content:hover, h2{
-	box-shadow: 0px 15px 15px 0px rgba(102,205,170,0.7);
+	box-shadow: 0px 15px 15px 0px plum;
 }
 .right_content h2{
 	padding: 5px;
 	height: 40px;
 	/*border: 2px solid red;*/
-	background-color: MediumAquamarine;
+	background-color: plum;
 	border-radius: 20px;
 	font-family: "Roboto", sans-serif;
 	text-align: center;
 	overflow: hidden;
 	font-size: ;
 }
-.scroll{
-	border-radius: 20px;
-	/*border: 2px solid red;*/
-	height: 260px;
-	overflow: hidden;
-}
-.scroll:hover {
-	overflow: auto;
-}
-
-.row{
-	border-radius: 20px;
-	margin: 1% auto;
-	/*border: 2px solid red;*/
-	width: 95%;
-	height: 40px;
-	overflow: hidden;
-	background-color: lavender;
-}
-.row:hover{
-	background-color: rgb(220,220,240);
-}
-.element{
+.textField{
 	
-	margin-left: 4%;
 	/*border: 2px solid red;*/
-	height: 50px;
-	width: 15%;
-	display: inline-block;
-	overflow: hidden;
-
+	height: 200px;
+	width: 90%;
+	margin: 0 auto;
+	margin-top: 3%;
 }
-.element p{
-	padding-top: 7px;
-	font-family: "Roboto", sans-serif;
-	text-align:center;
-	font-size: 20px;
-}
-a{
-	text-decoration: none;
-	color: black;
-}
-a:hover{
-	text-decoration: underline;
-	font-weight: bold;
-}
-.p{
-	/*border: 2px solid red;*/
-	/*width: 20%;*/
-	margin-left: 6%;
-	font-family: "Roboto", sans-serif;
-	font-size: 25px;
-	font-weight: bold;
-	display: inline-block;
-}
-.review{
-	/*border: 2px solid red;*/
-	border-radius: 10px;
-	margin: 1% auto;
-	width: 95%;
-	height: auto;
-	overflow: hidden;
-	font-family: "Roboto", sans-serif;
-}
-.review:hover{
-	/*border: 1px solid gray;*/
-}
-.review .username{
+.textField input{
+	height: 150px;
+	width: 100%;
+	border: 2px solid black;
+	border-radius: 15px;
 	
-	height: 25px;
+}
+button{
 
-
-}
-.username p{
-	border-radius: 10px;
-	background-color: lavender;
-	font-size: 20px;
-	font-weight: bold;
-	padding: .5%;
-	display: inline-block;
-	margin-left: 2%;
-}
-.review_text{
-	margin: 1% 0; 
-	padding: .5%;
-}
-.review_text p{
-	/*border: 2px solid red;*/
+	font-family: "Roboto", sans-serif;
 	font-size: 18px;
+	border-radius: 15px;
+	background-color: plum;
+	padding:1% 2%;
+	margin-left: 40%;
+	border-color: transparent;
+}
+button:hover{
+	 background: rgb(200,135,200);
 }
