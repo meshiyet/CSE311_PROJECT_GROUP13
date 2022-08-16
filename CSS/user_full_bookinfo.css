@@ -22,30 +22,51 @@
 	font-size: 20px;
 } 
 .add p:hover{
-	font-weight: bold;
+	/*font-weight: bold;*/
 	background-color: plum;
 }
-.edit{
+.add a:hover{
+	font-weight: normal;
+}
+.wishlist{
 	/*border: 2px solid red;*/
 	height: 50PX;
 	width: 90%;
-	margin: 0 auto;
+	margin: .5% auto;
 	overflow: hidden;
 }
-.edit a{
-	font-family: "Roboto", sans-serif;
-	background-color: plum;
-	height: 35px;
-	border: 1px solid black;
-	border-radius: 10px;
+.wishlist .icon{
 	/*border: 2px solid red;*/
-	overflow: hidden;
+	height: 50px;
+	width: 60px;
 	float: right;
-	margin-left: 2%;
-	margin-top: .5%;
-	font-size: 18px;
-	padding: .5%;
 }
+.listed{
+	height: 50px;
+	width: 60px;
+	background-image: url('../images/fill_heart.png');
+	background-repeat: no-repeat;
+	 /*background-position: 50% 0;*/
+	 background-size: contain;
+}
+.listed:hover{
+	background-image: url('../images/heart_outline.png');
+}
+
+.not_listed{
+	height: 50px;
+	width: 60px;
+	background-image: url('../images/heart_outline.png');
+	background-repeat: no-repeat;
+	 /*background-position: 50% 0;*/
+	 background-size: contain;
+}
+.not_listed:hover{
+	background-image: url('../images/fill_heart.png');
+}
+
+
+
 .top{
 	
 	/*border: 2px solid black;*/
@@ -154,7 +175,8 @@
 }
 
 .review{
-	/*border: 2px solid red;*/
+	border: 1px solid rgba(0, 0, 0, .3);
+	padding: 5px;
 	border-radius: 10px;
 	margin: 1% auto;
 	width: 95%;

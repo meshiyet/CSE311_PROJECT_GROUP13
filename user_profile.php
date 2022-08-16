@@ -160,6 +160,31 @@
                     <div class="right_content">
                          <h2>My Wishlist</h2>
                          <div class="scroll">
+
+                            <?php
+                            $sql = "SELECT * FROM wishlist WHERE username = '$username'";
+                            $result = mysqli_query($db,$sql);
+                            while($row = $result->fetch_assoc())
+                            {
+                                $isbn2 = $row['isbn'];
+                                $sql = "SELECT cover FROM book WHERE isbn = '$isbn2'";
+                                $book = mysqli_query($db,$sql);
+                                $book = $book->fetch_assoc();
+                                echo "<a href = 'user_bookinfo.php?isbn=$isbn2'>";
+                                if($book['cover'] !== NULL)
+                                {
+                                    $img = base64_encode( $book['cover']);
+                                    echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='208' width='130'/>";     
+                                    
+                                }
+                                else
+                                {
+                                    echo "<img src='images/default_book.jpg' height='208' width='130'>";
+                                }
+                                echo"</a>";
+                             
+                            } 
+                            ?>
                         </div>
                     </div>
             </div>
