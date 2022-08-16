@@ -48,10 +48,10 @@
                          /**************************************************************/ 
               
                         echo" </div>
-                     <div class='dropdown-content'style = ' width:200px; margin-left: 230px'>
+                     <div class='dropdown-content'style = ' width:200px; margin-left: 330px'>
                         <a href='user_profile.php'>My Account</a>
                         <a href='user_info_update.php'>Edit Information</a>
-                        <a href='user_upload_image.php'>Change Photo</a>
+                        <a href=''>Delete Account</a>
                         <a href='logout.php'>Logout</a>
                       </div>
                 </div>

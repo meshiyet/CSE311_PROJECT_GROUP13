@@ -121,3 +121,25 @@
 .row a:hover{
 	font-weight: bold;
 }
+.noBook{
+	width: 90%;
+	/*border: 2px solid red;*/
+	text-align:center; 
+    padding:20px;
+    font-family: "Roboto", sans-serif;
+    
+    margin: 3% auto;
+}
+.noBook p{
+	font-size: 25px;
+	margin: 2%;
+}
+.noBook a{
+	font-size: 16px;
+	color: black;
+	text-decoration: none;
+}
+
+.noBook a:hover{
+	text-decoration: underline;
+}

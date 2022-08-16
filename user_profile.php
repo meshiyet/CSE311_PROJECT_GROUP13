@@ -71,6 +71,10 @@
                     <!-- Image -->
 
                 </div>
+                <a href="user_upload_image.php">  <div class="information">
+                    <p >change photo</p>
+                </div>
+                 </a>
                  <div class="information">
                     <p>Username: <?=$username?></p>
                 </div>
@@ -143,7 +147,10 @@
                                 }
                                 else
                                 {
-                                    echo "<p style = 'text-align:center; padding:20px;  '>YOU HAVE NO BOOK TO READ NOW</p>";
+                                    echo "<div class = 'noBook'> 
+                                             <p>YOU HAVE NO BOOK TO READ NOW</p>
+                                             <a href = 'user_booklist.php'>Brows All Books</a>
+                                        </div>";
                                 }
 
 
