@@ -92,53 +92,54 @@
                         }
 
                         echo "
-                            
-                                 <div class='row'>
-                                 <a href = 'user_bookinfo.php?isbn=$isbn'> 
-                                  <div class='cover'>";
-                                    if($has_img){
-                                        echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='160' width='100'/>"; 
-                                    }
-                                    else
-                                    {
-                                        echo "<img src='images/default_book.jpg' height='160' width='100'>";
-                                    }
+                            <a href = 'user_bookinfo.php?isbn=$isbn'>  
+                            <div class='row'>
+                               
+                                    <div class='cover'>";
+                                        if($has_img){
+                                            echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='160' width='100'/>"; 
+                                        }
+                                        else
+                                        {
+                                            echo "<img src='images/default_book.jpg' height='160' width='100'>";
+                                        }
                                 
-                                   echo"
+                                        echo"
                                    </div>
                                    <div class = 'info'>
-                                     <div class='element'><p>$title</p></div>
-                                    <div class='element'><p>$author</p></div>
-                                    <div class='element'><p>$genre</p></div>
-                                    <div class='element'><p>$publisher</p></div>";
+                                        <div class='element'><p>$title</p></div>
+                                        <div class='element'><p>$author</p></div>
+                                        <div class='element'><p>$genre</p></div>
+                                        <div class='element'><p>$publisher</p></div>";
+
+                            
 
                                  if($loggen_in)
                                  {
                                     if(!$wish_listed)
                                     {
                                         echo"<div class='element'>
-                                        <a href = 'do_thing.php?todo=addWish&isbn=$isbn&username=$username&from=booklist'>
-                                              <div class ='addwish'> 
-                                              </div>
-                                              </a>
+                                                <a href = 'do_thing.php?todo=addWish&isbn=$isbn&username=$username&from=booklist'>
+                                                    <div class ='addwish'></div>
+                                                 </a>
                                             </div>";
+
                                     }
                                     else
                                     {
                                         echo"<div class='element'>
-                                            <a href = 'do_thing.php?todo=removeWish&isbn=$isbn&username=$username&from=booklist'>
-                                              <div class ='removeWish'> 
-                                              </div></a>
+                                                <a href = 'do_thing.php?todo=removeWish&isbn=$isbn&username=$username&from=booklist'>
+                                                    <div class ='removeWish'></div>
+                                              </a>
                                             </div>";
                                     }
                                  }
 
 
                                     echo"</div>
-                                     </a>
+                                     
                                 </div>
-                           
-                        ";
+                                </a> ";
                     }
                 } 
 

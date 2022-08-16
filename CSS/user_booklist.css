@@ -64,6 +64,7 @@ h1{
 	/*font-weight: bold;*/
 	border: 3px solid black;
 	width: 400px;
+	/*background-color: lavender;*/
 }
 
 .cover{
@@ -80,7 +81,11 @@ h1{
 	margin: 0 auto;
 }
 .cover img:hover{
-	padding: 2%;
+	/*padding: 2%;*/
+	height: 314px;
+	width: 190px;
+	padding:8px 5px;
+	border-radius: 15px;
 }
 .info{
 	/*border: 2px solid red;*/
@@ -116,6 +121,7 @@ h1{
 	overflow: auto;
 	width: auto;
 	font-weight: bold;
+	font-size: 20px;
 }
 .addwish{
 	/*border: 2px solid aqua;*/
