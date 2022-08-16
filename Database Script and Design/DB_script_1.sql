@@ -91,7 +91,12 @@ CREATE TABLE branch_phone(
     CONSTRAINT fk8 FOREIGN KEY(branch_name)
     REFERENCES branch(name)
 );
-
+CREATE TABLE review (
+    username VARCHAR(20),
+    isbn VARCHAR(15),
+    created DATETIME,
+    review_text VARCHAR(1000)
+);
 
 
 
