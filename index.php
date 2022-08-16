@@ -16,12 +16,13 @@
     </nav> 
     <head></head>
     <body>
-    <h2>homepage</h2>
+    <!-- <h2>homepage</h2>
     <h1 style="
     margin: 15% auto;
     text-align: center;
     
-    "><?=$welcomeText?></h1>
+    "><?=$welcomeText?></h1> -->
+    <?php include 'landing.php';?>
 
     </body>
     <footer>

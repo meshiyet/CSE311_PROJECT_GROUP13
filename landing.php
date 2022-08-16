@@ -14,7 +14,7 @@
         <title>Dhaka Library</title>
     </head>
     <nav>
-        <?php include ("navbar.php");?>
+        <!-- <?php include ("navbar.php");?> -->
     </nav> 
     <body>
         <div class="container">
@@ -129,6 +129,6 @@
         </div>
     </body>
     <footer>
-        <?php include ("footer.html");?>
+        <!-- <?php include ("footer.html");?> -->
     </footer>
 </html>
