@@ -1,12 +1,10 @@
 <?php
     session_start();
     include("connection.php");
-    if(!isset($_SESSION['username']))
+    $loggen_in = false;
+    if(isset($_SESSION['username']))
     {
-       $_SESSION = array();
-       session_unset();
-       session_destroy();
-       header("location: user_login.php");
+       $loggen_in = true;
     }
     $username = $_SESSION['username'];
     $isbn = $_GET['isbn'];
@@ -60,8 +58,34 @@
                 </div>
 
             <div class="top">
-                <div class="edit">
-                   <a href="">Add to Wish List</a>
+                <div class="wishlist">
+                   <div class="icon">
+                       <?php 
+                       if($loggen_in)
+                       {
+                            $sql = "SELECT * FROM wishlist WHERE isbn = '$isbn' AND username = '$username'";
+                            $wish = mysqli_query($db,$sql);
+                            $wish_mode = false;
+                            if($wish->num_rows>0)
+                            {
+                                $wish_mode = true;
+                            }
+
+                            if($wish_mode)
+                            {
+                                echo "
+                                 <a href = 'do_thing.php?todo=removeWish&isbn=$isbn&username=$username&from=bookinfo'>
+                                <div class = 'listed'></div></a>";
+                            }
+                            else
+                            {
+                                echo "<a href = 'do_thing.php?todo=addWish&isbn=$isbn&username=$username&from=bookinfo'>
+                                <div class = 'not_listed'></div></a>";
+                            }
+                       }
+                       ?>
+
+                   </div>
                 </div>
                 <!-- <p class="p">Book Information</p> -->
                 <div class="top_infos" style="width:55%;">
@@ -109,53 +133,61 @@
 				
                 </div>
 
-            <div class="bottom">
-                    <div class="right_content">
-                        <h2>Reviews</h2>
-                        
-                        <div class="scroll">
-    
-                            <?php
-                                $sql = "SELECT * FROM review WHERE isbn = '$isbn' ORDER BY created DESC";
-                                $result =  mysqli_query($db, $sql);
-                                if ($result->num_rows > 0) 
-                                 {
-                                    while($row = $result->fetch_assoc())
-                                    {
-                                        $reviewre_username = $row['username'];
-                                        $review_text = $row['review_text'];
-                                        $created = $row['created'];
-                                        $date = explode(" ",$created);
-                                        $date = $date[0];
-                                        echo "
-                                            <div class='review'>
-                                                    
-                                                  <div class = 'username'>
-                                                  <p>$reviewre_username [ $date ]</p>";
-                                                  if($reviewre_username == $username)
-                                                    echo "
-                                                        <a href = 'do_thing.php?todo=remove_review&who=user&isbn=$isbn&username=$reviewre_username&created=$created'>
-                                                            <p style ='
-                                                                background-color: white;
-                                                                font-size: 15px;
-                                                                padding: .5%;
-                                                            ' 
-                                                            >Remove review</p>
-                                                        </a>
-                                                    ";
-                                                  echo"</div>
-                                                <div  class = 'review_text'> <p>$review_text</p></div>
-                                            </div>
-                                        "; 
-                                    }
-                                }
-                            ?>
-                        </div>
-                        <div class="add">
-                          <a href="user_add_review.php?isbn=<?=$isbn?>">  <p>+  Add Your review</p></a>
-                        </div>
-                    </div>
+    <div class="bottom">
+            <div class="right_content">
+                <h2>Reviews</h2>
+                
+            <div class="scroll">
+
+                <?php
+                    $sql = "SELECT * FROM review WHERE isbn = '$isbn' ORDER BY created DESC";
+                    $result =  mysqli_query($db, $sql);
+                    if ($result->num_rows > 0) 
+                     {
+                        while($row = $result->fetch_assoc())
+                        {
+                            $reviewre_username = $row['username'];
+                            $review_text = $row['review_text'];
+                            $created = $row['created'];
+                            $date = explode(" ",$created);
+                            $date = $date[0];
+                            echo "
+                                <div class='review'>
+                                        
+                                      <div class = 'username'>
+                                      <p>$reviewre_username [ $date ]</p>";
+                                      if($loggen_in && $reviewre_username == $username)
+                                       {
+                                         echo "
+                                            <a href = 'do_thing.php?todo=remove_review&who=user&isbn=$isbn&username=$reviewre_username&created=$created'>
+                                                <p style =
+                                                '
+                                                    background-color: white;
+                                                    font-size: 15px;
+                                                    padding: .5%;
+                                                ' 
+                                                >Remove review</p>
+                                            </a>
+                                        ";
+                                       }
+                                      echo"</div>
+                                    <div  class = 'review_text'> <p>$review_text</p></div>
+                                </div>
+                            "; 
+                        }
+                    }
+                ?>
             </div>
+            <?php
+                if($loggen_in)
+                   {
+                   echo"<div class='add'>
+                  <a href='user_add_review.php?isbn=$isbn'>  <p>+  Add Your review</p></a>
+                </div>";
+                   } 
+             ?>
+            </div>
+    </div>
 
             </div>
               

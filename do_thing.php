@@ -24,4 +24,41 @@ if($to_do == "remove_review")
 	 }
 	 
 }
+elseif($to_do == "addWish")
+{
+	$username = $_GET['username'];
+	$isbn = $_GET['isbn'];
+	$from = $_GET['from'];
+	$sql = "INSERT INTO wishlist(isbn,username)
+			VALUES('$isbn', '$username')
+	";
+	mysqli_query($db,$sql);
+	
+	if($from == "bookinfo")
+	{
+		header("location: user_bookinfo.php?isbn=$isbn");
+	}
+	elseif($from == "booklist")
+	{
+		header("location: user_booklist.php");
+	}
+}
+elseif($to_do == "removeWish")
+{
+	$username = $_GET['username'];
+	$isbn = $_GET['isbn'];
+	$from = $_GET['from'];
+	$sql = "DELETE FROM wishlist WHERE isbn = '$isbn' AND username = '$username'
+	";
+	mysqli_query($db,$sql);
+	
+	if($from == "bookinfo")
+	{
+		header("location: user_bookinfo.php?isbn=$isbn");
+	}
+	elseif($from == "booklist")
+	{
+		header("location: user_booklist.php");
+	}
+}
 ?>

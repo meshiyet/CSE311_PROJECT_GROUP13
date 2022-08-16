@@ -20,12 +20,38 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>All Borrowing</title>
-    <link href="CSS/booklist.css" rel="stylesheet">
+    <!-- <link href="CSS/booklist.css" rel="stylesheet"> -->
+    <link href="CSS/admin_borrowlist.css" rel="stylesheet">
+
     <?php include('admin_navbar.php'); ?>
 </head>
 <body>
     <section class="main">
         <h1>All Borrows</h1>
+              <div class="search_box">
+            <form action="" method="POST">
+                <input type="text" list= 'username_list' name="keyword" value="<?=$keyword_value?>" placeholder="search by keywords">
+                 <datalist id='username_list'>"
+                    <?php
+                        $sql2 = "SELECT * FROM loans ORDER BY return_date";
+                        $result2 = mysqli_query($db, $sql2);
+                        if ($result2->num_rows > 0) 
+                        {
+                            while($row = $result2->fetch_assoc())
+                            {
+                                $isbn2 = $row['book_isbn']; 
+                                $member_username = $row['member_username'];
+                                $borrow_date = $row['borrow_date'];
+                                $return_date = $row['return_date'];
+                                $fee = $row['fee'];
+                                $str = $isbn2." | ".$member_username." | ".$borrow_date." | ".$return_date." | ".$fee;
+                                echo "<option value='$isbn2'>$str</option>";
+                            }
+                        }?>
+                </datalist>
+                <button type="submit">Search</button>
+            </form>
+        </div>
         <div class="listbox">
             <div class="row" style="
             font-weight: bold;

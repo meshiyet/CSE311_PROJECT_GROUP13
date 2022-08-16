@@ -1,12 +1,10 @@
 <?php
     session_start();
     include("connection.php");
-    if(!isset($_SESSION['username']))
+    $loggen_in = false;
+    if(isset($_SESSION['username']))
     {
-       $_SESSION = array();
-       session_unset();
-       session_destroy();
-       header("location: user_login.php");
+       $loggen_in = true;
     }
     $username = $_SESSION['username'];
 
@@ -84,9 +82,19 @@
                         if($row['cover']!== NULL)
                             $has_img = true;
                         $img = base64_encode($row['cover']);
+
+                        $sql = "SELECT * FROM wishlist WHERE isbn = '$isbn' AND username = '$username'";
+                        $wish = mysqli_query($db,$sql);
+                        $wish_listed = false;
+                        if($wish->num_rows>0)
+                        {
+                            $wish_listed = true;
+                        }
+
                         echo "
-                            <a href = 'user_bookinfo.php?isbn=$isbn'> 
+                            
                                  <div class='row'>
+                                 <a href = 'user_bookinfo.php?isbn=$isbn'> 
                                   <div class='cover'>";
                                     if($has_img){
                                         echo "<img src='data:image/jpg;charset=utf8;base64,$img'  height='160' width='100'/>"; 
@@ -102,10 +110,34 @@
                                      <div class='element'><p>$title</p></div>
                                     <div class='element'><p>$author</p></div>
                                     <div class='element'><p>$genre</p></div>
-                                    <div class='element'><p>$publisher</p></div>
-                                    </div>
+                                    <div class='element'><p>$publisher</p></div>";
+
+                                 if($loggen_in)
+                                 {
+                                    if(!$wish_listed)
+                                    {
+                                        echo"<div class='element'>
+                                        <a href = 'do_thing.php?todo=addWish&isbn=$isbn&username=$username&from=booklist'>
+                                              <div class ='addwish'> 
+                                              </div>
+                                              </a>
+                                            </div>";
+                                    }
+                                    else
+                                    {
+                                        echo"<div class='element'>
+                                            <a href = 'do_thing.php?todo=removeWish&isbn=$isbn&username=$username&from=booklist'>
+                                              <div class ='removeWish'> 
+                                              </div></a>
+                                            </div>";
+                                    }
+                                 }
+
+
+                                    echo"</div>
+                                     </a>
                                 </div>
-                            </a>
+                           
                         ";
                     }
                 } 

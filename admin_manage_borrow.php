@@ -1,6 +1,7 @@
 <?php
     session_start();
     include("connection.php");
+    echo date("y-m-d");
     if(!isset($_SESSION['admin_username']))
     {
        $_SESSION = array();
@@ -92,6 +93,7 @@
                     {
 
                         // NEED TO WORK ON FEE CALCULATION HERE
+
 
                         $sql = "INSERT INTO loans(branch_name, book_isbn, member_username, borrow_date,return_date, fee)
                         VALUES('$this_branch', '$isbn', '$username', '$borrow_date', '$return_date', 100)

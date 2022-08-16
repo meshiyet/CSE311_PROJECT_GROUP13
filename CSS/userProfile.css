@@ -143,3 +143,26 @@
 .noBook a:hover{
 	text-decoration: underline;
 }
+
+.scroll .wish_item{
+	/*border: 2px solid red;*/
+	height: 208;
+	width: 130px;
+	margin: 3%;
+	display: inline-block;
+	border-radius: 10px;
+}
+.scroll img{
+	/*border: 1px solid red;*/
+	margin: 0 5%;
+	margin-top: 3%;
+
+	height: 208px;
+	width: 130px;
+	border-radius: 10px;
+}
+.scroll img:hover{
+	padding: .5%;
+	background-color: rgba(221,160,221,.7);
+	box-shadow: 0px 15px 15px 0px rgba(221,160,221,.7);
+}

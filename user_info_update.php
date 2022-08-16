@@ -107,6 +107,25 @@
             $password2Value = $password2;
             $oldPasswordValue = $oldPassword;
         }
+    
+        elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) 
+        {
+            $errorMassege = "Invalid email format";
+            $firstNameValue = $firstName;
+            $middleNameValue = $middleName;
+            $lastNameValue = $lastName;
+            $emailValue = $email;
+            $phoneValue = $phone;
+            $addressValue = $address;
+            $dayValue =  $day;
+            $monthValue = $month;
+            $yearValue = $year;
+            $genderValue = $gender;
+            $usernameValue = $username;
+            $password1Value = $password1;
+            $password2Value = $password2;
+          
+        }
         else if($day == "" || $month == "" || $year == "" || $gender == "")
         {
             $errorMassege = "Select Date of birth and Gender correctly!\n";

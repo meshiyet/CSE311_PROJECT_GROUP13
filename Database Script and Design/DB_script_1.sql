@@ -97,6 +97,10 @@ CREATE TABLE review (
     created DATETIME,
     review_text VARCHAR(1000)
 );
+CREATE TABLE wishlist(
+    isbn VARCHAR(15),
+    username VARCHAR(20)
+);
 
 
 
