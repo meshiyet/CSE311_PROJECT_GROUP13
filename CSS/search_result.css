@@ -15,11 +15,6 @@ h1{
 	height: 100px;
 	overflow: hidden;
 }
-.filter{
-	/*border: 2px solid red;*/
-	padding-top:25px ; 
-	padding-left: 100px;
-}
 .search_box input{
 	margin: 2% auto;
 	height: 50px;
@@ -41,23 +36,6 @@ h1{
 	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 
-}
-.search_box p{
-	margin-left: 3%;
-	font-family: "Roboto", sans-serif;
-	font-size: 23px;
-	display: inline-block;
-	margin-right: .5%;
-}
-.search_box select{
-	font-family: "Roboto", sans-serif;
-	font-size: 18px;
-	height: 40px;
-	width: 15%;
-	text-align: center;
-	border-radius: 15px;
-	background-color: transparent;
-	border: 2px solid black;
 }
 .search_box button:hover{
 	 background: rgb(200,135,200);

@@ -2,110 +2,62 @@
     session_start();
     include("connection.php");
     $loggen_in = false;
+    $username = NULL;
     if(isset($_SESSION['username']))
     {
        $loggen_in = true;
+       $username = $_SESSION['username'];
     }
-    $username = $_SESSION['username'];
+    
+    $keyword = $_POST['keyword'];
+    $keyword_value = $keyword;
+    
+    $sql =  "SELECT * FROM book 
+    WHERE 
+        isbn LIKE '%$keyword%' OR
+        title LIKE '%$keyword%'OR
+        author LIKE '%$keyword%'OR
+        genre LIKE '%$keyword%'OR
+        publisher LIKE '%$keyword%'
+    ";
 
-    $authorValue = "";
-    $genreValue = "";
-    $publisherValue = "";
-
-    $sql = "SELECT * FROM book WHERE 1 = 1";
-
-    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['filter']))
-    { 
-
-        $authorValue=   $author = $_POST['author'];
-        $genreValue = $genre = $_POST['genre'];
-        $publisherValue = $publisher = $_POST['publisher'];
-
-        if($author !== "All" && $author !== "" )
-            $sql .= " AND author = '$author'";
-
-        if($genre !== "All" && $genre !== "")
-            $sql .= " AND genre = '$genre'";
-
-        if($publisher !== "All" && $publisher !== "")
-            $sql .= " AND publisher = '$publisher'";
-        
-    }
-
-    $book = mysqli_query($db,$sql);
-
+     $book = mysqli_query($db,$sql);
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Book List</title>
-	<link href="CSS/user_booklist.css" rel="stylesheet">
-	<?php include('navbar.php'); ?>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Search Result</title>
+    <link href="CSS/search_result.css" rel="stylesheet">
+    <?php include('navbar.php'); ?>
 </head>
 <body>
     <section class="main">
         <div class="search_box">
-            <div class="filter">
-             <form action="" method="POST">
-                <p>Author</p>
-                <select name="author">
-                    <option value="<?=$authorValue?>"><?=$authorValue?></option>
-                    <option value="All">All</option>
+            <form action="" method="POST">
+                <input type="text" list= 'username_list' name="keyword" value="<?=$keyword_value?>" placeholder="search by keywords">
+                 <datalist id='username_list'>"
                     <?php
-
-                        $sql = "SELECT author, genre, publisher FROM book";
-                        $result = mysqli_query($db,$sql);
-                        $authors;
-                        $genres;
-                        $publishers;
-                        while($row = $result->fetch_assoc())
+                        $sql2 = "SELECT * FROM book ORDER BY isbn";
+                        $result2 = mysqli_query($db, $sql2);
+                        if ($result2->num_rows > 0) 
                         {
-                            $authors[$row['author']] = 1;
-                            $genres[$row['genre']] = 1;
-                            $publishers[$row['publisher']] = 1;
-                            
-                        }
-                        foreach($authors as $key => $v)
-                        {
-                            echo "<option value = '$key'>$key</option>";
-                        }
-                    ?>
-                </select>
-
-                <p>Genre</p>
-                <select name="genre">
-                    <option value="<?=$genreValue?>"><?=$genreValue?></option>
-                    <option value="All">All</option>
-                    <?php
-                        foreach($genres as $key => $v)
-                        {
-                            echo "<option value = '$key'>$key</option>";
-                        }
-                        
-                    ?>
-                </select>
-
-                 <p>Publisher</p>
-                <select name="publisher">
-                    <option value="<?=$publisherValue?>"><?=$publisherValue?></option>
-                    <option value="All">All</option>
-                    <?php
-
-                        foreach($publishers as $key => $v)
-                        {
-                            echo "<option value = '$key'>$key</option>";
-                        }
-                        
-                    ?>
-                </select>
-
-                <button type="submit" name="filter">Filter</button>
+                            while($row = $result2->fetch_assoc())
+                            {
+                                $isbn2 = $row['isbn']; 
+                                $title2 = $row['title'];
+                                $author2 = $row['author'];
+                                $genre = $row['genre'];
+                                $publisher = $row['publisher'];
+                                $str = $title2." | ".$author2." | ".$genre." | ".$publisher;
+                                echo "<option value='$isbn2'>$str</option>";
+                            }
+                        }?>
+                </datalist>
+                <button type="submit">Search</button>
             </form>
         </div>
-    </div>
-
         <div class="listbox">
             <?php  
               
@@ -190,6 +142,6 @@
     </section>
 </body>
 <footer>
-	<?php include('footer.html'); ?>
+    <?php include('footer.html'); ?>
 </footer>
 </html>

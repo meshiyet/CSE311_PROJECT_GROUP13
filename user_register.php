@@ -1,4 +1,3 @@
-<html>
     <?php
      session_start();
      if(isset($_SESSION['username']))
@@ -137,6 +136,7 @@
 
         }
     ?>
+    <html>
     <nav>
         <?php include 'navbar.php';?>
     </nav> 
