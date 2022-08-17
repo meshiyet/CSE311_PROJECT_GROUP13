@@ -61,4 +61,51 @@ elseif($to_do == "removeWish")
 		header("location: user_booklist.php");
 	}
 }
+elseif($to_do == "remove_loan")
+{
+	$isbn = $_GET['isbn'];
+	$username = $_GET['username'];
+	$sql = "DELETE FROM loans WHERE book_isbn = '$isbn' AND member_username = '$username'";
+	if(mysqli_query($db,$sql))
+	{
+		header("location: admin_borrowlist.php");
+	}
+	else
+	{
+		echo"Something went Wrong";
+	}
+}
+elseif($to_do == "extend_loan")
+{
+	$isbn = $_GET['isbn'];
+	$username = $_GET['username'];
+	$extentation = $_GET['time'];
+
+	$sql = "SELECT * FROM loans WHERE member_username = '$username' AND book_isbn = '$isbn'";
+	$result = mysqli_query($db,$sql);
+	$result = $result->fetch_assoc();
+	$new_date_strToTime = strtotime($result['return_date']." +1 week");
+	
+	$new_date = date("Y-m-d", $new_date_strToTime);
+
+	$day_difference = (int) ($new_date_strToTime- strtotime($result['borrow_date']))/(60*60*24);
+
+	$amount = $day_difference*10;
+
+	$sql = "UPDATE loans
+
+		SET return_date = '$new_date', fee = $amount
+
+		WHERE book_isbn = '$isbn' AND member_username = '$username'
+	";
+	if(mysqli_query($db,$sql))
+	{
+		header("location: admin_borrowlist.php");
+	}
+	else
+	{
+		echo"Something went Wrong";
+	}
+
+}
 ?>

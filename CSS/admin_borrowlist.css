@@ -72,40 +72,140 @@
 .row{
 	/*border: 2px solid red;*/
 	border-radius: 20px;
-	height: 50px;
+	height: 70px;
 	width: 100%;
 	margin: 1% auto;
 	overflow: hidden;
-	padding: 0 3%;
-	background-color: rgba(220,220,220,0.8);
+	/*padding: 0 3%;*/
+	
+	padding-top: 13px;
+}
+.row_info{
+	background-color: white;
+	/*border: 2px solid red;*/
+	width: 55%;
+	height: 45px;
+	display: inline-block;
+	background-color: lightgray;
+	overflow: hidden;
+	border-radius: 15px;
+	padding-top: 7px;
 }
 .row:hover{
-	background-color: lightgray;
-	font-weight: bold;
+	/*background-color: lavender;*/
+	border: 1px solid gray;
+	/*font-weight: bold;*/
 }
 .element{
+	box-sizing: border-box;
 	padding: 5px 0;
-	margin-top: 5px;
+	/*margin-top: 5px;*/
 	/*border: 2px solid red;*/
-	height: 40px;
-	width: 13%;
-	margin-left: 5%;
+	height: 50px;
+	width: 16%;
+	margin-left: 2%;
 	display: inline-block;
 	overflow: hidden;
 }
-.element p{
+.element, .action_box p{
 	padding-top: 3px;
 	text-align: center;
 	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 }
-.element p:hover {
+.element. .action_box p:hover {
 	overflow: auto;
 	width: auto;
 }
 a{
 	color: black;
 }
+.action_box{
+	box-sizing: border-box;
+	/*margin-top: 5px;*/
+	/*border: 2px solid red;*/
+	height: 45px;
+	width: 40%;
+	margin-left: 2%;
+	display: inline-block;
+	overflow: hidden;
+	padding-top: 4px;
+}
+.edit{
+	box-sizing: border-box;
+	background-color:rgb(132,235,200); 
+	/*margin-top: 5px;*/
+	/*border: 2px solid red;*/
+	height: 35px;
+	width: 29%;
+	display: inline-block;
+	overflow: hidden;
+	padding-left: 5px;
+	border-radius: 15px;
+	margin-left: 6%;
+
+}
+
+.edit img{
+	display: inline-block;
+	overflow: hidden;
+	padding: 3%;
+}
+.edit p{
+	padding-left: 5px;
+	padding-top: 5px;
+	display: inline-block;
+	overflow: hidden;
+
+}
+.edit button{
+	background-color:rgb(132,235,200); 
+	color: black;
+	height: 35px;
+	width: 130px;
+	font-size: 18px;
+	padding: 2%;
+	border-radius: 10px;
+	border: transparent;
+	overflow: hidden;
+	margin-left: 20px;
+}
+.edit button:hover{
+	font-weight: bold;
+	background-color: rgb(122,225,190);
+}
+
+.edit:hover{
+	font-weight: bold;
+	/*padding: 1%;*/
+	background-color: rgb(122,225,190);
+
+}
+.edit:hover >  p{
+	/*text-decoration: underline;*/
+}
+.edit:hover > img{
+	padding: 0;
+}
+.edit:hover > select{
+	border: 3px solid black;
+
+}
+.edit form{
+	font-family: "Roboto", sans-serif;
+	display: inline-block;
+	/*border: 2px solid red;*/
+	overflow: hidden;
+}
+.edit select{
+	overflow: hidden;
+	font-family: "Roboto", sans-serif;
+	width: 70px;
+	/*background-color:rgb(132,235,200); */
+	background-color: transparent;
+	overflow: hidden;
+}
+
 
 
 /*////////////////*/
