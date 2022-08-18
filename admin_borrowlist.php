@@ -8,6 +8,7 @@ if(!isset($_SESSION['admin_username']))
  session_destroy();
  header("location: admin_login.php");
 }
+$statusValue = "All";
 $username = $_SESSION['admin_username'];
 $sql = "SELECT branch_name FROM admin WHERE username = '${username}'";
 $result = mysqli_query($db, $sql);
@@ -16,19 +17,33 @@ $this_branch = $row["branch_name"];
 $keyword_value = "";
 $sql = "SELECT * FROM loans WHERE branch_name = '$this_branch' ORDER BY member_username";
 
-if($_SERVER['REQUEST_METHOD'] == "POST" && $_POST['keyword'] !== "")
+if($_SERVER['REQUEST_METHOD'] == "POST")
 {
     $keyword_value = $keyword = $_POST['keyword'];
+    $statusValue = $status = $_POST['status'];
 
-    $sql = "SELECT * FROM loans WHERE (branch_name = '$this_branch') AND 
-    (
+        $sql = "SELECT * FROM loans WHERE (branch_name = '$this_branch') ";
+        if($keyword !== "")
+        {
+            $sql .=  "AND 
+        (
         book_isbn LIKE '%$keyword%' OR
         member_username LIKE '%$keyword%' OR
         borrow_date LIKE '%$keyword%' OR
         return_date LIKE '%$keyword%'
-        )
-    ORDER BY member_username
-    ";
+        ) ";
+        }
+        if($status == "Valid")
+        {
+            $sql .= " AND return_date >= NOW() ";
+        }
+        elseif($status == "Expired")
+        {
+            $sql .= " AND return_date < NOW() ";
+        }
+
+    
+    $sql .= "ORDER BY member_username";
 }
 
 $borrows = mysqli_query($db, $sql);
@@ -49,6 +64,7 @@ $borrows = mysqli_query($db, $sql);
         <h1>All Borrows</h1>
         <div class="search_box">
             <form action="" method="POST">
+                <label>Keyword</label>
                 <input type="text" list= 'username_list' name="keyword" value="<?=$keyword_value?>" placeholder="Search Borrow">
                 <datalist id='username_list'>"
                     <?php
@@ -66,6 +82,14 @@ $borrows = mysqli_query($db, $sql);
                     }
                     ?>
                 </datalist>
+                <label>Status</label>
+                <select name="status">
+                    <option><?=$statusValue?></option>
+                    <option value="All">All</option>
+                    <option value="Expired">Expired</option>
+                    <option value="Valid">Valid</option>
+                <select>
+
                 <button name="search" type="submit">Search</button>
             </form>
         </div>
@@ -99,9 +123,13 @@ $borrows = mysqli_query($db, $sql);
                 $borrow_date = $row['borrow_date'];
                 $return_date = $row['return_date'];
                 $fee = $row['fee'];
+                $error = "";
+                if(strtotime("now")>strtotime($return_date)) {
+                     $error = "style = 'border:2px solid red; padding-top: 11px;'";
+                 }
 
                 echo "
-                <div class='row'>
+                <div class='row' $error>
                     <div class = 'row_info'>
                         <div class='element'><p>$isbn</p></div>
                         <div class='element'><p>$username</p></div>
@@ -132,12 +160,16 @@ $borrows = mysqli_query($db, $sql);
                             </div>
                             <select name = 'date'>";
 
+                        $today = (string) date("Y-m-d",strtotime($return_date));
+                        $str = (string) date("d-F",strtotime($return_date));
+                        echo "<option value = '$today' >$str</option>";
+                        
                         for($i = 0; $i<10; $i++)
                         {
                           $today = (string) date("Y-m-d",strtotime("now + $i day"));
                           $str = (string) date("d-F",strtotime("now + $i day"));
                           echo "<option value = '$today' >$str</option>";
-                      }
+                        }
                         echo"
                                 </select>
                              <button type='submit' class='edit_button'>Edit</button>
@@ -146,11 +178,6 @@ $borrows = mysqli_query($db, $sql);
                   </div>
               </div>
                       ";
-
-                                              //**********************
-
-
-
 
                   echo"  
 

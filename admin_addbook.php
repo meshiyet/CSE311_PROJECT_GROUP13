@@ -89,13 +89,12 @@
                         ";
                 if(mysqli_query($db, $sql))
                  {
-                    header("location: admin_booklist.php");
+                    header("location: admin_available_books.php");
                  }
 
             }
             else
             {
-                echo "\nEKHANE AMI";
                 $sql = "
                 INSERT INTO keeps(branch_name, book_isbn, no_of_copies)
                 VALUES
@@ -103,7 +102,7 @@
                 ";
                  if(mysqli_query($db, $sql))
                  {
-                    header("location: admin_booklist.php");
+                    header("location: admin_available_books.php");
                  }
             }
         }

@@ -8,16 +8,18 @@
        session_destroy();
        header("location: admin_login.php");
     }
+
+
     $keyword_value = "";
     $sql = "SELECT * FROM member ORDER BY username";
-    $result = mysqli_query($db,$sql);
     if($_SERVER['REQUEST_METHOD'] == 'POST')
     {
         $keyword = $_POST['keyword'];
         $keyword_value = $keyword;
         if($keyword !== "")
         {
-            $sql =  "SELECT * FROM member 
+            $sql =  "
+            SELECT * FROM member 
             WHERE 
                 username LIKE '%$keyword%' OR
                 first_name LIKE '%$keyword%'OR
@@ -27,11 +29,13 @@
                 gender LIKE '%$keyword%'OR
                 phone LIKE '%$keyword%'OR
                 email LIKE '%$keyword%'OR
-                address LIKE '%$keyword%'OR
-            ";
-         $result = mysqli_query($db,$sql);
+                address LIKE '%$keyword%'";
+         
         }  
-    }  
+    } 
+
+    $result = mysqli_query($db,$sql);
+   
 ?>
 <!DOCTYPE html>
 <html>
@@ -78,10 +82,11 @@
                 <div class="element"><p>Username</p></div>
                 <div class="element"><p>Email</p></div>
                 <div class="element"><p>Phone</p></div>
-                 <div class="element"><p>Current Borrow</p></div>
-                 <div class="element"><p> Due Payment</p></div>
+                <div class="element"><p>Current Borrow</p></div>
+                <div class="element"><p> Due Payment</p></div>
                 
             </div>
+
             <?php  
                 
                 if ($result->num_rows > 0) 

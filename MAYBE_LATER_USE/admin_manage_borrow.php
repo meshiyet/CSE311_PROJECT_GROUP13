@@ -1,7 +1,6 @@
 <?php
     session_start();
     include("connection.php");
-    echo date("y-m-d");
     if(!isset($_SESSION['admin_username']))
     {
        $_SESSION = array();

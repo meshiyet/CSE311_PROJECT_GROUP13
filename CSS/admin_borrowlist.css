@@ -26,12 +26,12 @@
 	/*border: 2px solid red;*/
 	height: 100px;
 	overflow: hidden;
+	padding-left: 15%;
 }
 .search_box input{
 	margin: 2% auto;
 	height: 50px;
 	width: 30%;
-	margin-left: 30%;
 	border-radius: 20px;
 	font-family: "Roboto", sans-serif;
 	font-size: 20px;
@@ -40,6 +40,7 @@
 .search_box button{
 	height: 50px;
 	width: 130px;
+
 	background-color: MediumAquamarine;
 	border-radius: 20px;
 	border-color: transparent;
@@ -47,10 +48,24 @@
 	font-family: "Roboto", sans-serif;
 	font-size: 20px;
 
+
+
+
+}
+.search_box label{
+	/*border: 2px solid red;*/
+	font-family: "Roboto", sans-serif;
+	font-size: 25px;
+	margin-left: 3%;
+	margin-right: 1%;
 }
 .search_box button:hover{
 	 background: rgb(82,185,150);
 }
+
+
+
+
 .listbox{
 	/*border: 2px solid red;*/
 	height: 600px;
@@ -200,6 +215,7 @@ a{
 .edit select{
 	overflow: hidden;
 	font-family: "Roboto", sans-serif;
+	height: ;
 	width: 70px;
 	/*background-color:rgb(132,235,200); */
 	background-color: transparent;
@@ -251,15 +267,17 @@ a{
 	border: 1px solid gray;
 	border-radius: 20px;
 }
-select{
+.search_box select{
 	font-family: "Roboto", sans-serif;
 	border: 2px solid black;
-	height: 25px;
-	width: 75px;
+	height: 50px;
+	width: 150px;
+	font-size: 20px;
 	border-radius: 20px;
 	text-align: center;
 	background-color: transparent;
 }
+
 .inputButton{
 	width: 200px;
 	height: 60px;
@@ -370,7 +388,13 @@ h2{
 .manual_edit select{
 	background-color: white;
 	display: inline-block;
+	font-family: "Roboto", sans-serif;
 	width: 100px;
+	border: 2px solid black;
+	height: 35px;
+	border-radius: 15px;
+	font-weight: bold;
+	font-size: 15px;
 }
 .manual_edit .hidden{
 	height: 1px;

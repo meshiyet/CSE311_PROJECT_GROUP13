@@ -11,8 +11,10 @@
     <a class="logo" href=""><img src="images/logo.svg" alt="logo"></a>
     <nav>
         <?php
+        $loggen_in = false;
         if(isset($_SESSION['admin_username']))
         {
+            $loggen_in = true;
             $username = $_SESSION['admin_username'];
             echo "<div class = 'dropdown' >
                     <div class='usernameHead'> 
@@ -21,14 +23,22 @@
                          </div></a>
                          <img src = 'images/avater.png' hight = '55' width = '55'>
                     </div>
-                     <div class='dropdown-content'style = ' width:200px; margin-left: 230px'>
+                     <div class='dropdown-content'style = ' width:200px; margin-left: 570px'>
                         <a href='admin_portal.php'>Admin Panel</a>
-                        <a href='admin_profile.php'>My Account</a>
-                        <a href='admin_memberlist.php'>Member List</a>
-                        <a href='admin_booklist.php'>Book List</a>
+                        <a href='admin_profile.php'>Account Settings</a>
                         <a href='logout.php'>Logout</a>
                       </div>
                 </div>
+
+                <ul class='bottom-nav'>
+                     <li class='menu'><a href='admin_portal.php'>Admin Portal</a></li>
+                     <li class='menu'><a href='admin_booklist.php'>All Books</a></li>
+                     <li class='menu'><a href='admin_memberlist.php'>All members</a></li>
+                     <li class='menu'><a href='admin_borrowlist.php'>Manage Borrows</a></li>
+                     <li class='menu'><a href='admin_addborrow.php'>Add Borrow</a></li>
+                     <li class='menu'><a href='admin_addbook.php'>Add Book</a></li>
+
+                </ul>
                 ";
         }
         else
@@ -40,19 +50,7 @@
             ";
         }
         ?> 
-        <ul class="bottom-nav">
-            <li class="menu"><a href="index.php">Search</a></li>
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Services</a>
-                <div class="dropdown-content">
-                    <a class="dropdown-item" href="services.php">Using the library</a>
-                    <a class="dropdown-item" href="services.php">Membership</a>
-                    <a class="dropdown-item" href="services.php">Borrowing and returns</a>
-                </div>
-            </li>
-            <li class="menu"><a href="locations.php">Hours & Locations</a></li>
-            <li class="menu"><a href="about.php">About</a></li>
-        </ul>
+        
     </nav>
     </header>
 </html> 
