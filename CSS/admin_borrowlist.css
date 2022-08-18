@@ -83,7 +83,7 @@
 .row_info{
 	background-color: white;
 	/*border: 2px solid red;*/
-	width: 55%;
+	width: 45%;
 	height: 45px;
 	display: inline-block;
 	background-color: lightgray;
@@ -125,7 +125,7 @@ a{
 	/*margin-top: 5px;*/
 	/*border: 2px solid red;*/
 	height: 45px;
-	width: 40%;
+	width: 50%;
 	margin-left: 2%;
 	display: inline-block;
 	overflow: hidden;
@@ -137,7 +137,7 @@ a{
 	/*margin-top: 5px;*/
 	/*border: 2px solid red;*/
 	height: 35px;
-	width: 29%;
+	width: 23%;
 	display: inline-block;
 	overflow: hidden;
 	padding-left: 5px;
@@ -205,6 +205,8 @@ a{
 	background-color: transparent;
 	overflow: hidden;
 }
+
+
 
 
 
@@ -310,6 +312,96 @@ h2{
 	font-size: 35px;
 	text-align: center;
 }
-option{
+
+
+
+
+
+
+
+.form-popup {
+  display: none;
+  border-radius: 15px;
+  /*display: inline-block;*/
+}
+.form-container {
+  display: inline-block;
+  border-radius: 15px;
+}
+.form-popup input{
+  height: 1px; width: 1px;
+  border: 2px solid red;
+  overflow: scroll;
+  display: inline-block;
+}
+
+.manual_edit{
+	box-sizing: border-box;
 	
+	width:45%; 
+	margin-left:0; 
+	overflow: auto;
+	/*border: 2px solid red;*/
+	display: inline-block;
+	overflow: hidden;
+
+}
+.manual_edit button{
+	display: inline-block;
+	height: 35px;
+	border-color: transparent;
+}
+.manual_edit form button{
+	/*display: inline-block;*/
+	width: 50px;
+	border-radius: 15px;
+
+}
+.manual_edit button:hover{
+	font-weight: bold;
+}
+.manual_edit input{
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+	visibility: hidden;
+	display: inline-block;
+}
+.manual_edit select{
+	background-color: white;
+	display: inline-block;
+	width: 100px;
+}
+.manual_edit .hidden{
+	height: 1px;
+	width: 1px;
+	border: 1px solid red;
+	display: inline-block;
+	overflow: hidden;
+}
+
+
+
+.open-button{
+	background-color:rgb(132,235,200); 
+	border-radius: 15px;
+	font-size: 18px;
+	width: 130px;
+	float: right;
+}
+.open-button img{
+	padding: 3%;
+	display: inline-block;
+	overflow: hidden;
+}
+.open-button:hover > img{
+	padding: 0;
+}
+.cancel_button{
+	background-color: rgba(255, 0, 0, 1);
+	color: white;
+	
+}
+.edit_button{
+	 background-color:rgba(132,235,200,0.9);
 }

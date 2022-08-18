@@ -24,6 +24,11 @@
         $result = mysqli_query($db, $sql);
     }
 
-<p
->edit</p>
+<input type = 'text' name = 'todo' value = 'edit_borrow'>
+<input type = 'text' name = 'todo' value = 'edit_borrow'>
+<input type = 'text' name = 'todo' value = 'edit_borrow'>
 
+
+                                                <div class = 'edit' style = 'width:10%; margin-left:0; overflow: auto;'>
+                                                <p>Edit Return Date</p>
+                                                <img src = 'images/edit_icon.png' hight = '20' width = '20'>
