@@ -1,6 +1,9 @@
 <html>
     <nav>
         <?php include 'navbar.php';?>
+
+
+        
     </nav> 
     
     <body>

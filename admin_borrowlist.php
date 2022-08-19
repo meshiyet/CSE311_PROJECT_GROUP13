@@ -125,7 +125,7 @@ $borrows = mysqli_query($db, $sql);
                 $fee = $row['fee'];
                 $error = "";
                 if(strtotime("now")>strtotime($return_date)) {
-                     $error = "style = 'border:2px solid red; padding-top: 11px;'";
+                     $error = "style = 'border:2px solid red; padding-top: 11git px;'";
                  }
 
                 echo "
