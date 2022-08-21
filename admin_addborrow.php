@@ -34,7 +34,6 @@ include("connection.php");
 
         $sql = "SELECT branch_name FROM loans WHERE member_username = '${username}' AND book_isbn = '${isbn}'";
         $result = mysqli_query($db, $sql);
-        print_r($result);
         if($result->num_rows > 0)
         {
             $row = $result->fetch_assoc();
