@@ -146,7 +146,7 @@
                                 
                                         echo"
                                    </div>
-                                   <div class = 'info'>
+                                   <div class = 'cover info'>
                                         <div class='element'><p>$title</p></div>
                                         <div class='element'><p>$author</p></div>
                                         <div class='element'><p>$genre</p></div>

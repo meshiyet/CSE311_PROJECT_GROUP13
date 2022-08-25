@@ -15,7 +15,17 @@
     $author = $book['author'];
     $publisher = $book['publisher'];
     $genre = $book['genre'];
-
+    if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['review']))
+    {
+        $review_text = $_POST['review_text'];
+        $sql = "INSERT INTO review (username,isbn,created, review_text)
+        VALUES('$username','$isbn' ,NOW(), '$review_text')
+        ";
+        if(mysqli_query($db, $sql))
+        {
+            header("location: user_bookinfo.php?isbn=$isbn");
+        }
+    }
 
 
 ?>
@@ -178,11 +188,18 @@
                     }
                 ?>
             </div>
+            <div class = 'scroll review_form' id = 'review_form'>
+                <form action="" method="POST">
+                    <input type="text" name="review_text" placeholder="Write Review">
+                    <button class="ok" style="margin-left:32%;" name="review" type="submit">Submit Review</button>
+                    <button class="cancel" type="button" onclick="closeForm()">Cancel</button>
+                </form> 
+           </div>
             <?php
                 if($loggen_in)
                    {
                    echo"<div class='add'>
-                  <a href='user_add_review.php?isbn=$isbn'>  <p>+  Add Your review</p></a>
+                  <button onclick='openForm()'> +Add Review</button>
                 </div>";
                    } 
              ?>
@@ -197,3 +214,13 @@
     <?php include 'footer.html';?>
 </footer>
 </html>
+<script>
+    function openForm() {
+      document.getElementById("review_form").style.display = 'block';
+
+  }
+  function closeForm() {
+      document.getElementById("review_form").style.display = 'none';
+  }
+</script>
+<!-- <a href='user_add_review.php?isbn=$isbn'>  <p>+  Add Your review</p></a> -->

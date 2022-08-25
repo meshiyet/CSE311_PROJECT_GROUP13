@@ -155,6 +155,7 @@ $borrows = mysqli_query($db, $sql);
                              <form action='do_thing.php' method = 'GET' class='form-container'>
                              <div class = 'hidden'>
                                 <input type = 'text' name = 'todo' value = 'edit_loan'>
+                                <input type = 'text' name = 'from' value = 'admin_borrowlist'>
                                 <input type = 'text' name = 'isbn' value = '$isbn'>
                                 <input type = 'text' name = 'username' value = '$username'>
                             </div>
@@ -181,13 +182,13 @@ $borrows = mysqli_query($db, $sql);
 
                   echo"  
 
-                  <a href = 'do_thing.php?todo=extend_loan&isbn=$isbn&username=$username'>
+                  <a href = 'do_thing.php?todo=extend_loan&isbn=$isbn&username=$username&from=admin_borrowlist'>
                       <div class = 'edit'>
                           <p>Extend 1 Week</p>
                           <img src = 'images/plus_icon.png' hight = '20' width = '20'>
                       </div>
                   </a>
-                  <a href = 'do_thing.php?todo=remove_loan&isbn=$isbn&username=$username'>
+                  <a href = 'do_thing.php?todo=remove_loan&isbn=$isbn&username=$username&from=admin_borrowlist'>
                       <div class = 'edit' style = 'width:18%;'>
                           <p>Returned</p>
                           <img src = 'images/okay_icon.png' hight = '20' width = '20'>

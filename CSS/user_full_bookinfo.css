@@ -147,6 +147,7 @@
 	border-radius: 20px;
 	height: 330px;
 	width: 95%;
+	position: relative;
 	margin: 1% auto;
 }
 .right_content:hover, h2{
@@ -161,14 +162,16 @@
 	font-family: "Roboto", sans-serif;
 	text-align: center;
 	overflow: hidden;
-	font-size: ;
 }
 .scroll{
 	margin-top: 2%;
 	border-radius: 20px;
-	/*border: 2px solid red;*/
+	/*border: 2px solid aqua;*/
 	height: 230px;
+	width: 98%;
+	margin-left: 1%;
 	overflow: hidden;
+	position: absolute;
 }
 .scroll:hover {
 	overflow: auto;
@@ -184,6 +187,7 @@
 	overflow: hidden;
 	font-family: "Roboto", sans-serif;
 }
+
 .review:hover{
 	/*border: 1px solid gray;*/
 }
@@ -234,4 +238,59 @@ a:hover{
 }
 p .remove_review{
 	
+}
+
+.review_form{
+	/*border: 2px solid red;*/
+	z-index: 9;
+	display: none;
+	background-color: lavender;
+	opacity: 0.9;
+
+}
+.review_form input{
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+	border-radius: 15px;
+	margin-top: 2%;
+	width: 90%;
+	height: 125px;
+	margin-left: 5%;
+	opacity: 1;
+}
+.review_form button{
+	border-radius: 15px;
+	margin-left: 5%;
+	margin-top: 2%;
+	height: 35px;
+	width: 150px;
+	font-family: "Roboto", sans-serif;
+	font-size: 20px;
+}
+
+.add{
+	margin-top: 250px;
+	/*border: 2px solid red;*/
+	height: 35px;
+}
+.add button{
+	margin-top: 5px;
+	border-radius: 15px;
+	height: 30px;
+	width: 120px;
+	font-family: "Roboto", sans-serif;
+	font-size: 18px;
+	background-color: plum;
+}
+button{
+	border-color: transparent;
+}
+button:hover{
+	font-weight: bold;
+}
+.ok{
+	background-color: plum;
+}
+.cancel{
+	background-color: rgba(255, 0, 0, 0.6);
 }

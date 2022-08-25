@@ -98,16 +98,8 @@
                         $author = $row["author"];
                         $genre = $row["genre"];
                         $publisher = $row["publisher"];
-                        $sql = "SELECT no_of_copies FROM keeps WHERE book_isbn = '$isbn' AND branch_name = '${this_branch}'";
-                        $result = mysqli_query($db, $sql);
-                        $num_of_copy = 0 ;
-                        if($result->num_rows > 0)
-                        {
-                        	$row2 = $result->fetch_assoc();
-                        	$num_of_copy = $row2['no_of_copies'];
+                        $num_of_copy = $row['no_of_copies'];
 
-                        }
-                       // if($num_of_copy>0){
                         echo "
                             <a href = 'admin_full_bookinfo.php?isbn=$isbn'> 
                                  <div class='row'>
@@ -120,7 +112,6 @@
                                 </div>
                             </a>
                         ";
-                    // }
 
                     }
                 } 

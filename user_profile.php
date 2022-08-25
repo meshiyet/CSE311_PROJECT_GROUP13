@@ -105,7 +105,7 @@
     
                             <?php
 
-                                $sql = "SELECT * FROM loans WHERE member_username = '$username' ORDER BY return_date";
+                                $sql = "SELECT * FROM loans JOIN book ON book.isbn = loans.book_isbn  WHERE member_username = '$username' ORDER BY return_date";
                                 $result =  mysqli_query($db, $sql);
                                 if ($result->num_rows > 0) 
                                  {
@@ -113,7 +113,7 @@
                                         <div class='row' style='margin-top: 25px; font-weight: bold; border: 2px solid black;'>
                                             <div class='element' ><p>ISBN</p></div>
                                             <div class='element' ><p>Title</p></div>
-                                             <div class='element' ><p>Branch Name</p></div>
+                                             <div class='element' ><p>Taken From</p></div>
                                             <div class='element' ><p>Return date</p></div>
                                             <div class='element' ><p>Fee</p></div>
                                         </div>
@@ -124,15 +124,7 @@
                                         $return_date = $row['return_date'];
                                         $fee = $row['fee'];
                                         $branchName = $row['branch_name'];
-
-                                        $sql2 = "SELECT title FROM book WHERE isbn = '$isbn'";
-                                        $result2 = mysqli_query($db,$sql2);
-                                        $row2 = $result2->fetch_assoc();
-                                        $title = $row2['title'];
-                                        if(strlen($title)>11)
-                                            $title =  substr($row2['title'], 0, 11)."..";
-
-                                          
+                                        $title = $row['title'];
                                         echo "
                                             <div class='row'>
                                                 <div class='element' ><p>$isbn</p></div>

@@ -68,7 +68,7 @@ elseif($to_do == "remove_loan")
 	$sql = "DELETE FROM loans WHERE book_isbn = '$isbn' AND member_username = '$username'";
 	if(mysqli_query($db,$sql))
 	{
-		header("location: admin_borrowlist.php");
+		header("location: ".$_GET['from'].".php");
 	}
 	else
 	{
@@ -100,7 +100,7 @@ elseif($to_do == "extend_loan")
 	";
 	if(mysqli_query($db,$sql))
 	{
-		header("location: admin_borrowlist.php");
+		header("location: ".$_GET['from'].".php");
 	}
 	else
 	{
@@ -135,7 +135,7 @@ elseif($to_do == "edit_loan")
 	";
 	if(mysqli_query($db,$sql))
 	{
-		header("location: admin_borrowlist.php");
+		header("location: ".$_GET['from'].".php");
 	}
 	else
 	{
