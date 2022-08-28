@@ -1,9 +1,10 @@
+<?php
+    include("connection.php");
+    session_start();
+?>
 <html>
     <nav>
         <?php include 'navbar.php';?>
-
-
-        
     </nav> 
     
     <body>

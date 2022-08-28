@@ -1,9 +1,17 @@
+<?php 
+    include("connection.php");
+    session_start();
+ ?>
 <html>
-    <nav>
-        <?php include 'navbar.php';?>
-    </nav> 
+    <head>
+
+        
+    </head> 
     
     <body>
+        <?php 
+        include ("navbar.php");
+        ?>
         <div class="container">            
             <div class="top-part">
                 <div class="content">

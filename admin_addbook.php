@@ -199,8 +199,18 @@
                                  <div class='input' style='height: 60px;'>
                                     <p class='label'>Book Genre</p>
                                      <select class='label'  name='genre' id='genre'>
-                                        <option value='Novel'>Novel</option>
-                                        <option value='Drama'>Drama</option>
+                                    <option value='Novel'>Novel</option>
+                                    <option value='Drama'>Drama</option>
+                                    <option value='Fantasy'>Fantasy</option>
+                                    <option value='Thriller'>Thriller</option>
+                                    <option value='Science fiction'>Science fiction</option>
+                                    <option value='Historical fiction'>Historical fiction</option>
+                                    <option value='Romance'>Romance</option>
+                                    <option value='Horror'>Horror</option>
+                                    <option value='Biography'>Biography</option>
+                                    <option value='Non fiction'>Non fiction</option>
+                                    <option value='Poetry'>Poetry</option>
+                                    <option value='Children-s literature'>Children's literature</option>
                                      </select>
                                 </div>
                                  <div class='input'>

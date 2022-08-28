@@ -245,7 +245,6 @@ p .remove_review{
 	z-index: 9;
 	display: none;
 	background-color: lavender;
-	opacity: 0.9;
 
 }
 .review_form input{
