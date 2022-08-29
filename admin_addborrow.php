@@ -133,7 +133,7 @@ include("connection.php");
         <datalist id='book_list'>";
 
     <?php
-          $sql = "SELECT * FROM book ORDER BY isbn";
+          $sql = "SELECT * FROM book JOIN keeps ON book.isbn = keeps.book_isbn WHERE keeps.no_of_copies > 0 AND branch_name = '$this_branch' ORDER BY title";
           $result = mysqli_query($db, $sql);
           if ($result->num_rows > 0) 
           {

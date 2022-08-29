@@ -53,7 +53,7 @@ $borrows = mysqli_query($db, $sql);
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>All Borrowing</title>
+    <title>Manage Borrows</title>
     <!-- <link href="CSS/booklist.css" rel="stylesheet"> -->
     <link href="CSS/admin_borrowlist.css" rel="stylesheet">
 
@@ -61,7 +61,6 @@ $borrows = mysqli_query($db, $sql);
 </head>
 <body>
     <section class="main">
-        <h1>All Borrows</h1>
         <div class="search_box">
             <form action="" method="POST">
                 <label>Keyword</label>

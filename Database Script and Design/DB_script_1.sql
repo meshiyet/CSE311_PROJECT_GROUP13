@@ -92,14 +92,27 @@ CREATE TABLE branch_phone(
     REFERENCES branch(name)
 );
 CREATE TABLE review (
+    
+    review_id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(20),
     isbn VARCHAR(15),
     created DATETIME,
-    review_text VARCHAR(1000)
+    review_text VARCHAR(1000),
+    PRIMARY KEY(review_id), 
+    CONSTRAINT fk9 FOREIGN KEY(username)
+    REFERENCES member(username),
+    CONSTRAINT fk10 FOREIGN KEY(isbn)
+    REFERENCES book(isbn),
+
 );
 CREATE TABLE wishlist(
     isbn VARCHAR(15),
-    username VARCHAR(20)
+    username VARCHAR(20),
+    PRIMARY KEY(isbn,username),
+    CONSTRAINT fk11 FOREIGN KEY(username)
+    REFERENCES member(username),
+    CONSTRAINT fk12 FOREIGN KEY(isbn)
+    REFERENCES book(isbn),
 );
 
 

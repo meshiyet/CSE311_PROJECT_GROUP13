@@ -74,9 +74,9 @@
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Services</a>
                 <div class="dropdown-content">
-                    <a class="dropdown-item" href="services.php">Using the library</a>
-                    <a class="dropdown-item" href="services.php">Membership</a>
-                    <a class="dropdown-item" href="services.php">Borrowing and returns</a>
+                    <a class="dropdown-item" href="services.php#top">Using the library</a>
+                    <a class="dropdown-item" href="services.php#middle">Membership</a>
+                    <a class="dropdown-item" href="services.php#bottom">Borrowing and returns</a>
                 </div>
             </li>
             <li class="menu"><a href="locations.php">Hours & Locations</a></li>

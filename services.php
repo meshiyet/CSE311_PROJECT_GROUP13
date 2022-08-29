@@ -14,14 +14,14 @@
         ?>
         <div class="container">            
             <div class="top-part">
-                <div class="content">
+                <div class="content" id = 'top'>
                     <h1>Using the Library</h1>
                     <p>Anyone can visit Dhaka Library in person or online and browse the available collections. To access all the services, you need a membership.</p>
                     <br>
                     <p>The website enables registered members to browse the collection, add books to ther wishlist, and view the status of their borrowed books. Once registered, the member will receive a call to collect their library card from their local branch.</p>
                 </div>      
             </div>
-            <div class="middle-part">
+            <div class="middle-part" id = 'middle'>
                 <div class="content">
                     <h1>Membership</h1>
                     <p>Your library card gives you access to all existing and future branches of Dhaka Library. In addition to borrowing books, you can add books to your wishlist, use the library computers for school, work or fun and participate in any events hosted by the library.</p>
@@ -45,7 +45,7 @@
                     <p>If you lose your card or you suspect that it has been stolen, report the missing card immediately.</p>
                 </div>      
             </div>
-            <div class="bottom-part">
+            <div class="bottom-part" id = "bottom">
                 <div class="content">
                     <h1>Borrowing and Returns</h1>
                     <p>Dhaka Library offers thousands of books to borrow from any of its locations.  All you need is your library card for access!</p>
@@ -77,6 +77,7 @@
                 </div>      
             </div>
         </div>
+        <div style="height:100px;"></div>
     </body>
 
     <footer>

@@ -2,23 +2,19 @@
 include("connection.php");
 $to_do = $_GET['todo'];
 $who = $_GET['who'];
+// print_r($_GET);
 if($to_do == "remove_review")
 {
+	$id = $_GET['id'];
 	$isbn = $_GET['isbn'];
-	$username = $_GET['username'];
-	$created = $_GET['created'];
 	$sql = "DELETE FROM review 
-	WHERE
-	username = '$username' AND
-	isbn = '$isbn' AND
-	created = '$created'
-	";
+	WHERE review_id = '$id'";
 	 mysqli_query($db, $sql);
 	 if($who == "admin")
 	 {
 	 	header("location: admin_full_bookinfo.php?isbn=$isbn");
 	 }
-	 elseif($who== "user")
+	 elseif($who == "user")
 	 {
 	 	header("location: user_bookinfo.php?isbn=$isbn");
 	 }

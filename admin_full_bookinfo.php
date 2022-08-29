@@ -176,12 +176,13 @@
                     <div class="scroll">
 
                         <?php
-                            $sql = "SELECT * FROM review WHERE isbn = '$isbn' ORDER BY created DESC";
+                            $sql = "SELECT * FROM review WHERE isbn = '$isbn' ORDER BY review_id DESC";
                             $result =  mysqli_query($db, $sql);
                             if ($result->num_rows > 0) 
                              {
                                 while($row = $result->fetch_assoc())
                                 {
+                                    $review_id = $row['review_id'];
                                     $reviewre_username = $row['username'];
                                     $review_text = $row['review_text'];
                                     $created = $row['created'];
@@ -192,7 +193,7 @@
                                                 
                                               <div class = 'username'>
                                               <p>$reviewre_username [ $date ]</p>
-                                                    <a href = 'do_thing.php?todo=remove_review&who=admin&isbn=$isbn&username=$reviewre_username&created=$created'>
+                                                    <a href = 'do_thing.php?todo=remove_review&who=admin&isbn=$isbn&id=$review_id'>
                                                         <p style ='
                                                             background-color: white;
                                                             font-size: 15px;

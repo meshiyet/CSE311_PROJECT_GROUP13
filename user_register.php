@@ -216,7 +216,7 @@
                      <select name="year" id="year">
                         <option value="<?=$yearValue?>"><?=$yearValue?></option>
                        <?php
-                            for($i = 2022; $i>=1980; $i--)
+                            for($i = 2010; $i>=1970; $i--)
                             {
                                 echo "<option value=$i>$i</option>";
                             }

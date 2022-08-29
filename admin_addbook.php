@@ -170,7 +170,7 @@
                             
                                 <div class='input'>
                                     <p class='label'>Enter Number of copies to add</p>
-                                    <input class='inputbox' type='number' name='numOfCopy' required>
+                                    <input class='inputbox' type='number' min = '1' name='numOfCopy' required>
                                 </div>
                                 <button class='inputButton' name = 'addThisBook' type='submit'>Add This Book </button>
                             </form>
