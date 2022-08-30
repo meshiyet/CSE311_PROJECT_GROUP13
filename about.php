@@ -30,7 +30,7 @@
                         <h3 class="name">Mashiyat Nayeem</h3>
                     </div>
                     <div class="dev">
-                        <img class="profile" src="">
+                        <img class="profile" src="images/nourin.jpg">
                         <h3 class="name">Fahmida Akter Nourin </h3>
                     </div>
                 </div>
