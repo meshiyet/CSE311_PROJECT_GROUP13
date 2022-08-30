@@ -2,11 +2,13 @@
     session_start();
     include("connection.php");
     $loggen_in = false;
+    $username = "NOT ANY USER";
     if(isset($_SESSION['username']))
     {
        $loggen_in = true;
+       $username = $_SESSION['username'];
     }
-    $username = $_SESSION['username'];
+    
 
     $authorValue = "";
     $genreValue = "";
