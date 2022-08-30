@@ -141,7 +141,7 @@
                                 {
                                     echo "<div class = 'noBook'> 
                                              <p>YOU HAVE NO BOOK TO READ NOW</p>
-                                             <a href = 'user_booklist.php'>Brows All Books</a>
+                                             <a href = 'user_booklist.php'>Browse All Books</a>
                                         </div>";
                                 }
 

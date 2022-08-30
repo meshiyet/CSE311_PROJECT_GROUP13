@@ -1,6 +1,6 @@
 <?php 
 	include("connection.php");
-	session_start();
+	// session_start();
 ?>
 
 <!doctype html>
@@ -59,7 +59,7 @@
 <!--  -->
 
 <div class="middle">
-	  <h1>Suggessions</h1>
+	  <h1>Recently Added</h1>
 </div>
 
 		<section class="ftco-section" style=" width: 80%; margin: 0 auto;">
