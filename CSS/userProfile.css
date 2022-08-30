@@ -149,7 +149,7 @@
 
 .scroll .wish_item{
 	/*border: 2px solid red;*/
-	height: 208;
+	height: 208px;
 	width: 130px;
 	margin: 3%;
 	display: inline-block;
@@ -168,4 +168,32 @@
 	padding: .8% .5%;
 	background-color: rgba(221,160,221,.7);
 	box-shadow: 0px 15px 15px 0px rgba(221,160,221,.7);
+}
+
+.change_pass{
+	/*border: 2px solid red;*/
+	height: 40%;
+	width: 50%;
+	margin: 3% auto;
+	margin-top: 20%;
+}
+.change_pass input{
+	width: 100%;
+	height: 40px;
+	margin: 2% auto;
+	font-family: "Roboto" ,sans-serif;
+	text-align: center;
+	border-radius: 15px;
+}
+.change_pass button{
+	/*height:30px;*/
+	font-family: "Roboto" ,sans-serif;
+	border-color: transparent;
+	padding: 10px;
+	border-radius: 15px;
+	background-color: MediumAquamarine;
+	margin-left: 38%;
+}
+.change_pass button:hover{
+	background-color: rgb(82,185,150);
 }
