@@ -22,7 +22,7 @@
                 <h3>Developed by &#128296;</h3>
                 <div class="content-grid">
                     <div class="dev">
-                        <img class="profile" src="">
+                        <img class="profile" src="images/rakib.jpg">
                         <h3 class="name">Tahmid Ahmed Rakib</h3>
                     </div>
                     <div class="dev">
