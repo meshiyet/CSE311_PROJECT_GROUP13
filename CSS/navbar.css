@@ -49,8 +49,8 @@ ul {
     text-decoration: underline;
   }
 
-  li a:active {
-    text-decoration: underline;
+  #allbooks:target, #search:target,#services:target,#locations:target,#about:target {
+    background-color: plum;
   }
 
   #login a:hover {
