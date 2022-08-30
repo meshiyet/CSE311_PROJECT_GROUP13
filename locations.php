@@ -3,11 +3,6 @@
     session_start();
  ?>
 <html>
-    <head>
-
-        
-    </head> 
-    
     <body>
         <?php 
         include ("navbar.php");
@@ -28,7 +23,7 @@
                             </div>";
                         }
                     ?>
-                    <p class="contact">Contact:</p>
+                    <p class="contact">Contact &#128222;</p>
                     <?php
                         $sql = "SELECT phone FROM branch_phone WHERE branch_name = 'Banani'";
                         $phone = mysqli_query($db, $sql);
@@ -63,7 +58,7 @@
                             </div>";
                         }
                     ?>
-                    <p class="contact">Contact:</p>
+                    <p class="contact">Contact &#128222;</p>
                     <?php
                         $sql = "SELECT phone FROM branch_phone WHERE branch_name = 'Basundhara'";
                         $phone = mysqli_query($db, $sql);
@@ -98,7 +93,7 @@
                             </div>";
                         }
                     ?>
-                    <p class="contact">Contact:</p>
+                    <p class="contact">Contact &#128222;</p>
                     <?php
                         $sql = "SELECT phone FROM branch_phone WHERE branch_name = 'Dhanmondi'";
                         $phone = mysqli_query($db, $sql);
