@@ -162,13 +162,13 @@ h1{
 	height: 30px;
 	width: 35px;
 	margin: 0 auto;
-	background-image: url('../images/heart_outline.png');
+	background-image: url('../images/heart_white.png');
 	background-repeat: no-repeat;
 	 /*background-position: 50% 0;*/
 	 background-size: cover;
 }
 .addwish:hover{
-	background-image: url('../images/fill_heart.png');
+	background-image: url('../images/heart_emoji.png');
 }
 
 
@@ -176,14 +176,14 @@ h1{
 	height: 30px;
 	width: 35px;
 	margin: 0 auto;
-	background-image: url('../images/fill_heart.png');
+	background-image: url('../images/heart_emoji.png');
 	background-repeat: no-repeat;
 	 /*background-position: 50% 0;*/
 	 background-size: cover;
 }
 
 .removeWish:hover{
-	background-image: url('../images/heart_outline.png');
+	background-image: url('../images/heart_white.png');
 }
 a{
 	color: black;

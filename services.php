@@ -13,9 +13,10 @@
         include ("navbar.php");
         ?>
         <div class="container">            
-            <div class="top-part">
-                <div class="content" id = 'top'>
-                    <h1>Using the Library</h1>
+            <div class="top-part" id = 'top'>
+                <h1>Services</h2>
+                <div class="content">
+                    <h2>Using the Library</h2>
                     <p>Anyone can visit Dhaka Library in person or online and browse the available collections. To access all the services, you need a membership.</p>
                     <br>
                     <p>The website enables registered members to browse the collection, add books to ther wishlist, and view the status of their borrowed books. Once registered, the member will receive a call to collect their library card from their local branch.</p>
@@ -23,18 +24,18 @@
             </div>
             <div class="middle-part" id = 'middle'>
                 <div class="content">
-                    <h1>Membership</h1>
+                    <h2>Membership</h2>
                     <p>Your library card gives you access to all existing and future branches of Dhaka Library. In addition to borrowing books, you can add books to your wishlist, use the library computers for school, work or fun and participate in any events hosted by the library.</p>
                     <br>
                     <p>You can obtain a library card by registering to become a member in person or online and then collecting the card from your local branch.</p>
                     <br>
                     <ul class='services'>
-                    <li id='member-button'><a id='member-registration' href='user_register.php'>Become a member online</a></li>        
+                    <li id='member-button'><a id='member-registration' href='user_register.php'>Register here</a></li>        
                     </ul>
                     <br>
                     <span>Eligibility</span>
                     <br>
-                    <p>Anyone over 13 is eligible for membership and a free library card.</p>
+                    <p>Anyone over 23 is eligible for membership and a free library card.</p>
                     <br>
                     <span>Expiry</span>
                     <br>
@@ -47,12 +48,12 @@
             </div>
             <div class="bottom-part" id = "bottom">
                 <div class="content">
-                    <h1>Borrowing and Returns</h1>
+                    <h2>Borrowing and Returns</h2>
                     <p>Dhaka Library offers thousands of books to borrow from any of its locations.  All you need is your library card for access!</p>
                     <br>
                     <span>How many books may I borrow and for how long?</span>
                     <br>
-                    <p>You may borrow upto 15 books at any given time. Each book is lent for a three week period. If you need more time, you can renew the book(s) up to five times as long as no one else is waiting for them. If you miss a due date – eligible items will automatically renew on or shortly after their due date but a late fee will be charged.</p>
+                    <p>You may borrow upto 25 books at any given time. Each book is lent for a three week period. If you need more time, you can renew the book(s) up to five times as long as no one else is waiting for them. If you miss a due date – eligible items will automatically renew on or shortly after their due date but a late fee will be charged.</p>
                     <br>
                     <span>Returning Items</span>
                     <br>
@@ -77,7 +78,7 @@
                 </div>      
             </div>
         </div>
-        <div style="height:100px;"></div>
+        <div style="height:200px;"></div>
     </body>
 
     <footer>
@@ -88,8 +89,8 @@
 <style>
     html {
     box-sizing: border-box;
-    /* margin-top: 120px; */
-    min-height: 100vh;
+    /* margin-top: 220px; */
+    min-height: 200vh;
   }
   
 *, *:before, *:after {
@@ -102,7 +103,7 @@
     justify-content: center;
     background-color: white;
     font-family: 'Roboto', sans-serif;
-    /* min-height: 100vh; */
+    /* min-height: 200vh; */
 }
 
 .top-part, .middle-part, .bottom-part{
@@ -113,9 +114,14 @@
 .content{
     background-color: white;
     height: auto;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 h1{
+    padding-bottom: 2rem;
+}
+h2{
     padding-bottom: 1rem;
 }
 
@@ -141,17 +147,17 @@ span{
     color: black;
     text-align: center;
     font-weight: bold;
-    /* padding: 14px 20px; */
+    /* padding: 24px 20px; */
     text-decoration: none;
   }
 
 #member-registration {
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: plum;
   }
 
   #member-button a:hover {
-    background-color: rgb(255, 255, 115);
+    background-color: rgb(255, 255, 25);
     text-decoration: none;
   }
 </style>

@@ -69,18 +69,18 @@
         ?>
         
         <ul class="bottom-nav">
-            <li class="menu"><a href="user_booklist.php">All Books</a></li>
-            <li class="menu"><a href="search.php">Search</a></li>
+            <li class="menu"><a href="user_booklist.php" id="allbooks">All Books</a></li>
+            <li class="menu"><a href="search.php" id="search">Search</a></li>
             <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Services</a>
+                <a href="javascript:void(0)" class="dropbtn" id="services">Services</a>
                 <div class="dropdown-content">
-                    <a class="dropdown-item" href="services.php#top">Using the library</a>
+                    <a class="dropdown-item" href="services.php#top" >Using the library</a>
                     <a class="dropdown-item" href="services.php#middle">Membership</a>
                     <a class="dropdown-item" href="services.php#bottom">Borrowing and returns</a>
                 </div>
             </li>
-            <li class="menu"><a href="locations.php">Hours & Locations</a></li>
-            <li class="menu"><a href="about.php">About</a></li>
+            <li class="menu"><a href="locations.php" id="locations">Hours & Locations</a></li>
+            <li class="menu"><a href="about.php" id="about">About</a></li>
         </ul>
     </nav>
     </header>
