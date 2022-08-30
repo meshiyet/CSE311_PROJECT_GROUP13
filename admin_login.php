@@ -17,8 +17,7 @@
         if ($result->num_rows > 0) 
         {
             $user = $result->fetch_assoc();
-            // if(password_verify($password,$user['password'])) /*USE HASS CHECK*/
-            if($password == $user['password'])  /*USE PLAIN STRING CHECK*/
+            if(password_verify($password,$user['password']))
             {
                 $_SESSION['admin_username'] = $username;
                 header("location: admin_portal.php");
