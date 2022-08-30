@@ -109,10 +109,10 @@
                     <p>Author: <?=$author?></p>
                 </div>
                 <div class="information">
-                    <p>publisher: <?=$publisher?></p>
+                    <p>Publisher: <?=$publisher?></p>
                 </div>
                 <div class="information">
-                    <p>genre: <?=$genre?></p>
+                    <p>Genre: <?=$genre?></p>
                 </div>
             </div>
              <!-- NEED WORKING HERE  -->
